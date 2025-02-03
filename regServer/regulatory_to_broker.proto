@@ -1,0 +1,27 @@
+syntax = "proto3";
+import "common.proto";
+enum ReasonForBlock {
+  Reason_Default = 0;
+  ITT_Break_Good_News = 1; // ITT exceeded for buy reqs from good news
+  ITT_Break_Bad_News = 2; // ITT exceeded for sell reqs from bad news
+  Trade_Block_Violation = 3; // Trader trading while blocked
+  Tip_Flag_Active = 4;
+  TTV_Exceeds_mTTV = 5;
+}
+// Message from Regulatory -> Brokerage
+message BrokerageRuleViolationRequest {
+  Header header = 1;
+  BrokerageId brokerage = 2; // Brokerage and trader being blocked
+  uint32 block_duration = 3; // in days
+  ReasonForBlock reason = 4;
+}
+// Reply from Brokerage --> Reg
+enum ResponseType {
+  INVALID = 0;
+  OK = 1;
+  ERROR = 2;
+}
+message BrokerageRuleViolationResponse {
+  Header header = 1;
+  ResponseType response = 2;
+}
