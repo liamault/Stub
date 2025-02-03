@@ -1,4 +1,5 @@
 syntax = "proto3";
+package regulatory_to_broker;
 import "common.proto";
 enum ReasonForBlock {
   Reason_Default = 0;

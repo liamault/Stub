@@ -3,13 +3,13 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-#include "bank_to_brokerage.pb.h"
+#include "regulatory_to_broker.pb.h"
 #include "common.pb.h"
 #include <google/protobuf/descriptor.h>
 
 using namespace std;
 
-#define SERVER_PORT 1866
+#define SERVER_PORT 1867
 #define SERVER_IP "127.0.0.1"
 #define MAX_MSG_SIZE 2048
 
@@ -32,22 +32,17 @@ int main() {
     servaddr.sin_addr.s_addr = inet_addr(SERVER_IP);
 
     // Construct EndOfDaySummaryRequest message
-    bank_to_brokerage::EndOfDaySummaryRequest request;
+    regulatory_to_broker::BrokerageRuleViolationRequest request;
     request.mutable_header()->set_version(1);
-    request.mutable_header()->set_magic(BANK);
+    request.mutable_header()->set_magic(REGULATORY);
     request.mutable_header()->set_serial(1);
 
-    auto* transaction1 = request.add_transactions();
-    transaction1->set_operation(bank_to_brokerage::EndOfDaySummaryRequest::DEPOSIT);
-    transaction1->mutable_amount()->set_dollars(1);
-    transaction1->mutable_amount()->set_cents(2); 
-    transaction1->set_component(BROKERAGE);
+    request.mutable_brokerage()->set_brokerage(1);
+    request.mutable_brokerage()->set_trader(2);
 
-    auto* transaction2 = request.add_transactions();
-    transaction2->set_operation(bank_to_brokerage::EndOfDaySummaryRequest::WITHDRAW);
-    transaction2->mutable_amount()->set_dollars(3);
-    transaction2->mutable_amount()->set_cents(4); 
-    transaction2->set_component(BROKERAGE);
+    request.set_block_duration(2);
+
+    request.set_reason(regulatory_to_broker::Trade_Block_Violation);
 
     // Serialize request
     string requestStr;
@@ -80,15 +75,15 @@ int main() {
     }
 
     // Deserialize response
-    bank_to_brokerage::EndOfDayResponse response;
+    regulatory_to_broker::BrokerageRuleViolationResponse response;
     if (!response.ParseFromArray(buffer, n)) {
         cerr << "Failed to parse response.\n";
         close(sockfd);
         return 1;
     }
 
-    const std::string statusStr = bank_to_brokerage::EndOfDayResponse::Status_Name(response.status());
-    cout << "Server Response: " << statusStr << endl;
+    // const std::string statusStr = regulatory_to_broker::ResponseType(response.response());
+    cout << "Server Response: " << response.DebugString() << endl;
 
     // Cleanup
     close(sockfd);
