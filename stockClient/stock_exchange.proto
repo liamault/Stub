@@ -1,0 +1,68 @@
+/******************
+ * Stock Exchange API
+ ******************/
+syntax = "proto3";
+import "common.proto";
+
+package stock_exchange;
+ 
+ // This is a wrapper around the header and each of the messages that the brokerage can send
+ message Packet {
+     Header header = 1;
+     oneof payload {
+         BuySell buy = 2;
+         BuySell sell = 3;
+         BuySpec buy_spec = 4;
+         Query query = 5;
+         Cancel cancel = 6;
+     }
+ }
+ 
+ message Response {
+     Header header = 1;
+     uint32 transaction_id = 2;
+     BrokerageId brokerage_id = 3;
+ 
+     enum ResponseType {
+         // Errors
+         INVALID = 0;
+         MALFORMED_MESSAGE = 1;
+         INVALID_TRANSACTION_ID = 2; // Every transaction needs to be unique
+         INVALID_BROKERAGE_ID = 3;
+         INVALID_PRICE = 4;
+         
+         // Confirmations
+         SUCCESS = 5;
+     }
+ 
+     ResponseType response = 4;
+     repeated BuySell buys = 5;
+     repeated BuySell sells = 6;
+ }
+ 
+ message BuySpec {
+     uint32 brokerage_id = 1; // Same as deposit/withdraw
+     uint32 transaction_id = 2; // If this already exists, send error response indicating so
+ }
+ 
+ message Cancel {
+     uint32 brokerage_id = 1; // Same as deposit/withdraw
+     uint32 transaction_id = 2; // If this already exists, send error response indicating so
+ }
+ 
+ message Query {
+     BrokerageId brokerage_id = 1;
+ 
+     // Filters
+     BrokerageId brokerage_id_look = 2; // 0 is null
+     string stock_ticker = 3; // Stock ticker symbol
+     
+     enum BuyOrSell {
+         BUY = 0;
+         SELL = 1;
+         BUY_OR_SELL = 2;
+     }
+ 
+     BuyOrSell buy_or_sell = 4;
+     uint32 filters = 5;
+ }
