@@ -23,6 +23,7 @@ namespace protobuf_common_2eproto {
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_common_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_BrokerageId;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_common_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Header;
 }  // namespace protobuf_common_2eproto
+namespace regulatory_to_broker {
 class BrokerageRuleViolationRequestDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<BrokerageRuleViolationRequest>
@@ -33,16 +34,17 @@ class BrokerageRuleViolationResponseDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<BrokerageRuleViolationResponse>
       _instance;
 } _BrokerageRuleViolationResponse_default_instance_;
+}  // namespace regulatory_to_broker
 namespace protobuf_regulatory_5fto_5fbroker_2eproto {
 static void InitDefaultsBrokerageRuleViolationRequest() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_BrokerageRuleViolationRequest_default_instance_;
-    new (ptr) ::BrokerageRuleViolationRequest();
+    void* ptr = &::regulatory_to_broker::_BrokerageRuleViolationRequest_default_instance_;
+    new (ptr) ::regulatory_to_broker::BrokerageRuleViolationRequest();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::BrokerageRuleViolationRequest::InitAsDefaultInstance();
+  ::regulatory_to_broker::BrokerageRuleViolationRequest::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<2> scc_info_BrokerageRuleViolationRequest =
@@ -54,11 +56,11 @@ static void InitDefaultsBrokerageRuleViolationResponse() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::_BrokerageRuleViolationResponse_default_instance_;
-    new (ptr) ::BrokerageRuleViolationResponse();
+    void* ptr = &::regulatory_to_broker::_BrokerageRuleViolationResponse_default_instance_;
+    new (ptr) ::regulatory_to_broker::BrokerageRuleViolationResponse();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::BrokerageRuleViolationResponse::InitAsDefaultInstance();
+  ::regulatory_to_broker::BrokerageRuleViolationResponse::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<1> scc_info_BrokerageRuleViolationResponse =
@@ -75,30 +77,30 @@ const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BrokerageRuleViolationRequest, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::regulatory_to_broker::BrokerageRuleViolationRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BrokerageRuleViolationRequest, header_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BrokerageRuleViolationRequest, brokerage_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BrokerageRuleViolationRequest, block_duration_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BrokerageRuleViolationRequest, reason_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::regulatory_to_broker::BrokerageRuleViolationRequest, header_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::regulatory_to_broker::BrokerageRuleViolationRequest, brokerage_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::regulatory_to_broker::BrokerageRuleViolationRequest, block_duration_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::regulatory_to_broker::BrokerageRuleViolationRequest, reason_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BrokerageRuleViolationResponse, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::regulatory_to_broker::BrokerageRuleViolationResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BrokerageRuleViolationResponse, header_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BrokerageRuleViolationResponse, response_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::regulatory_to_broker::BrokerageRuleViolationResponse, header_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::regulatory_to_broker::BrokerageRuleViolationResponse, response_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::BrokerageRuleViolationRequest)},
-  { 9, -1, sizeof(::BrokerageRuleViolationResponse)},
+  { 0, -1, sizeof(::regulatory_to_broker::BrokerageRuleViolationRequest)},
+  { 9, -1, sizeof(::regulatory_to_broker::BrokerageRuleViolationResponse)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_BrokerageRuleViolationRequest_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::_BrokerageRuleViolationResponse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::regulatory_to_broker::_BrokerageRuleViolationRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::regulatory_to_broker::_BrokerageRuleViolationResponse_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -122,22 +124,24 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\032regulatory_to_broker.proto\032\014common.pro"
-      "to\"\222\001\n\035BrokerageRuleViolationRequest\022\027\n\006"
-      "header\030\001 \001(\0132\007.Header\022\037\n\tbrokerage\030\002 \001(\013"
-      "2\014.BrokerageId\022\026\n\016block_duration\030\003 \001(\r\022\037"
-      "\n\006reason\030\004 \001(\0162\017.ReasonForBlock\"Z\n\036Broke"
-      "rageRuleViolationResponse\022\027\n\006header\030\001 \001("
-      "\0132\007.Header\022\037\n\010response\030\002 \001(\0162\r.ResponseT"
-      "ype*\233\001\n\016ReasonForBlock\022\022\n\016Reason_Default"
-      "\020\000\022\027\n\023ITT_Break_Good_News\020\001\022\026\n\022ITT_Break"
-      "_Bad_News\020\002\022\031\n\025Trade_Block_Violation\020\003\022\023"
-      "\n\017Tip_Flag_Active\020\004\022\024\n\020TTV_Exceeds_mTTV\020"
-      "\005*.\n\014ResponseType\022\013\n\007INVALID\020\000\022\006\n\002OK\020\001\022\t"
-      "\n\005ERROR\020\002b\006proto3"
+      "\n\032regulatory_to_broker.proto\022\024regulatory"
+      "_to_broker\032\014common.proto\"\247\001\n\035BrokerageRu"
+      "leViolationRequest\022\027\n\006header\030\001 \001(\0132\007.Hea"
+      "der\022\037\n\tbrokerage\030\002 \001(\0132\014.BrokerageId\022\026\n\016"
+      "block_duration\030\003 \001(\r\0224\n\006reason\030\004 \001(\0162$.r"
+      "egulatory_to_broker.ReasonForBlock\"o\n\036Br"
+      "okerageRuleViolationResponse\022\027\n\006header\030\001"
+      " \001(\0132\007.Header\0224\n\010response\030\002 \001(\0162\".regula"
+      "tory_to_broker.ResponseType*\233\001\n\016ReasonFo"
+      "rBlock\022\022\n\016Reason_Default\020\000\022\027\n\023ITT_Break_"
+      "Good_News\020\001\022\026\n\022ITT_Break_Bad_News\020\002\022\031\n\025T"
+      "rade_Block_Violation\020\003\022\023\n\017Tip_Flag_Activ"
+      "e\020\004\022\024\n\020TTV_Exceeds_mTTV\020\005*.\n\014ResponseTyp"
+      "e\022\013\n\007INVALID\020\000\022\006\n\002OK\020\001\022\t\n\005ERROR\020\002b\006proto"
+      "3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 497);
+      descriptor, 561);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "regulatory_to_broker.proto", &protobuf_RegisterTypes);
   ::protobuf_common_2eproto::AddDescriptors();
@@ -154,6 +158,7 @@ struct StaticDescriptorInitializer {
   }
 } static_descriptor_initializer;
 }  // namespace protobuf_regulatory_5fto_5fbroker_2eproto
+namespace regulatory_to_broker {
 const ::google::protobuf::EnumDescriptor* ReasonForBlock_descriptor() {
   protobuf_regulatory_5fto_5fbroker_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_regulatory_5fto_5fbroker_2eproto::file_level_enum_descriptors[0];
@@ -191,9 +196,9 @@ bool ResponseType_IsValid(int value) {
 // ===================================================================
 
 void BrokerageRuleViolationRequest::InitAsDefaultInstance() {
-  ::_BrokerageRuleViolationRequest_default_instance_._instance.get_mutable()->header_ = const_cast< ::Header*>(
+  ::regulatory_to_broker::_BrokerageRuleViolationRequest_default_instance_._instance.get_mutable()->header_ = const_cast< ::Header*>(
       ::Header::internal_default_instance());
-  ::_BrokerageRuleViolationRequest_default_instance_._instance.get_mutable()->brokerage_ = const_cast< ::BrokerageId*>(
+  ::regulatory_to_broker::_BrokerageRuleViolationRequest_default_instance_._instance.get_mutable()->brokerage_ = const_cast< ::BrokerageId*>(
       ::BrokerageId::internal_default_instance());
 }
 void BrokerageRuleViolationRequest::clear_header() {
@@ -220,7 +225,7 @@ BrokerageRuleViolationRequest::BrokerageRuleViolationRequest()
   ::google::protobuf::internal::InitSCC(
       &protobuf_regulatory_5fto_5fbroker_2eproto::scc_info_BrokerageRuleViolationRequest.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(constructor:regulatory_to_broker.BrokerageRuleViolationRequest)
 }
 BrokerageRuleViolationRequest::BrokerageRuleViolationRequest(const BrokerageRuleViolationRequest& from)
   : ::google::protobuf::Message(),
@@ -239,7 +244,7 @@ BrokerageRuleViolationRequest::BrokerageRuleViolationRequest(const BrokerageRule
   ::memcpy(&block_duration_, &from.block_duration_,
     static_cast<size_t>(reinterpret_cast<char*>(&reason_) -
     reinterpret_cast<char*>(&block_duration_)) + sizeof(reason_));
-  // @@protoc_insertion_point(copy_constructor:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(copy_constructor:regulatory_to_broker.BrokerageRuleViolationRequest)
 }
 
 void BrokerageRuleViolationRequest::SharedCtor() {
@@ -249,7 +254,7 @@ void BrokerageRuleViolationRequest::SharedCtor() {
 }
 
 BrokerageRuleViolationRequest::~BrokerageRuleViolationRequest() {
-  // @@protoc_insertion_point(destructor:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(destructor:regulatory_to_broker.BrokerageRuleViolationRequest)
   SharedDtor();
 }
 
@@ -273,7 +278,7 @@ const BrokerageRuleViolationRequest& BrokerageRuleViolationRequest::default_inst
 
 
 void BrokerageRuleViolationRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:BrokerageRuleViolationRequest)
+// @@protoc_insertion_point(message_clear_start:regulatory_to_broker.BrokerageRuleViolationRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -296,7 +301,7 @@ bool BrokerageRuleViolationRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(parse_start:regulatory_to_broker.BrokerageRuleViolationRequest)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -340,7 +345,7 @@ bool BrokerageRuleViolationRequest::MergePartialFromCodedStream(
         break;
       }
 
-      // .ReasonForBlock reason = 4;
+      // .regulatory_to_broker.ReasonForBlock reason = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
@@ -348,7 +353,7 @@ bool BrokerageRuleViolationRequest::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_reason(static_cast< ::ReasonForBlock >(value));
+          set_reason(static_cast< ::regulatory_to_broker::ReasonForBlock >(value));
         } else {
           goto handle_unusual;
         }
@@ -367,17 +372,17 @@ bool BrokerageRuleViolationRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(parse_success:regulatory_to_broker.BrokerageRuleViolationRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(parse_failure:regulatory_to_broker.BrokerageRuleViolationRequest)
   return false;
 #undef DO_
 }
 
 void BrokerageRuleViolationRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(serialize_start:regulatory_to_broker.BrokerageRuleViolationRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -398,7 +403,7 @@ void BrokerageRuleViolationRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->block_duration(), output);
   }
 
-  // .ReasonForBlock reason = 4;
+  // .regulatory_to_broker.ReasonForBlock reason = 4;
   if (this->reason() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       4, this->reason(), output);
@@ -408,13 +413,13 @@ void BrokerageRuleViolationRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(serialize_end:regulatory_to_broker.BrokerageRuleViolationRequest)
 }
 
 ::google::protobuf::uint8* BrokerageRuleViolationRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:regulatory_to_broker.BrokerageRuleViolationRequest)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -437,7 +442,7 @@ void BrokerageRuleViolationRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->block_duration(), target);
   }
 
-  // .ReasonForBlock reason = 4;
+  // .regulatory_to_broker.ReasonForBlock reason = 4;
   if (this->reason() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       4, this->reason(), target);
@@ -447,12 +452,12 @@ void BrokerageRuleViolationRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:regulatory_to_broker.BrokerageRuleViolationRequest)
   return target;
 }
 
 size_t BrokerageRuleViolationRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:BrokerageRuleViolationRequest)
+// @@protoc_insertion_point(message_byte_size_start:regulatory_to_broker.BrokerageRuleViolationRequest)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -481,7 +486,7 @@ size_t BrokerageRuleViolationRequest::ByteSizeLong() const {
         this->block_duration());
   }
 
-  // .ReasonForBlock reason = 4;
+  // .regulatory_to_broker.ReasonForBlock reason = 4;
   if (this->reason() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->reason());
@@ -493,22 +498,22 @@ size_t BrokerageRuleViolationRequest::ByteSizeLong() const {
 }
 
 void BrokerageRuleViolationRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:BrokerageRuleViolationRequest)
+// @@protoc_insertion_point(generalized_merge_from_start:regulatory_to_broker.BrokerageRuleViolationRequest)
   GOOGLE_DCHECK_NE(&from, this);
   const BrokerageRuleViolationRequest* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const BrokerageRuleViolationRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:regulatory_to_broker.BrokerageRuleViolationRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:regulatory_to_broker.BrokerageRuleViolationRequest)
     MergeFrom(*source);
   }
 }
 
 void BrokerageRuleViolationRequest::MergeFrom(const BrokerageRuleViolationRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:BrokerageRuleViolationRequest)
+// @@protoc_insertion_point(class_specific_merge_from_start:regulatory_to_broker.BrokerageRuleViolationRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -529,14 +534,14 @@ void BrokerageRuleViolationRequest::MergeFrom(const BrokerageRuleViolationReques
 }
 
 void BrokerageRuleViolationRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:BrokerageRuleViolationRequest)
+// @@protoc_insertion_point(generalized_copy_from_start:regulatory_to_broker.BrokerageRuleViolationRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void BrokerageRuleViolationRequest::CopyFrom(const BrokerageRuleViolationRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:BrokerageRuleViolationRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:regulatory_to_broker.BrokerageRuleViolationRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -568,7 +573,7 @@ void BrokerageRuleViolationRequest::InternalSwap(BrokerageRuleViolationRequest* 
 // ===================================================================
 
 void BrokerageRuleViolationResponse::InitAsDefaultInstance() {
-  ::_BrokerageRuleViolationResponse_default_instance_._instance.get_mutable()->header_ = const_cast< ::Header*>(
+  ::regulatory_to_broker::_BrokerageRuleViolationResponse_default_instance_._instance.get_mutable()->header_ = const_cast< ::Header*>(
       ::Header::internal_default_instance());
 }
 void BrokerageRuleViolationResponse::clear_header() {
@@ -587,7 +592,7 @@ BrokerageRuleViolationResponse::BrokerageRuleViolationResponse()
   ::google::protobuf::internal::InitSCC(
       &protobuf_regulatory_5fto_5fbroker_2eproto::scc_info_BrokerageRuleViolationResponse.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(constructor:regulatory_to_broker.BrokerageRuleViolationResponse)
 }
 BrokerageRuleViolationResponse::BrokerageRuleViolationResponse(const BrokerageRuleViolationResponse& from)
   : ::google::protobuf::Message(),
@@ -599,7 +604,7 @@ BrokerageRuleViolationResponse::BrokerageRuleViolationResponse(const BrokerageRu
     header_ = NULL;
   }
   response_ = from.response_;
-  // @@protoc_insertion_point(copy_constructor:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(copy_constructor:regulatory_to_broker.BrokerageRuleViolationResponse)
 }
 
 void BrokerageRuleViolationResponse::SharedCtor() {
@@ -609,7 +614,7 @@ void BrokerageRuleViolationResponse::SharedCtor() {
 }
 
 BrokerageRuleViolationResponse::~BrokerageRuleViolationResponse() {
-  // @@protoc_insertion_point(destructor:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(destructor:regulatory_to_broker.BrokerageRuleViolationResponse)
   SharedDtor();
 }
 
@@ -632,7 +637,7 @@ const BrokerageRuleViolationResponse& BrokerageRuleViolationResponse::default_in
 
 
 void BrokerageRuleViolationResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:BrokerageRuleViolationResponse)
+// @@protoc_insertion_point(message_clear_start:regulatory_to_broker.BrokerageRuleViolationResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -649,7 +654,7 @@ bool BrokerageRuleViolationResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(parse_start:regulatory_to_broker.BrokerageRuleViolationResponse)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -667,7 +672,7 @@ bool BrokerageRuleViolationResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // .ResponseType response = 2;
+      // .regulatory_to_broker.ResponseType response = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
@@ -675,7 +680,7 @@ bool BrokerageRuleViolationResponse::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_response(static_cast< ::ResponseType >(value));
+          set_response(static_cast< ::regulatory_to_broker::ResponseType >(value));
         } else {
           goto handle_unusual;
         }
@@ -694,17 +699,17 @@ bool BrokerageRuleViolationResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(parse_success:regulatory_to_broker.BrokerageRuleViolationResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(parse_failure:regulatory_to_broker.BrokerageRuleViolationResponse)
   return false;
 #undef DO_
 }
 
 void BrokerageRuleViolationResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(serialize_start:regulatory_to_broker.BrokerageRuleViolationResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -714,7 +719,7 @@ void BrokerageRuleViolationResponse::SerializeWithCachedSizes(
       1, this->_internal_header(), output);
   }
 
-  // .ResponseType response = 2;
+  // .regulatory_to_broker.ResponseType response = 2;
   if (this->response() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->response(), output);
@@ -724,13 +729,13 @@ void BrokerageRuleViolationResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(serialize_end:regulatory_to_broker.BrokerageRuleViolationResponse)
 }
 
 ::google::protobuf::uint8* BrokerageRuleViolationResponse::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:regulatory_to_broker.BrokerageRuleViolationResponse)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -741,7 +746,7 @@ void BrokerageRuleViolationResponse::SerializeWithCachedSizes(
         1, this->_internal_header(), deterministic, target);
   }
 
-  // .ResponseType response = 2;
+  // .regulatory_to_broker.ResponseType response = 2;
   if (this->response() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->response(), target);
@@ -751,12 +756,12 @@ void BrokerageRuleViolationResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:regulatory_to_broker.BrokerageRuleViolationResponse)
   return target;
 }
 
 size_t BrokerageRuleViolationResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:BrokerageRuleViolationResponse)
+// @@protoc_insertion_point(message_byte_size_start:regulatory_to_broker.BrokerageRuleViolationResponse)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -771,7 +776,7 @@ size_t BrokerageRuleViolationResponse::ByteSizeLong() const {
         *header_);
   }
 
-  // .ResponseType response = 2;
+  // .regulatory_to_broker.ResponseType response = 2;
   if (this->response() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->response());
@@ -783,22 +788,22 @@ size_t BrokerageRuleViolationResponse::ByteSizeLong() const {
 }
 
 void BrokerageRuleViolationResponse::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:BrokerageRuleViolationResponse)
+// @@protoc_insertion_point(generalized_merge_from_start:regulatory_to_broker.BrokerageRuleViolationResponse)
   GOOGLE_DCHECK_NE(&from, this);
   const BrokerageRuleViolationResponse* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const BrokerageRuleViolationResponse>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:regulatory_to_broker.BrokerageRuleViolationResponse)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:regulatory_to_broker.BrokerageRuleViolationResponse)
     MergeFrom(*source);
   }
 }
 
 void BrokerageRuleViolationResponse::MergeFrom(const BrokerageRuleViolationResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:BrokerageRuleViolationResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:regulatory_to_broker.BrokerageRuleViolationResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -813,14 +818,14 @@ void BrokerageRuleViolationResponse::MergeFrom(const BrokerageRuleViolationRespo
 }
 
 void BrokerageRuleViolationResponse::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:BrokerageRuleViolationResponse)
+// @@protoc_insertion_point(generalized_copy_from_start:regulatory_to_broker.BrokerageRuleViolationResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void BrokerageRuleViolationResponse::CopyFrom(const BrokerageRuleViolationResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:BrokerageRuleViolationResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:regulatory_to_broker.BrokerageRuleViolationResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -848,13 +853,14 @@ void BrokerageRuleViolationResponse::InternalSwap(BrokerageRuleViolationResponse
 
 
 // @@protoc_insertion_point(namespace_scope)
+}  // namespace regulatory_to_broker
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::BrokerageRuleViolationRequest* Arena::CreateMaybeMessage< ::BrokerageRuleViolationRequest >(Arena* arena) {
-  return Arena::CreateInternal< ::BrokerageRuleViolationRequest >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::regulatory_to_broker::BrokerageRuleViolationRequest* Arena::CreateMaybeMessage< ::regulatory_to_broker::BrokerageRuleViolationRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::regulatory_to_broker::BrokerageRuleViolationRequest >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::BrokerageRuleViolationResponse* Arena::CreateMaybeMessage< ::BrokerageRuleViolationResponse >(Arena* arena) {
-  return Arena::CreateInternal< ::BrokerageRuleViolationResponse >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::regulatory_to_broker::BrokerageRuleViolationResponse* Arena::CreateMaybeMessage< ::regulatory_to_broker::BrokerageRuleViolationResponse >(Arena* arena) {
+  return Arena::CreateInternal< ::regulatory_to_broker::BrokerageRuleViolationResponse >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

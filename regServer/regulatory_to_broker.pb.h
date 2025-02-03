@@ -47,18 +47,21 @@ struct TableStruct {
 };
 void AddDescriptors();
 }  // namespace protobuf_regulatory_5fto_5fbroker_2eproto
+namespace regulatory_to_broker {
 class BrokerageRuleViolationRequest;
 class BrokerageRuleViolationRequestDefaultTypeInternal;
 extern BrokerageRuleViolationRequestDefaultTypeInternal _BrokerageRuleViolationRequest_default_instance_;
 class BrokerageRuleViolationResponse;
 class BrokerageRuleViolationResponseDefaultTypeInternal;
 extern BrokerageRuleViolationResponseDefaultTypeInternal _BrokerageRuleViolationResponse_default_instance_;
+}  // namespace regulatory_to_broker
 namespace google {
 namespace protobuf {
-template<> ::BrokerageRuleViolationRequest* Arena::CreateMaybeMessage<::BrokerageRuleViolationRequest>(Arena*);
-template<> ::BrokerageRuleViolationResponse* Arena::CreateMaybeMessage<::BrokerageRuleViolationResponse>(Arena*);
+template<> ::regulatory_to_broker::BrokerageRuleViolationRequest* Arena::CreateMaybeMessage<::regulatory_to_broker::BrokerageRuleViolationRequest>(Arena*);
+template<> ::regulatory_to_broker::BrokerageRuleViolationResponse* Arena::CreateMaybeMessage<::regulatory_to_broker::BrokerageRuleViolationResponse>(Arena*);
 }  // namespace protobuf
 }  // namespace google
+namespace regulatory_to_broker {
 
 enum ReasonForBlock {
   Reason_Default = 0,
@@ -109,7 +112,7 @@ inline bool ResponseType_Parse(
 }
 // ===================================================================
 
-class BrokerageRuleViolationRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BrokerageRuleViolationRequest) */ {
+class BrokerageRuleViolationRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:regulatory_to_broker.BrokerageRuleViolationRequest) */ {
  public:
   BrokerageRuleViolationRequest();
   virtual ~BrokerageRuleViolationRequest();
@@ -226,13 +229,13 @@ class BrokerageRuleViolationRequest : public ::google::protobuf::Message /* @@pr
   ::google::protobuf::uint32 block_duration() const;
   void set_block_duration(::google::protobuf::uint32 value);
 
-  // .ReasonForBlock reason = 4;
+  // .regulatory_to_broker.ReasonForBlock reason = 4;
   void clear_reason();
   static const int kReasonFieldNumber = 4;
-  ::ReasonForBlock reason() const;
-  void set_reason(::ReasonForBlock value);
+  ::regulatory_to_broker::ReasonForBlock reason() const;
+  void set_reason(::regulatory_to_broker::ReasonForBlock value);
 
-  // @@protoc_insertion_point(class_scope:BrokerageRuleViolationRequest)
+  // @@protoc_insertion_point(class_scope:regulatory_to_broker.BrokerageRuleViolationRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -245,7 +248,7 @@ class BrokerageRuleViolationRequest : public ::google::protobuf::Message /* @@pr
 };
 // -------------------------------------------------------------------
 
-class BrokerageRuleViolationResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BrokerageRuleViolationResponse) */ {
+class BrokerageRuleViolationResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:regulatory_to_broker.BrokerageRuleViolationResponse) */ {
  public:
   BrokerageRuleViolationResponse();
   virtual ~BrokerageRuleViolationResponse();
@@ -344,13 +347,13 @@ class BrokerageRuleViolationResponse : public ::google::protobuf::Message /* @@p
   ::Header* mutable_header();
   void set_allocated_header(::Header* header);
 
-  // .ResponseType response = 2;
+  // .regulatory_to_broker.ResponseType response = 2;
   void clear_response();
   static const int kResponseFieldNumber = 2;
-  ::ResponseType response() const;
-  void set_response(::ResponseType value);
+  ::regulatory_to_broker::ResponseType response() const;
+  void set_response(::regulatory_to_broker::ResponseType value);
 
-  // @@protoc_insertion_point(class_scope:BrokerageRuleViolationResponse)
+  // @@protoc_insertion_point(class_scope:regulatory_to_broker.BrokerageRuleViolationResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -379,12 +382,12 @@ inline const ::Header& BrokerageRuleViolationRequest::_internal_header() const {
 }
 inline const ::Header& BrokerageRuleViolationRequest::header() const {
   const ::Header* p = header_;
-  // @@protoc_insertion_point(field_get:BrokerageRuleViolationRequest.header)
+  // @@protoc_insertion_point(field_get:regulatory_to_broker.BrokerageRuleViolationRequest.header)
   return p != NULL ? *p : *reinterpret_cast<const ::Header*>(
       &::_Header_default_instance_);
 }
 inline ::Header* BrokerageRuleViolationRequest::release_header() {
-  // @@protoc_insertion_point(field_release:BrokerageRuleViolationRequest.header)
+  // @@protoc_insertion_point(field_release:regulatory_to_broker.BrokerageRuleViolationRequest.header)
   
   ::Header* temp = header_;
   header_ = NULL;
@@ -396,7 +399,7 @@ inline ::Header* BrokerageRuleViolationRequest::mutable_header() {
     auto* p = CreateMaybeMessage<::Header>(GetArenaNoVirtual());
     header_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:BrokerageRuleViolationRequest.header)
+  // @@protoc_insertion_point(field_mutable:regulatory_to_broker.BrokerageRuleViolationRequest.header)
   return header_;
 }
 inline void BrokerageRuleViolationRequest::set_allocated_header(::Header* header) {
@@ -415,7 +418,7 @@ inline void BrokerageRuleViolationRequest::set_allocated_header(::Header* header
     
   }
   header_ = header;
-  // @@protoc_insertion_point(field_set_allocated:BrokerageRuleViolationRequest.header)
+  // @@protoc_insertion_point(field_set_allocated:regulatory_to_broker.BrokerageRuleViolationRequest.header)
 }
 
 // .BrokerageId brokerage = 2;
@@ -427,12 +430,12 @@ inline const ::BrokerageId& BrokerageRuleViolationRequest::_internal_brokerage()
 }
 inline const ::BrokerageId& BrokerageRuleViolationRequest::brokerage() const {
   const ::BrokerageId* p = brokerage_;
-  // @@protoc_insertion_point(field_get:BrokerageRuleViolationRequest.brokerage)
+  // @@protoc_insertion_point(field_get:regulatory_to_broker.BrokerageRuleViolationRequest.brokerage)
   return p != NULL ? *p : *reinterpret_cast<const ::BrokerageId*>(
       &::_BrokerageId_default_instance_);
 }
 inline ::BrokerageId* BrokerageRuleViolationRequest::release_brokerage() {
-  // @@protoc_insertion_point(field_release:BrokerageRuleViolationRequest.brokerage)
+  // @@protoc_insertion_point(field_release:regulatory_to_broker.BrokerageRuleViolationRequest.brokerage)
   
   ::BrokerageId* temp = brokerage_;
   brokerage_ = NULL;
@@ -444,7 +447,7 @@ inline ::BrokerageId* BrokerageRuleViolationRequest::mutable_brokerage() {
     auto* p = CreateMaybeMessage<::BrokerageId>(GetArenaNoVirtual());
     brokerage_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:BrokerageRuleViolationRequest.brokerage)
+  // @@protoc_insertion_point(field_mutable:regulatory_to_broker.BrokerageRuleViolationRequest.brokerage)
   return brokerage_;
 }
 inline void BrokerageRuleViolationRequest::set_allocated_brokerage(::BrokerageId* brokerage) {
@@ -463,7 +466,7 @@ inline void BrokerageRuleViolationRequest::set_allocated_brokerage(::BrokerageId
     
   }
   brokerage_ = brokerage;
-  // @@protoc_insertion_point(field_set_allocated:BrokerageRuleViolationRequest.brokerage)
+  // @@protoc_insertion_point(field_set_allocated:regulatory_to_broker.BrokerageRuleViolationRequest.brokerage)
 }
 
 // uint32 block_duration = 3;
@@ -471,27 +474,27 @@ inline void BrokerageRuleViolationRequest::clear_block_duration() {
   block_duration_ = 0u;
 }
 inline ::google::protobuf::uint32 BrokerageRuleViolationRequest::block_duration() const {
-  // @@protoc_insertion_point(field_get:BrokerageRuleViolationRequest.block_duration)
+  // @@protoc_insertion_point(field_get:regulatory_to_broker.BrokerageRuleViolationRequest.block_duration)
   return block_duration_;
 }
 inline void BrokerageRuleViolationRequest::set_block_duration(::google::protobuf::uint32 value) {
   
   block_duration_ = value;
-  // @@protoc_insertion_point(field_set:BrokerageRuleViolationRequest.block_duration)
+  // @@protoc_insertion_point(field_set:regulatory_to_broker.BrokerageRuleViolationRequest.block_duration)
 }
 
-// .ReasonForBlock reason = 4;
+// .regulatory_to_broker.ReasonForBlock reason = 4;
 inline void BrokerageRuleViolationRequest::clear_reason() {
   reason_ = 0;
 }
-inline ::ReasonForBlock BrokerageRuleViolationRequest::reason() const {
-  // @@protoc_insertion_point(field_get:BrokerageRuleViolationRequest.reason)
-  return static_cast< ::ReasonForBlock >(reason_);
+inline ::regulatory_to_broker::ReasonForBlock BrokerageRuleViolationRequest::reason() const {
+  // @@protoc_insertion_point(field_get:regulatory_to_broker.BrokerageRuleViolationRequest.reason)
+  return static_cast< ::regulatory_to_broker::ReasonForBlock >(reason_);
 }
-inline void BrokerageRuleViolationRequest::set_reason(::ReasonForBlock value) {
+inline void BrokerageRuleViolationRequest::set_reason(::regulatory_to_broker::ReasonForBlock value) {
   
   reason_ = value;
-  // @@protoc_insertion_point(field_set:BrokerageRuleViolationRequest.reason)
+  // @@protoc_insertion_point(field_set:regulatory_to_broker.BrokerageRuleViolationRequest.reason)
 }
 
 // -------------------------------------------------------------------
@@ -507,12 +510,12 @@ inline const ::Header& BrokerageRuleViolationResponse::_internal_header() const 
 }
 inline const ::Header& BrokerageRuleViolationResponse::header() const {
   const ::Header* p = header_;
-  // @@protoc_insertion_point(field_get:BrokerageRuleViolationResponse.header)
+  // @@protoc_insertion_point(field_get:regulatory_to_broker.BrokerageRuleViolationResponse.header)
   return p != NULL ? *p : *reinterpret_cast<const ::Header*>(
       &::_Header_default_instance_);
 }
 inline ::Header* BrokerageRuleViolationResponse::release_header() {
-  // @@protoc_insertion_point(field_release:BrokerageRuleViolationResponse.header)
+  // @@protoc_insertion_point(field_release:regulatory_to_broker.BrokerageRuleViolationResponse.header)
   
   ::Header* temp = header_;
   header_ = NULL;
@@ -524,7 +527,7 @@ inline ::Header* BrokerageRuleViolationResponse::mutable_header() {
     auto* p = CreateMaybeMessage<::Header>(GetArenaNoVirtual());
     header_ = p;
   }
-  // @@protoc_insertion_point(field_mutable:BrokerageRuleViolationResponse.header)
+  // @@protoc_insertion_point(field_mutable:regulatory_to_broker.BrokerageRuleViolationResponse.header)
   return header_;
 }
 inline void BrokerageRuleViolationResponse::set_allocated_header(::Header* header) {
@@ -543,21 +546,21 @@ inline void BrokerageRuleViolationResponse::set_allocated_header(::Header* heade
     
   }
   header_ = header;
-  // @@protoc_insertion_point(field_set_allocated:BrokerageRuleViolationResponse.header)
+  // @@protoc_insertion_point(field_set_allocated:regulatory_to_broker.BrokerageRuleViolationResponse.header)
 }
 
-// .ResponseType response = 2;
+// .regulatory_to_broker.ResponseType response = 2;
 inline void BrokerageRuleViolationResponse::clear_response() {
   response_ = 0;
 }
-inline ::ResponseType BrokerageRuleViolationResponse::response() const {
-  // @@protoc_insertion_point(field_get:BrokerageRuleViolationResponse.response)
-  return static_cast< ::ResponseType >(response_);
+inline ::regulatory_to_broker::ResponseType BrokerageRuleViolationResponse::response() const {
+  // @@protoc_insertion_point(field_get:regulatory_to_broker.BrokerageRuleViolationResponse.response)
+  return static_cast< ::regulatory_to_broker::ResponseType >(response_);
 }
-inline void BrokerageRuleViolationResponse::set_response(::ResponseType value) {
+inline void BrokerageRuleViolationResponse::set_response(::regulatory_to_broker::ResponseType value) {
   
   response_ = value;
-  // @@protoc_insertion_point(field_set:BrokerageRuleViolationResponse.response)
+  // @@protoc_insertion_point(field_set:regulatory_to_broker.BrokerageRuleViolationResponse.response)
 }
 
 #ifdef __GNUC__
@@ -568,19 +571,20 @@ inline void BrokerageRuleViolationResponse::set_response(::ResponseType value) {
 
 // @@protoc_insertion_point(namespace_scope)
 
+}  // namespace regulatory_to_broker
 
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::ReasonForBlock> : ::std::true_type {};
+template <> struct is_proto_enum< ::regulatory_to_broker::ReasonForBlock> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::ReasonForBlock>() {
-  return ::ReasonForBlock_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::regulatory_to_broker::ReasonForBlock>() {
+  return ::regulatory_to_broker::ReasonForBlock_descriptor();
 }
-template <> struct is_proto_enum< ::ResponseType> : ::std::true_type {};
+template <> struct is_proto_enum< ::regulatory_to_broker::ResponseType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::ResponseType>() {
-  return ::ResponseType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::regulatory_to_broker::ResponseType>() {
+  return ::regulatory_to_broker::ResponseType_descriptor();
 }
 
 }  // namespace protobuf
