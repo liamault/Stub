@@ -1,57 +1,87 @@
 #include <iostream>
 #include <cstring>
-#include <arpa/inet.h>
-#include <netinet/in.h>
 #include <sys/socket.h>
+#include <arpa/inet.h>
 #include <unistd.h>
-
 #include "bank_to_brokerage.pb.h"
+#include "common.pb.h"
 
 using namespace std;
 
-// Server details
-static const char* serverIP = "127.0.0.1";
-static unsigned short port = 50051;
-static uint32_t maxMesg = 2048;
-static uint32_t magic = 'E477';
-static const uint32_t version1x = 0x0100;
+#define SERVER_PORT 1866
+#define SERVER_IP "127.0.0.1"
+#define MAX_MSG_SIZE 2048
 
 int main() {
-    int sockfd;
-    struct sockaddr_in servaddr;
-    uint8_t buffer[maxMesg];
+    // Initialize protobuf
+    GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-    // Create socket
-    if ((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+    // Create UDP socket
+    int sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (sockfd < 0) {
         perror("Socket creation failed");
-        return -1;
+        return 1;
     }
 
+    // Configure server address
+    struct sockaddr_in servaddr;
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(port);
-    servaddr.sin_addr.s_addr = inet_addr(serverIP);
+    servaddr.sin_port = htons(SERVER_PORT);
+    servaddr.sin_addr.s_addr = inet_addr(SERVER_IP);
 
-    // Create request message
+    // Construct EndOfDaySummaryRequest message
     bank_to_brokerage::EndOfDaySummaryRequest request;
-    request.mutable_header()->set_magic(magic);
-    request.mutable_header()->set_version(version1x);
+    request.mutable_header()->set_version(1);
+    request.mutable_header()->set_magic(BROKERAGE);
     request.mutable_header()->set_serial(1);
+
     
-    auto* transaction = request.add_transactions();
-    transaction->set_operation(bank_to_brokerage::EndOfDaySummaryRequest::DEPOSIT);
-    transaction->mutable_amount()->set_value(500.0);
 
-    int blen = request.ByteSizeLong();
-    request.SerializeToArray(buffer, blen);
+    // Serialize request
+    string requestStr;
+    if (!request.SerializeToString(&requestStr)) {
+        cerr << "Failed to serialize request.\n";
+        close(sockfd);
+        return 1;
+    }
 
-    sendto(sockfd, buffer, blen, MSG_CONFIRM, (const struct sockaddr*)&servaddr, sizeof(servaddr));
+    // Send request to server
+    socklen_t len = sizeof(servaddr);
+    int n = sendto(sockfd, requestStr.c_str(), requestStr.size(), MSG_CONFIRM,
+                   (const struct sockaddr*)&servaddr, len);
+    if (n < 0) {
+        perror("sendto failed");
+        close(sockfd);
+        return 1;
+    }
+
+    cout << "Request sent successfully.\n";
 
     // Receive response
-    socklen_t len = sizeof(servaddr);
-    int n = recvfrom(sockfd, buffer, maxMesg, MSG_WAITALL, (struct sockaddr*)&servaddr, &len);
-    cout << "Received response from server" << endl;
+    char buffer[MAX_MSG_SIZE];
+    n = recvfrom(sockfd, buffer, MAX_MSG_SIZE, MSG_WAITALL,
+                 (struct sockaddr*)&servaddr, &len);
+    if (n < 0) {
+        perror("recvfrom failed");
+        close(sockfd);
+        return 1;
+    }
 
+    // Deserialize response
+    bank_to_brokerage::EndOfDayResponse response;
+    if (!response.ParseFromArray(buffer, n)) {
+        cerr << "Failed to parse response.\n";
+        close(sockfd);
+        return 1;
+    }
+
+    // Print response
+    cout << "Server Response: " << response.DebugString() << endl;
+
+    // Cleanup
     close(sockfd);
+    google::protobuf::ShutdownProtobufLibrary();
+
     return 0;
 }

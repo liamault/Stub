@@ -4,6 +4,9 @@
 *******************/
 
 syntax = "proto3";
+
+package bank_to_brokerage;
+
 import "common.proto";
 
 //end of day summary request
