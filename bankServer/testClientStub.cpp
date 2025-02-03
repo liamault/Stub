@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include "bank_to_brokerage.pb.h"
 #include "common.pb.h"
+#include <google/protobuf/descriptor.h>
 
 using namespace std;
 
@@ -33,10 +34,20 @@ int main() {
     // Construct EndOfDaySummaryRequest message
     bank_to_brokerage::EndOfDaySummaryRequest request;
     request.mutable_header()->set_version(1);
-    request.mutable_header()->set_magic(BROKERAGE);
+    request.mutable_header()->set_magic(BANK);
     request.mutable_header()->set_serial(1);
 
-    
+    auto* transaction1 = request.add_transactions();
+    transaction1->set_operation(bank_to_brokerage::EndOfDaySummaryRequest::DEPOSIT);
+    transaction1->mutable_amount()->set_dollars(1);
+    transaction1->mutable_amount()->set_cents(2); 
+    transaction1->set_component(BROKERAGE);
+
+    auto* transaction2 = request.add_transactions();
+    transaction2->set_operation(bank_to_brokerage::EndOfDaySummaryRequest::WITHDRAW);
+    transaction2->mutable_amount()->set_dollars(3);
+    transaction2->mutable_amount()->set_cents(4); 
+    transaction2->set_component(BROKERAGE);
 
     // Serialize request
     string requestStr;
@@ -76,8 +87,8 @@ int main() {
         return 1;
     }
 
-    // Print response
-    cout << "Server Response: " << response.DebugString() << endl;
+    const std::string statusStr = bank_to_brokerage::EndOfDayResponse::Status_Name(response.status());
+    cout << "Server Response: " << statusStr << endl;
 
     // Cleanup
     close(sockfd);
