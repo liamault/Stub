@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+
+class BankServer {
+public:
+    BankServer() {
+        std::cout << "BankServer initialized." << std::endl;
+    }
+
+    void createAccount(const std::string& accountName) {
+        std::cout << "Creating account: " << accountName << std::endl;
+    }
+
+    void deposit(const std::string& accountName, double amount) {
+        std::cout << "Depositing " << amount << " to account: " << accountName << std::endl;
+    }
+
+    void withdraw(const std::string& accountName, double amount) {
+        std::cout << "Withdrawing " << amount << " from account: " << accountName << std::endl;
+    }
+
+    double getBalance(const std::string& accountName) {
+        std::cout << "Getting balance for account: " << accountName << std::endl;
+        return 0.0; // Stub value
+    }
+};
+
+int main() {
+    BankServer server;
+    server.createAccount("John Doe");
+    server.deposit("John Doe", 100.0);
+    server.withdraw("John Doe", 50.0);
+    double balance = server.getBalance("John Doe");
+    std::cout << "Balance for John Doe: " << balance << std::endl;
+    return 0;
+}
