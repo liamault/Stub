@@ -82,7 +82,6 @@ int main() {
         return 1;
     }
 
-    // const std::string statusStr = regulatory_to_broker::ResponseType(response.response());
     cout << "Server Response: " << response.DebugString() << endl;
 
     // Cleanup
