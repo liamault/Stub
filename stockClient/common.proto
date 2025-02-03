@@ -25,14 +25,6 @@ message Header {
     uint32 serial = 3;
 }
 message BuySell {
- uint32 quantity = 1;
- Price price = 2;
- string stock_ticker = 3;
- BrokerageId brokerage_id = 4;
- uint32 transaction_id = 5;
- bool tip_flag = 6;
- uint32 hour = 7;
- uint32 day = 8;
     uint32 quantity = 1;
     Price price = 2;
     string stock_ticker = 3;
