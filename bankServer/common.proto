@@ -4,25 +4,25 @@ Common messages used by everyone
 ************************************/
 // this is used to define who is the sender of the message
 enum Magic {
- REGULATORY = 0;
- STOCK_EXCHANGE = 1;
- BANK = 2;
- BROKERAGE = 3;
+    REGULATORY = 0;
+    STOCK_EXCHANGE = 1;
+    BANK = 2;
+    BROKERAGE = 3;
 }
 // When doing math, do everything in cents to keep precision
 // Ex. $10.51 = 10 * 100 + 51 cents = 1051 cents
 message Price {
- uint32 dollars = 1; // this is just dollars
- uint32 cents = 2; // Round to nearest cent
+    uint32 dollars = 1; // this is just dollars
+    uint32 cents = 2; // Round to nearest cent
 }
 message BrokerageId {
- uint32 brokerage = 1;
- uint32 trader = 2;
+    uint32 brokerage = 1;
+    uint32 trader = 2;
 }
 message Header {
- uint32 version = 1;
- Magic magic = 2;
- uint32 serial = 3;
+    uint32 version = 1;
+    Magic magic = 2;
+    uint32 serial = 3;
 }
 message BuySell {
  uint32 quantity = 1;
@@ -33,4 +33,12 @@ message BuySell {
  bool tip_flag = 6;
  uint32 hour = 7;
  uint32 day = 8;
+    uint32 quantity = 1;
+    Price price = 2;
+    string stock_ticker = 3;
+    BrokerageId brokerage_id = 4;
+    uint32 transaction_id = 5;
+    bool tip_flag = 6;
+    uint32 hour = 7;
+    uint32 day = 8;
 }

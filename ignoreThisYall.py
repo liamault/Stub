@@ -10,6 +10,4 @@ target_directories = [
 ]
 
 for directory in target_directories:
-    if not os.path.exists(directory):
-        os.makedirs(directory)
     shutil.copy(source_file, directory)
