@@ -42,7 +42,7 @@ int main() {
 
     request.set_block_duration(2);
 
-    request.set_reason(::Trade_Block_Violation);
+    request.set_reason(regulatory_to_broker::Trade_Block_Violation);
 
     // Serialize request
     string requestStr;
@@ -82,8 +82,8 @@ int main() {
         return 1;
     }
 
-    const std::string statusStr = regulatory_to_broker::ResponseType(response.response());
-    cout << "Server Response: " << statusStr << endl;
+    // const std::string statusStr = regulatory_to_broker::ResponseType(response.response());
+    cout << "Server Response: " << response.DebugString() << endl;
 
     // Cleanup
     close(sockfd);

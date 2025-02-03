@@ -14,7 +14,7 @@
 
 using namespace std;
 
-static unsigned short port = 1866;
+static unsigned short port = 1867;
 static uint32_t maxMesg = 2048;
 
 // inet glal variables
