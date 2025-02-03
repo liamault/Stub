@@ -1,0 +1,34 @@
+//The brokerage sends deposit or withdrawal requests, and the bank responds with 0 for valid transactions and 1 for invalid ones.
+syntax = "proto3";
+
+import "common.proto";
+
+message Withdraw {
+  BrokerageId brokerage_id = 1;
+  Price price = 2;
+}
+
+message Deposit {
+  BrokerageId brokerage_id = 1;
+  Price price = 2;
+}
+
+message UpdateAccount {
+  Header header = 1;
+  oneof payload {
+    Withdraw withdraw = 2;
+    Deposit deposit = 3;
+  }
+}
+
+message Ack {
+  enum ResponseType {
+    INVALID = 0;
+    MALFORMED_MESSAGE = 1;
+    INVALID_TRANSACTION_ID = 2; // Every transaction needs to be unique
+    INVALID_BROKERAGE_ID = 3;
+    // Confirmations
+    SUCCESS = 4;
+  }
+  ResponseType response = 1;
+}
