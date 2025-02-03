@@ -23,8 +23,7 @@ static struct sockaddr_in servaddr;
 static atomic<uint32_t> serial = 0;
 
 int main(int argc, char * argv[]) {
-    cout << "test" << endl;
-
+    cout << "waiting for request..." << endl;
 
     struct sockaddr_in servaddr, cliaddr;
 
@@ -69,16 +68,25 @@ int main(int argc, char * argv[]) {
             return 0;
         }
 
-        cout << "message parsed:\n";
-        cout << "trader " << request.brokerage().trader() << " at brokerage " << request.brokerage().brokerage();
-        cout << " will be banned for " << request.block_duration() << " due to " << request.reason();
+        cout << "message parsed:" << endl;
+        cout << "trader " << request.brokerage().trader() << " at brokerage " << request.brokerage().brokerage() << " will be banned for " << request.block_duration() << " days due to reason #" << request.reason() << endl;
 
-        reply.mutable_header()->CopyFrom(request.header());
+        reply.mutable_header()->set_serial(request.header().serial());
+        reply.mutable_header()->set_version(request.header().version());
         reply.mutable_header()->set_magic(::Magic::BROKERAGE);
         reply.set_response(regulatory_to_broker::ResponseType::OK);
 
-        uint32_t replyVal = reply.ByteSizeLong();
-        int servern = sendto(sockfd, udpMessage, replyVal, MSG_CONFIRM, (const struct sockaddr *) &cliaddr, len);
+        cout << "Sending response: " << reply.DebugString() << endl;
 
+        string responseStr;
+        if (!reply.SerializeToString(&responseStr)) {
+            cerr << "Failed to serialize response" << endl;
+            continue;
+        }
+
+        int servern = sendto(sockfd, responseStr.c_str(), responseStr.size(), MSG_CONFIRM, (const struct sockaddr *) &cliaddr, len);
+        if (servern < 0) {
+            perror("sendto failed");
+        }
     }
 }
