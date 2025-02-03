@@ -72,8 +72,15 @@ int main(int argc, char * argv[]) {
 
         // Prepare a response
         bank_to_brokerage::EndOfDayResponse response;
+        response.mutable_header()->set_version(1);
+        response.mutable_header()->set_magic(BROKERAGE);
+        response.mutable_header()->set_serial(1);
+        
         response.set_status(bank_to_brokerage::EndOfDayResponse::SUCCESS);
 
+        //does not list success as it is default enum value
+        cout << "Sending response: " << response.DebugString() << endl;
+        
         // Serialize the response
         string responseStr;
         if (!response.SerializeToString(&responseStr)) {
