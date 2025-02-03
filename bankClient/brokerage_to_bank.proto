@@ -1,6 +1,7 @@
 //The brokerage sends deposit or withdrawal requests, and the bank responds with 0 for valid transactions and 1 for invalid ones.
 syntax = "proto3";
 
+package brokerage_to_bank;
 import "common.proto";
 
 message Withdraw {
