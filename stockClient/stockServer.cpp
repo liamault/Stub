@@ -7,7 +7,7 @@
 
 using namespace std;
 
-static unsigned short port = 5003; // Server listens on this port
+static unsigned short port = 1864; // Server listens on this port
 static uint32_t maxMesg = 2048;
 
 

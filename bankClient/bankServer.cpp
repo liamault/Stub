@@ -8,7 +8,7 @@
 
 using namespace std;
 
-static unsigned short port = 5003; // The port this server listens on
+static unsigned short port = 1864; // The port this server listens on
 static uint32_t maxMesg = 2048;    // Max message size
 
 void startServer() {
