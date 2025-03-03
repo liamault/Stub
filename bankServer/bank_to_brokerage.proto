@@ -10,26 +10,9 @@ package bank_to_brokerage;
 import "common.proto";
 
 //end of day summary request
-message EndOfDaySummaryRequest {
-    enum Operation {
-        DEPOSIT = 0;
-        WITHDRAW = 1;
-    }
-    
-    message Transaction {
-        Operation operation = 1;
-        Price amount = 2;
-        Magic component = 3;
-    }
-
-    Header header = 1;       
-    repeated Transaction transactions = 2;
-}
-
-//end of day summary response
 message EndOfDayResponse {
     enum Status {
-        SUCCESS = 0;      
+        SUCCESS = 0;
         RETRANSMIT = 1;
     }
 
@@ -37,31 +20,87 @@ message EndOfDayResponse {
     Status status = 2;
 }
 
-message Deposit {
-    Price price = 1;
-    BrokerageId brokerage_id = 2;
-}
-
-message Withdraw {
-    Price price = 1;
-    uint32 brokerage_id = 2;
-}
-
 message Update_BrokerageAccount_Req {
     Header header = 1;
     oneof payload {
-        Deposit deposit = 2;
-        Withdraw withdraw = 3;
+        Withdraw withdraw = 2;
+        Deposit deposit = 3;
     }
 }
 
 message Update_BrokerageAccount_Rep {
     Header header = 1;
-    BrokerageId brokerage_id = 3;
     enum ResponseType {
         INVALID = 0;
         MALFORMED_MESSAGE = 1;
+        INVALID_TRANSACTION_ID = 2;
+        INVALID_BROKERAGE_ID = 3;
         SUCCESS = 4;
     }
-    ResponseType response = 4;
+    ResponseType response = 2;
 }
+
+message Deposit {
+    BrokerageId brokerage_id = 1;
+    Price price = 2;
+}
+
+message Withdraw {
+    BrokerageId brokerage_id = 1;
+    Price price = 2;
+}
+// message EndOfDaySummaryRequest {
+//     enum Operation {
+//         DEPOSIT = 0;
+//         WITHDRAW = 1;
+//     }
+    
+//     message Transaction {
+//         Operation operation = 1;
+//         Price amount = 2;
+//         Magic component = 3;
+//     }
+
+//     Header header = 1;       
+//     repeated Transaction transactions = 2;
+// }
+
+// //end of day summary response
+// message EndOfDayResponse {
+//     enum Status {
+//         SUCCESS = 0;      
+//         RETRANSMIT = 1;
+//     }
+
+//     Header header = 1;
+//     Status status = 2;
+// }
+
+// message Deposit {
+//     Price price = 1;
+//     BrokerageId brokerage_id = 2;
+// }
+
+// message Withdraw {
+//     Price price = 1;
+//     uint32 brokerage_id = 2;
+// }
+
+// message Update_BrokerageAccount_Req {
+//     Header header = 1;
+//     oneof payload {
+//         Deposit deposit = 2;
+//         Withdraw withdraw = 3;
+//     }
+// }
+
+// message Update_BrokerageAccount_Rep {
+//     Header header = 1;
+//     BrokerageId brokerage_id = 3;
+//     enum ResponseType {
+//         INVALID = 0;
+//         MALFORMED_MESSAGE = 1;
+//         SUCCESS = 4;
+//     }
+//     ResponseType response = 4;
+// }

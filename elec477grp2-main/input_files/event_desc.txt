@@ -1,0 +1,30 @@
+EVENT FIELDS
+
+dayTimestamp: timestamp indicating the day of the event
+hourTimestamp: timestamp indicating the hour of the event
+eventID: identifier for the type of event described in the CSV row
+    - SOD: start of day (hour-timestamp always 0)
+    - EOD: end of day (hour-timestamp always 23)
+    - NEWS: indication of a news data item
+    - BUY: indication of a BUY request initiation for a brokerage
+    - SELL: indication of a SELL request initiation for a brokerage
+    - BUYSPEC: indication of a BUYSPECIFIC request initiation for a brokerage
+    - CANCEL: indication of a CANCEL request initiation for an existing BUY/SELL request
+    - DEPOSIT: indication of a DEPOSIT request initiation for a brokerage
+    - WITHDRAW: indication of a WITHDRAW request initiation for a brokerage
+Op1: Optional field used by certain events
+    - NEWS: either good (1), bad (-1), or neutral (0) news item (int)
+    - BUY/SELL: TraderID of trader completing trade (uint32)
+    - BUYSPEC/CANCEL: transactionID of relevant transaction (uint32)
+    - DEPOSIT/WITHDRAW: amount of money being deposited/withdrawn (uint32)
+Op2: Optional field used by certain events
+    - NEWS: ticker of the company represented in the news item (string)
+    - BUY/SELL: ticker of stock being bought/sold (string)
+Op3: Optional field used by certain events
+    - BUY/SELL: quantity of stock being bought/sold (uint32)
+Op4: Optional field used by certain events
+    - BUY/SELL: price at which stock should be bought/sold at (uint32)
+Op5: Optional field used by certain events
+    - BUY/SELL: transactionID of buy/sell request (uint32)
+Op6: Optional field used by certain events
+    - BUY/SELL: flag to indicate whether buy/sell is fraudulent (easy detection for SC) (bool)

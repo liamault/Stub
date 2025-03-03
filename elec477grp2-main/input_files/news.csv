@@ -1,0 +1,4 @@
+dayTimestamp, hourTimestamp, eventID, Op1, Op2, Op3, Op4, Op5, Op6
+1, 12, NEWS, 0, ABC
+2, 12, NEWS, 1, ABC
+3, 12, NEWS, -1, ABC
