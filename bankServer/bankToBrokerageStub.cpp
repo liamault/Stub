@@ -23,13 +23,13 @@ static int sockfd;
 static struct sockaddr_in servaddr;
 //static atomic<uint32_t> serial = 0;
 
-int main(int argc, char * argv[]) {
+void startBankServer() {
     struct sockaddr_in servaddr, cliaddr;
 
     // get a socket to recieve messges
     if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
         perror("socket creation failed");
-        return 1; // this will exit the service thread and stop the server
+        return; // this will exit the service thread and stop the server
     }
 
     // clear variables before initializing
@@ -46,7 +46,7 @@ int main(int argc, char * argv[]) {
     if (::bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)) < 0 )
     {
         perror("bind failed");
-        return 1; // this will exit the service thread and stop the server
+        return; // this will exit the service thread and stop the server
     }
 
     cout << "running server...\n";
