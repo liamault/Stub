@@ -10,6 +10,7 @@
 #include <functional>
 #include <variant>
 #include <optional>
+#include <atomic>
 
 #include "InitializationLoader.hpp"
 
@@ -62,12 +63,15 @@ private:
     time_t startTime;
     uint32_t timeScale;
     thread feederThread;
+    atomic<bool> isFinished{false}; // Flag to track completion
     void initializeEventThread();
     void feedProcess();
     function<void(Event)> eventDispatcher;
 public:
     InputFeeder(const string &file, time_t start, function<void(Event)> dispatcher,uint32_t timescale = DEFAULT_TIMESCALE);
     ~InputFeeder();
+
+    void waitUntilDone(); // wait for the thread to finish
 };
 
 #endif //INPUTFEEDER_HPP

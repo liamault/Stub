@@ -5,14 +5,15 @@
 #include <arpa/inet.h>
 #include "common.pb.h"
 #include "brokerage_to_bank.pb.h"
+#include "brokerageToBank.hpp"
 
 using namespace std;
 
 static string serverName = "bank";
-static unsigned short port = 1864;
-static uint32_t maxMesg = 2048;
+static unsigned short bankClientPort = 1864;
+static uint32_t bankClientMaxMesg = 2048;
 
-bool getAddress(const char* name, in_addr& addr) {
+bool getBankAddress(const char* name, in_addr& addr) {
     struct addrinfo *addr_result;
     struct addrinfo hints;
 
@@ -47,10 +48,10 @@ bool getAddress(const char* name, in_addr& addr) {
     return false;
 }
 
-void sendDepositRequest(int brokerageId, int dollars, int cents) {
+void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposit) {
     int sockfd;
     struct sockaddr_in servaddr;
-    char buffer[maxMesg];
+    char buffer[bankClientMaxMesg];
 
     sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     if (sockfd < 0) {
@@ -66,9 +67,9 @@ void sendDepositRequest(int brokerageId, int dollars, int cents) {
     // Lookup Server Information
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(port);
+    servaddr.sin_port = htons(bankClientPort);
 
-    if (!getAddress(serverName.c_str(), servaddr.sin_addr)) {
+    if (!getBankAddress(serverName.c_str(), servaddr.sin_addr)) {
         cerr << "Failed to resolve server address!\n";
         return;
     }
@@ -80,15 +81,22 @@ void sendDepositRequest(int brokerageId, int dollars, int cents) {
     request.mutable_header()->set_serial(1);
 
     // Set the payload as a deposit
-    auto* deposit = request.mutable_deposit();  // Fix for oneof fields
-    auto* brokerageIdMessage = deposit->mutable_brokerage_id();
-    brokerageIdMessage->set_brokerage(brokerageId);
-
-    deposit->mutable_price()->set_dollars(dollars);
-    deposit->mutable_price()->set_cents(cents);
+    if (deposit) {
+        auto* transaction = request.mutable_deposit();  // Fix for oneof fields
+        auto* brokerageIdMessage = transaction->mutable_brokerage_id();
+        brokerageIdMessage->set_brokerage(brokerageId);
+        transaction->mutable_price()->set_dollars(dollars);
+        transaction->mutable_price()->set_cents(cents);
+    } else {
+        auto* transaction = request.mutable_withdraw();  // Fix for oneof fields
+        auto* brokerageIdMessage = transaction->mutable_brokerage_id();
+        brokerageIdMessage->set_brokerage(brokerageId);
+        transaction->mutable_price()->set_dollars(dollars);
+        transaction->mutable_price()->set_cents(cents);
+    }
 
     // Serialize request
-    char serializedRequest[maxMesg];
+    char serializedRequest[bankClientMaxMesg];
     size_t requestSize = request.ByteSizeLong();
     if (!request.SerializeToArray(serializedRequest, requestSize)) {
         cerr << "Failed to serialize request" << endl;
@@ -122,10 +130,13 @@ void sendDepositRequest(int brokerageId, int dollars, int cents) {
 
 }
 
-int main() {
-    int brokerageId = 1;
+// int main() {
+//     int brokerageId = 1;
 
-    // Test deposit
-    sendDepositRequest(brokerageId, 500, 25);  // $500.25 deposit
-    return 0;
-}
+//     // Test deposit
+//     sendTransactionRequest(brokerageId, 500, 25, 1);
+//     sendTransactionRequest(brokerageId, 500, 25, 2);
+//     sendTransactionRequest(brokerageId, 500, 25, 4);
+//     sendTransactionRequest(brokerageId, 500, 25, 6);
+//     return 0;
+// }

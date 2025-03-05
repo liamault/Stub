@@ -9,27 +9,30 @@
 #include <netdb.h>
 #include <atomic>
 
-# include "bank_to_brokerage.pb.h"
-# include "common.pb.h"
+#include "bank_to_brokerage.pb.h"
+#include "common.pb.h"
+
+#include "../shutdownFlag.hpp"
+#include "bankToBrokerageStub.hpp"
 
 using namespace std;
 using namespace string_literals;
 
-static unsigned short port = 1866;
-static uint32_t maxMesg = 2048;
+static unsigned short bankServerPort = 1866;
+static uint32_t bankServerMaxMesg = 2048;
 
 // inet glal variables
 static int sockfd;
 static struct sockaddr_in servaddr;
 //static atomic<uint32_t> serial = 0;
 
-int main(int argc, char * argv[]) {
+void startBankServer() {
     struct sockaddr_in servaddr, cliaddr;
 
     // get a socket to recieve messges
     if ( (sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 ) {
         perror("socket creation failed");
-        return 1; // this will exit the service thread and stop the server
+        return; // this will exit the service thread and stop the server
     }
 
     // clear variables before initializing
@@ -40,26 +43,41 @@ int main(int argc, char * argv[]) {
     // the socket
     servaddr.sin_family = AF_INET;        // IPv4
     servaddr.sin_addr.s_addr = INADDR_ANY;   // whatever interface is available
-    servaddr.sin_port = htons(port);
+    servaddr.sin_port = htons(bankServerPort);
 
     // Bind the socket with the server address
     if (::bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)) < 0 )
     {
         perror("bind failed");
-        return 1; // this will exit the service thread and stop the server
+        return; // this will exit the service thread and stop the server
     }
 
-    cout << "running server...\n";
+    cout << "running Bank server on port..." << bankServerPort << "\n" << endl;
 
     socklen_t len;
-    uint8_t udpMessage[maxMesg];
+    uint8_t udpMessage[bankServerMaxMesg];
     int n;
 
-    while(true){
+    struct timeval timeout;//timeouts for checking the shutdown flag
+    timeout.tv_sec = 1;  // 1 second timeout
+    timeout.tv_usec = 0;
+    setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
+
+    while(!shutdownFlag.load()){
         // wait for a mesage from a client
         len = sizeof(cliaddr);  //len is value/result
-        n = recvfrom(sockfd, (uint8_t *)udpMessage, maxMesg, MSG_WAITALL, ( struct sockaddr *) &cliaddr, &len);
-        cout << "request received: " << n << "\n";
+        n = recvfrom(sockfd, (uint8_t *)udpMessage, bankServerMaxMesg, MSG_WAITALL, ( struct sockaddr *) &cliaddr, &len);
+
+        if (n < 0) {  
+            if (errno == EWOULDBLOCK || errno == EAGAIN) {
+                continue;  // Just loop back to check shutdownFlag
+            } else {
+                perror("recvfrom failed");
+                break;
+            }
+        }
+        
+        cout << "request received from bank: " << n << "\n";
         bank_to_brokerage::EndOfDaySummaryRequest request;
         if (!request.ParseFromArray(udpMessage, n)) {
             cerr << "Failed to parse request.\n";
@@ -93,9 +111,6 @@ int main(int argc, char * argv[]) {
         if (servern < 0) {
             perror("sendto failed");
         }
-
-//        if(doCommand(udpMessage,n,maxMesg)){
-//            int servern = sendto(sockfd, udpMessage, n, MSG_CONFIRM, (const struct sockaddr *) &cliaddr, len);
-//        }
     }
+    close(sockfd);
 }

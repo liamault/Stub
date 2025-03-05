@@ -79,12 +79,14 @@ enum Response_ResponseType : int {
   Response_ResponseType_INVALID_BROKERAGE_ID = 3,
   Response_ResponseType_INVALID_PRICE = 4,
   Response_ResponseType_SUCCESS = 5,
+  Response_ResponseType_WITHDRAW_FAILED_NOT_ENOUGH_BALANCE = 6,
+  Response_ResponseType_NO_MATCHING_REQUEST = 7,
   Response_ResponseType_Response_ResponseType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   Response_ResponseType_Response_ResponseType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool Response_ResponseType_IsValid(int value);
 constexpr Response_ResponseType Response_ResponseType_ResponseType_MIN = Response_ResponseType_INVALID;
-constexpr Response_ResponseType Response_ResponseType_ResponseType_MAX = Response_ResponseType_SUCCESS;
+constexpr Response_ResponseType Response_ResponseType_ResponseType_MAX = Response_ResponseType_NO_MATCHING_REQUEST;
 constexpr int Response_ResponseType_ResponseType_ARRAYSIZE = Response_ResponseType_ResponseType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Response_ResponseType_descriptor();
@@ -101,31 +103,30 @@ inline bool Response_ResponseType_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Response_ResponseType>(
     Response_ResponseType_descriptor(), name, value);
 }
-enum Query_BuyOrSell : int {
-  Query_BuyOrSell_BUY = 0,
-  Query_BuyOrSell_SELL = 1,
-  Query_BuyOrSell_BUY_OR_SELL = 2,
-  Query_BuyOrSell_Query_BuyOrSell_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
-  Query_BuyOrSell_Query_BuyOrSell_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+enum BuyOrSell : int {
+  BUY = 0,
+  SELL = 1,
+  BuyOrSell_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  BuyOrSell_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
-bool Query_BuyOrSell_IsValid(int value);
-constexpr Query_BuyOrSell Query_BuyOrSell_BuyOrSell_MIN = Query_BuyOrSell_BUY;
-constexpr Query_BuyOrSell Query_BuyOrSell_BuyOrSell_MAX = Query_BuyOrSell_BUY_OR_SELL;
-constexpr int Query_BuyOrSell_BuyOrSell_ARRAYSIZE = Query_BuyOrSell_BuyOrSell_MAX + 1;
+bool BuyOrSell_IsValid(int value);
+constexpr BuyOrSell BuyOrSell_MIN = BUY;
+constexpr BuyOrSell BuyOrSell_MAX = SELL;
+constexpr int BuyOrSell_ARRAYSIZE = BuyOrSell_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Query_BuyOrSell_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BuyOrSell_descriptor();
 template<typename T>
-inline const std::string& Query_BuyOrSell_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, Query_BuyOrSell>::value ||
+inline const std::string& BuyOrSell_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, BuyOrSell>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function Query_BuyOrSell_Name.");
+    "Incorrect type passed to function BuyOrSell_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    Query_BuyOrSell_descriptor(), enum_t_value);
+    BuyOrSell_descriptor(), enum_t_value);
 }
-inline bool Query_BuyOrSell_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Query_BuyOrSell* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<Query_BuyOrSell>(
-    Query_BuyOrSell_descriptor(), name, value);
+inline bool BuyOrSell_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, BuyOrSell* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<BuyOrSell>(
+    BuyOrSell_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -542,6 +543,10 @@ class Response final :
     Response_ResponseType_INVALID_PRICE;
   static constexpr ResponseType SUCCESS =
     Response_ResponseType_SUCCESS;
+  static constexpr ResponseType WITHDRAW_FAILED_NOT_ENOUGH_BALANCE =
+    Response_ResponseType_WITHDRAW_FAILED_NOT_ENOUGH_BALANCE;
+  static constexpr ResponseType NO_MATCHING_REQUEST =
+    Response_ResponseType_NO_MATCHING_REQUEST;
   static inline bool ResponseType_IsValid(int value) {
     return Response_ResponseType_IsValid(value);
   }
@@ -812,14 +817,23 @@ class BuySpec final :
     kBrokerageIdFieldNumber = 1,
     kTransactionIdFieldNumber = 2,
   };
-  // uint32 brokerage_id = 1;
-  void clear_brokerage_id();
-  uint32_t brokerage_id() const;
-  void set_brokerage_id(uint32_t value);
+  // .BrokerageId brokerage_id = 1;
+  bool has_brokerage_id() const;
   private:
-  uint32_t _internal_brokerage_id() const;
-  void _internal_set_brokerage_id(uint32_t value);
+  bool _internal_has_brokerage_id() const;
   public:
+  void clear_brokerage_id();
+  const ::BrokerageId& brokerage_id() const;
+  PROTOBUF_NODISCARD ::BrokerageId* release_brokerage_id();
+  ::BrokerageId* mutable_brokerage_id();
+  void set_allocated_brokerage_id(::BrokerageId* brokerage_id);
+  private:
+  const ::BrokerageId& _internal_brokerage_id() const;
+  ::BrokerageId* _internal_mutable_brokerage_id();
+  public:
+  void unsafe_arena_set_allocated_brokerage_id(
+      ::BrokerageId* brokerage_id);
+  ::BrokerageId* unsafe_arena_release_brokerage_id();
 
   // uint32 transaction_id = 2;
   void clear_transaction_id();
@@ -838,7 +852,7 @@ class BuySpec final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    uint32_t brokerage_id_;
+    ::BrokerageId* brokerage_id_;
     uint32_t transaction_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -971,14 +985,23 @@ class Cancel final :
     kBrokerageIdFieldNumber = 1,
     kTransactionIdFieldNumber = 2,
   };
-  // uint32 brokerage_id = 1;
-  void clear_brokerage_id();
-  uint32_t brokerage_id() const;
-  void set_brokerage_id(uint32_t value);
+  // .BrokerageId brokerage_id = 1;
+  bool has_brokerage_id() const;
   private:
-  uint32_t _internal_brokerage_id() const;
-  void _internal_set_brokerage_id(uint32_t value);
+  bool _internal_has_brokerage_id() const;
   public:
+  void clear_brokerage_id();
+  const ::BrokerageId& brokerage_id() const;
+  PROTOBUF_NODISCARD ::BrokerageId* release_brokerage_id();
+  ::BrokerageId* mutable_brokerage_id();
+  void set_allocated_brokerage_id(::BrokerageId* brokerage_id);
+  private:
+  const ::BrokerageId& _internal_brokerage_id() const;
+  ::BrokerageId* _internal_mutable_brokerage_id();
+  public:
+  void unsafe_arena_set_allocated_brokerage_id(
+      ::BrokerageId* brokerage_id);
+  ::BrokerageId* unsafe_arena_release_brokerage_id();
 
   // uint32 transaction_id = 2;
   void clear_transaction_id();
@@ -997,7 +1020,7 @@ class Cancel final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
-    uint32_t brokerage_id_;
+    ::BrokerageId* brokerage_id_;
     uint32_t transaction_id_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1124,38 +1147,6 @@ class Query final :
 
   // nested types ----------------------------------------------------
 
-  typedef Query_BuyOrSell BuyOrSell;
-  static constexpr BuyOrSell BUY =
-    Query_BuyOrSell_BUY;
-  static constexpr BuyOrSell SELL =
-    Query_BuyOrSell_SELL;
-  static constexpr BuyOrSell BUY_OR_SELL =
-    Query_BuyOrSell_BUY_OR_SELL;
-  static inline bool BuyOrSell_IsValid(int value) {
-    return Query_BuyOrSell_IsValid(value);
-  }
-  static constexpr BuyOrSell BuyOrSell_MIN =
-    Query_BuyOrSell_BuyOrSell_MIN;
-  static constexpr BuyOrSell BuyOrSell_MAX =
-    Query_BuyOrSell_BuyOrSell_MAX;
-  static constexpr int BuyOrSell_ARRAYSIZE =
-    Query_BuyOrSell_BuyOrSell_ARRAYSIZE;
-  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
-  BuyOrSell_descriptor() {
-    return Query_BuyOrSell_descriptor();
-  }
-  template<typename T>
-  static inline const std::string& BuyOrSell_Name(T enum_t_value) {
-    static_assert(::std::is_same<T, BuyOrSell>::value ||
-      ::std::is_integral<T>::value,
-      "Incorrect type passed to function BuyOrSell_Name.");
-    return Query_BuyOrSell_Name(enum_t_value);
-  }
-  static inline bool BuyOrSell_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
-      BuyOrSell* value) {
-    return Query_BuyOrSell_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
   enum : int {
@@ -1215,13 +1206,13 @@ class Query final :
       ::BrokerageId* brokerage_id_look);
   ::BrokerageId* unsafe_arena_release_brokerage_id_look();
 
-  // .stock_exchange.Query.BuyOrSell buy_or_sell = 4;
+  // .stock_exchange.BuyOrSell buy_or_sell = 4;
   void clear_buy_or_sell();
-  ::stock_exchange::Query_BuyOrSell buy_or_sell() const;
-  void set_buy_or_sell(::stock_exchange::Query_BuyOrSell value);
+  ::stock_exchange::BuyOrSell buy_or_sell() const;
+  void set_buy_or_sell(::stock_exchange::BuyOrSell value);
   private:
-  ::stock_exchange::Query_BuyOrSell _internal_buy_or_sell() const;
-  void _internal_set_buy_or_sell(::stock_exchange::Query_BuyOrSell value);
+  ::stock_exchange::BuyOrSell _internal_buy_or_sell() const;
+  void _internal_set_buy_or_sell(::stock_exchange::BuyOrSell value);
   public:
 
   // uint32 filters = 5;
@@ -2002,24 +1993,89 @@ Response::sells() const {
 
 // BuySpec
 
-// uint32 brokerage_id = 1;
-inline void BuySpec::clear_brokerage_id() {
-  _impl_.brokerage_id_ = 0u;
+// .BrokerageId brokerage_id = 1;
+inline bool BuySpec::_internal_has_brokerage_id() const {
+  return this != internal_default_instance() && _impl_.brokerage_id_ != nullptr;
 }
-inline uint32_t BuySpec::_internal_brokerage_id() const {
-  return _impl_.brokerage_id_;
+inline bool BuySpec::has_brokerage_id() const {
+  return _internal_has_brokerage_id();
 }
-inline uint32_t BuySpec::brokerage_id() const {
+inline const ::BrokerageId& BuySpec::_internal_brokerage_id() const {
+  const ::BrokerageId* p = _impl_.brokerage_id_;
+  return p != nullptr ? *p : reinterpret_cast<const ::BrokerageId&>(
+      ::_BrokerageId_default_instance_);
+}
+inline const ::BrokerageId& BuySpec::brokerage_id() const {
   // @@protoc_insertion_point(field_get:stock_exchange.BuySpec.brokerage_id)
   return _internal_brokerage_id();
 }
-inline void BuySpec::_internal_set_brokerage_id(uint32_t value) {
-  
-  _impl_.brokerage_id_ = value;
+inline void BuySpec::unsafe_arena_set_allocated_brokerage_id(
+    ::BrokerageId* brokerage_id) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.brokerage_id_);
+  }
+  _impl_.brokerage_id_ = brokerage_id;
+  if (brokerage_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:stock_exchange.BuySpec.brokerage_id)
 }
-inline void BuySpec::set_brokerage_id(uint32_t value) {
-  _internal_set_brokerage_id(value);
-  // @@protoc_insertion_point(field_set:stock_exchange.BuySpec.brokerage_id)
+inline ::BrokerageId* BuySpec::release_brokerage_id() {
+  
+  ::BrokerageId* temp = _impl_.brokerage_id_;
+  _impl_.brokerage_id_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::BrokerageId* BuySpec::unsafe_arena_release_brokerage_id() {
+  // @@protoc_insertion_point(field_release:stock_exchange.BuySpec.brokerage_id)
+  
+  ::BrokerageId* temp = _impl_.brokerage_id_;
+  _impl_.brokerage_id_ = nullptr;
+  return temp;
+}
+inline ::BrokerageId* BuySpec::_internal_mutable_brokerage_id() {
+  
+  if (_impl_.brokerage_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::BrokerageId>(GetArenaForAllocation());
+    _impl_.brokerage_id_ = p;
+  }
+  return _impl_.brokerage_id_;
+}
+inline ::BrokerageId* BuySpec::mutable_brokerage_id() {
+  ::BrokerageId* _msg = _internal_mutable_brokerage_id();
+  // @@protoc_insertion_point(field_mutable:stock_exchange.BuySpec.brokerage_id)
+  return _msg;
+}
+inline void BuySpec::set_allocated_brokerage_id(::BrokerageId* brokerage_id) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.brokerage_id_);
+  }
+  if (brokerage_id) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(brokerage_id));
+    if (message_arena != submessage_arena) {
+      brokerage_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, brokerage_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.brokerage_id_ = brokerage_id;
+  // @@protoc_insertion_point(field_set_allocated:stock_exchange.BuySpec.brokerage_id)
 }
 
 // uint32 transaction_id = 2;
@@ -2046,24 +2102,89 @@ inline void BuySpec::set_transaction_id(uint32_t value) {
 
 // Cancel
 
-// uint32 brokerage_id = 1;
-inline void Cancel::clear_brokerage_id() {
-  _impl_.brokerage_id_ = 0u;
+// .BrokerageId brokerage_id = 1;
+inline bool Cancel::_internal_has_brokerage_id() const {
+  return this != internal_default_instance() && _impl_.brokerage_id_ != nullptr;
 }
-inline uint32_t Cancel::_internal_brokerage_id() const {
-  return _impl_.brokerage_id_;
+inline bool Cancel::has_brokerage_id() const {
+  return _internal_has_brokerage_id();
 }
-inline uint32_t Cancel::brokerage_id() const {
+inline const ::BrokerageId& Cancel::_internal_brokerage_id() const {
+  const ::BrokerageId* p = _impl_.brokerage_id_;
+  return p != nullptr ? *p : reinterpret_cast<const ::BrokerageId&>(
+      ::_BrokerageId_default_instance_);
+}
+inline const ::BrokerageId& Cancel::brokerage_id() const {
   // @@protoc_insertion_point(field_get:stock_exchange.Cancel.brokerage_id)
   return _internal_brokerage_id();
 }
-inline void Cancel::_internal_set_brokerage_id(uint32_t value) {
-  
-  _impl_.brokerage_id_ = value;
+inline void Cancel::unsafe_arena_set_allocated_brokerage_id(
+    ::BrokerageId* brokerage_id) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.brokerage_id_);
+  }
+  _impl_.brokerage_id_ = brokerage_id;
+  if (brokerage_id) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:stock_exchange.Cancel.brokerage_id)
 }
-inline void Cancel::set_brokerage_id(uint32_t value) {
-  _internal_set_brokerage_id(value);
-  // @@protoc_insertion_point(field_set:stock_exchange.Cancel.brokerage_id)
+inline ::BrokerageId* Cancel::release_brokerage_id() {
+  
+  ::BrokerageId* temp = _impl_.brokerage_id_;
+  _impl_.brokerage_id_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::BrokerageId* Cancel::unsafe_arena_release_brokerage_id() {
+  // @@protoc_insertion_point(field_release:stock_exchange.Cancel.brokerage_id)
+  
+  ::BrokerageId* temp = _impl_.brokerage_id_;
+  _impl_.brokerage_id_ = nullptr;
+  return temp;
+}
+inline ::BrokerageId* Cancel::_internal_mutable_brokerage_id() {
+  
+  if (_impl_.brokerage_id_ == nullptr) {
+    auto* p = CreateMaybeMessage<::BrokerageId>(GetArenaForAllocation());
+    _impl_.brokerage_id_ = p;
+  }
+  return _impl_.brokerage_id_;
+}
+inline ::BrokerageId* Cancel::mutable_brokerage_id() {
+  ::BrokerageId* _msg = _internal_mutable_brokerage_id();
+  // @@protoc_insertion_point(field_mutable:stock_exchange.Cancel.brokerage_id)
+  return _msg;
+}
+inline void Cancel::set_allocated_brokerage_id(::BrokerageId* brokerage_id) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.brokerage_id_);
+  }
+  if (brokerage_id) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(brokerage_id));
+    if (message_arena != submessage_arena) {
+      brokerage_id = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, brokerage_id, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.brokerage_id_ = brokerage_id;
+  // @@protoc_insertion_point(field_set_allocated:stock_exchange.Cancel.brokerage_id)
 }
 
 // uint32 transaction_id = 2;
@@ -2310,22 +2431,22 @@ inline void Query::set_allocated_stock_ticker(std::string* stock_ticker) {
   // @@protoc_insertion_point(field_set_allocated:stock_exchange.Query.stock_ticker)
 }
 
-// .stock_exchange.Query.BuyOrSell buy_or_sell = 4;
+// .stock_exchange.BuyOrSell buy_or_sell = 4;
 inline void Query::clear_buy_or_sell() {
   _impl_.buy_or_sell_ = 0;
 }
-inline ::stock_exchange::Query_BuyOrSell Query::_internal_buy_or_sell() const {
-  return static_cast< ::stock_exchange::Query_BuyOrSell >(_impl_.buy_or_sell_);
+inline ::stock_exchange::BuyOrSell Query::_internal_buy_or_sell() const {
+  return static_cast< ::stock_exchange::BuyOrSell >(_impl_.buy_or_sell_);
 }
-inline ::stock_exchange::Query_BuyOrSell Query::buy_or_sell() const {
+inline ::stock_exchange::BuyOrSell Query::buy_or_sell() const {
   // @@protoc_insertion_point(field_get:stock_exchange.Query.buy_or_sell)
   return _internal_buy_or_sell();
 }
-inline void Query::_internal_set_buy_or_sell(::stock_exchange::Query_BuyOrSell value) {
+inline void Query::_internal_set_buy_or_sell(::stock_exchange::BuyOrSell value) {
   
   _impl_.buy_or_sell_ = value;
 }
-inline void Query::set_buy_or_sell(::stock_exchange::Query_BuyOrSell value) {
+inline void Query::set_buy_or_sell(::stock_exchange::BuyOrSell value) {
   _internal_set_buy_or_sell(value);
   // @@protoc_insertion_point(field_set:stock_exchange.Query.buy_or_sell)
 }
@@ -2373,10 +2494,10 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::stock_exchange::Response_ResponseType>() {
   return ::stock_exchange::Response_ResponseType_descriptor();
 }
-template <> struct is_proto_enum< ::stock_exchange::Query_BuyOrSell> : ::std::true_type {};
+template <> struct is_proto_enum< ::stock_exchange::BuyOrSell> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::stock_exchange::Query_BuyOrSell>() {
-  return ::stock_exchange::Query_BuyOrSell_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::stock_exchange::BuyOrSell>() {
+  return ::stock_exchange::BuyOrSell_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

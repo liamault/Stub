@@ -111,4 +111,11 @@ void InputFeeder::feedProcess() {
 
     }
     file.close(); // close filestream
+    isFinished.store(true); // set flag to true
+}
+
+void InputFeeder::waitUntilDone() {
+    while (!isFinished.load()) {
+        this_thread::sleep_for(chrono::milliseconds(100)); // Polling every 100ms
+    }
 }

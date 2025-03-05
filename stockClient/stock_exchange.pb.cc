@@ -56,7 +56,7 @@ struct ResponseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ResponseDefaultTypeInternal _Response_default_instance_;
 PROTOBUF_CONSTEXPR BuySpec::BuySpec(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.brokerage_id_)*/0u
+    /*decltype(_impl_.brokerage_id_)*/nullptr
   , /*decltype(_impl_.transaction_id_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct BuySpecDefaultTypeInternal {
@@ -70,7 +70,7 @@ struct BuySpecDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 BuySpecDefaultTypeInternal _BuySpec_default_instance_;
 PROTOBUF_CONSTEXPR Cancel::Cancel(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.brokerage_id_)*/0u
+    /*decltype(_impl_.brokerage_id_)*/nullptr
   , /*decltype(_impl_.transaction_id_)*/0u
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct CancelDefaultTypeInternal {
@@ -181,32 +181,33 @@ const char descriptor_table_protodef_stock_5fexchange_2eproto[] PROTOBUF_SECTION
   "l\030\003 \001(\0132\010.BuySellH\000\022+\n\010buy_spec\030\004 \001(\0132\027."
   "stock_exchange.BuySpecH\000\022&\n\005query\030\005 \001(\0132"
   "\025.stock_exchange.QueryH\000\022(\n\006cancel\030\006 \001(\013"
-  "2\026.stock_exchange.CancelH\000B\t\n\007payload\"\324\002"
+  "2\026.stock_exchange.CancelH\000B\t\n\007payload\"\225\003"
   "\n\010Response\022\027\n\006header\030\001 \001(\0132\007.Header\022\026\n\016t"
   "ransaction_id\030\002 \001(\r\022\"\n\014brokerage_id\030\003 \001("
   "\0132\014.BrokerageId\0227\n\010response\030\004 \001(\0162%.stoc"
   "k_exchange.Response.ResponseType\022\026\n\004buys"
   "\030\005 \003(\0132\010.BuySell\022\027\n\005sells\030\006 \003(\0132\010.BuySel"
-  "l\"\210\001\n\014ResponseType\022\013\n\007INVALID\020\000\022\025\n\021MALFO"
+  "l\"\311\001\n\014ResponseType\022\013\n\007INVALID\020\000\022\025\n\021MALFO"
   "RMED_MESSAGE\020\001\022\032\n\026INVALID_TRANSACTION_ID"
   "\020\002\022\030\n\024INVALID_BROKERAGE_ID\020\003\022\021\n\rINVALID_"
-  "PRICE\020\004\022\013\n\007SUCCESS\020\005\"7\n\007BuySpec\022\024\n\014broke"
-  "rage_id\030\001 \001(\r\022\026\n\016transaction_id\030\002 \001(\r\"6\n"
-  "\006Cancel\022\024\n\014brokerage_id\030\001 \001(\r\022\026\n\016transac"
-  "tion_id\030\002 \001(\r\"\342\001\n\005Query\022\"\n\014brokerage_id\030"
-  "\001 \001(\0132\014.BrokerageId\022\'\n\021brokerage_id_look"
-  "\030\002 \001(\0132\014.BrokerageId\022\024\n\014stock_ticker\030\003 \001"
-  "(\t\0224\n\013buy_or_sell\030\004 \001(\0162\037.stock_exchange"
-  ".Query.BuyOrSell\022\017\n\007filters\030\005 \001(\r\"/\n\tBuy"
-  "OrSell\022\007\n\003BUY\020\000\022\010\n\004SELL\020\001\022\017\n\013BUY_OR_SELL"
-  "\020\002b\006proto3"
+  "PRICE\020\004\022\013\n\007SUCCESS\020\005\022&\n\"WITHDRAW_FAILED_"
+  "NOT_ENOUGH_BALANCE\020\006\022\027\n\023NO_MATCHING_REQU"
+  "EST\020\007\"E\n\007BuySpec\022\"\n\014brokerage_id\030\001 \001(\0132\014"
+  ".BrokerageId\022\026\n\016transaction_id\030\002 \001(\r\"D\n\006"
+  "Cancel\022\"\n\014brokerage_id\030\001 \001(\0132\014.Brokerage"
+  "Id\022\026\n\016transaction_id\030\002 \001(\r\"\253\001\n\005Query\022\"\n\014"
+  "brokerage_id\030\001 \001(\0132\014.BrokerageId\022\'\n\021brok"
+  "erage_id_look\030\002 \001(\0132\014.BrokerageId\022\024\n\014sto"
+  "ck_ticker\030\003 \001(\t\022.\n\013buy_or_sell\030\004 \001(\0162\031.s"
+  "tock_exchange.BuyOrSell\022\017\n\007filters\030\005 \001(\r"
+  "*\036\n\tBuyOrSell\022\007\n\003BUY\020\000\022\010\n\004SELL\020\001b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_stock_5fexchange_2eproto_deps[1] = {
   &::descriptor_table_common_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_stock_5fexchange_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_stock_5fexchange_2eproto = {
-    false, false, 970, descriptor_table_protodef_stock_5fexchange_2eproto,
+    false, false, 1040, descriptor_table_protodef_stock_5fexchange_2eproto,
     "stock_exchange.proto",
     &descriptor_table_stock_5fexchange_2eproto_once, descriptor_table_stock_5fexchange_2eproto_deps, 1, 5,
     schemas, file_default_instances, TableStruct_stock_5fexchange_2eproto::offsets,
@@ -232,6 +233,8 @@ bool Response_ResponseType_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
+    case 7:
       return true;
     default:
       return false;
@@ -245,33 +248,26 @@ constexpr Response_ResponseType Response::INVALID_TRANSACTION_ID;
 constexpr Response_ResponseType Response::INVALID_BROKERAGE_ID;
 constexpr Response_ResponseType Response::INVALID_PRICE;
 constexpr Response_ResponseType Response::SUCCESS;
+constexpr Response_ResponseType Response::WITHDRAW_FAILED_NOT_ENOUGH_BALANCE;
+constexpr Response_ResponseType Response::NO_MATCHING_REQUEST;
 constexpr Response_ResponseType Response::ResponseType_MIN;
 constexpr Response_ResponseType Response::ResponseType_MAX;
 constexpr int Response::ResponseType_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Query_BuyOrSell_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* BuyOrSell_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_stock_5fexchange_2eproto);
   return file_level_enum_descriptors_stock_5fexchange_2eproto[1];
 }
-bool Query_BuyOrSell_IsValid(int value) {
+bool BuyOrSell_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
-    case 2:
       return true;
     default:
       return false;
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr Query_BuyOrSell Query::BUY;
-constexpr Query_BuyOrSell Query::SELL;
-constexpr Query_BuyOrSell Query::BUY_OR_SELL;
-constexpr Query_BuyOrSell Query::BuyOrSell_MIN;
-constexpr Query_BuyOrSell Query::BuyOrSell_MAX;
-constexpr int Query::BuyOrSell_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 
 // ===================================================================
 
@@ -1204,8 +1200,19 @@ void Response::InternalSwap(Response* other) {
 
 class BuySpec::_Internal {
  public:
+  static const ::BrokerageId& brokerage_id(const BuySpec* msg);
 };
 
+const ::BrokerageId&
+BuySpec::_Internal::brokerage_id(const BuySpec* msg) {
+  return *msg->_impl_.brokerage_id_;
+}
+void BuySpec::clear_brokerage_id() {
+  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
+    delete _impl_.brokerage_id_;
+  }
+  _impl_.brokerage_id_ = nullptr;
+}
 BuySpec::BuySpec(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -1216,14 +1223,15 @@ BuySpec::BuySpec(const BuySpec& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   BuySpec* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.brokerage_id_){}
+      decltype(_impl_.brokerage_id_){nullptr}
     , decltype(_impl_.transaction_id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.brokerage_id_, &from._impl_.brokerage_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.transaction_id_) -
-    reinterpret_cast<char*>(&_impl_.brokerage_id_)) + sizeof(_impl_.transaction_id_));
+  if (from._internal_has_brokerage_id()) {
+    _this->_impl_.brokerage_id_ = new ::BrokerageId(*from._impl_.brokerage_id_);
+  }
+  _this->_impl_.transaction_id_ = from._impl_.transaction_id_;
   // @@protoc_insertion_point(copy_constructor:stock_exchange.BuySpec)
 }
 
@@ -1232,7 +1240,7 @@ inline void BuySpec::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.brokerage_id_){0u}
+      decltype(_impl_.brokerage_id_){nullptr}
     , decltype(_impl_.transaction_id_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -1249,6 +1257,7 @@ BuySpec::~BuySpec() {
 
 inline void BuySpec::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.brokerage_id_;
 }
 
 void BuySpec::SetCachedSize(int size) const {
@@ -1261,9 +1270,11 @@ void BuySpec::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&_impl_.brokerage_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.transaction_id_) -
-      reinterpret_cast<char*>(&_impl_.brokerage_id_)) + sizeof(_impl_.transaction_id_));
+  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
+    delete _impl_.brokerage_id_;
+  }
+  _impl_.brokerage_id_ = nullptr;
+  _impl_.transaction_id_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1273,10 +1284,10 @@ const char* BuySpec::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 brokerage_id = 1;
+      // .BrokerageId brokerage_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.brokerage_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_brokerage_id(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1318,10 +1329,11 @@ uint8_t* BuySpec::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 brokerage_id = 1;
-  if (this->_internal_brokerage_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_brokerage_id(), target);
+  // .BrokerageId brokerage_id = 1;
+  if (this->_internal_has_brokerage_id()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::brokerage_id(this),
+        _Internal::brokerage_id(this).GetCachedSize(), target, stream);
   }
 
   // uint32 transaction_id = 2;
@@ -1346,9 +1358,11 @@ size_t BuySpec::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 brokerage_id = 1;
-  if (this->_internal_brokerage_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_brokerage_id());
+  // .BrokerageId brokerage_id = 1;
+  if (this->_internal_has_brokerage_id()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.brokerage_id_);
   }
 
   // uint32 transaction_id = 2;
@@ -1374,8 +1388,9 @@ void BuySpec::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOB
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_brokerage_id() != 0) {
-    _this->_internal_set_brokerage_id(from._internal_brokerage_id());
+  if (from._internal_has_brokerage_id()) {
+    _this->_internal_mutable_brokerage_id()->::BrokerageId::MergeFrom(
+        from._internal_brokerage_id());
   }
   if (from._internal_transaction_id() != 0) {
     _this->_internal_set_transaction_id(from._internal_transaction_id());
@@ -1415,8 +1430,19 @@ void BuySpec::InternalSwap(BuySpec* other) {
 
 class Cancel::_Internal {
  public:
+  static const ::BrokerageId& brokerage_id(const Cancel* msg);
 };
 
+const ::BrokerageId&
+Cancel::_Internal::brokerage_id(const Cancel* msg) {
+  return *msg->_impl_.brokerage_id_;
+}
+void Cancel::clear_brokerage_id() {
+  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
+    delete _impl_.brokerage_id_;
+  }
+  _impl_.brokerage_id_ = nullptr;
+}
 Cancel::Cancel(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -1427,14 +1453,15 @@ Cancel::Cancel(const Cancel& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   Cancel* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.brokerage_id_){}
+      decltype(_impl_.brokerage_id_){nullptr}
     , decltype(_impl_.transaction_id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.brokerage_id_, &from._impl_.brokerage_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.transaction_id_) -
-    reinterpret_cast<char*>(&_impl_.brokerage_id_)) + sizeof(_impl_.transaction_id_));
+  if (from._internal_has_brokerage_id()) {
+    _this->_impl_.brokerage_id_ = new ::BrokerageId(*from._impl_.brokerage_id_);
+  }
+  _this->_impl_.transaction_id_ = from._impl_.transaction_id_;
   // @@protoc_insertion_point(copy_constructor:stock_exchange.Cancel)
 }
 
@@ -1443,7 +1470,7 @@ inline void Cancel::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.brokerage_id_){0u}
+      decltype(_impl_.brokerage_id_){nullptr}
     , decltype(_impl_.transaction_id_){0u}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -1460,6 +1487,7 @@ Cancel::~Cancel() {
 
 inline void Cancel::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.brokerage_id_;
 }
 
 void Cancel::SetCachedSize(int size) const {
@@ -1472,9 +1500,11 @@ void Cancel::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&_impl_.brokerage_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.transaction_id_) -
-      reinterpret_cast<char*>(&_impl_.brokerage_id_)) + sizeof(_impl_.transaction_id_));
+  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
+    delete _impl_.brokerage_id_;
+  }
+  _impl_.brokerage_id_ = nullptr;
+  _impl_.transaction_id_ = 0u;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1484,10 +1514,10 @@ const char* Cancel::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 brokerage_id = 1;
+      // .BrokerageId brokerage_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _impl_.brokerage_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_brokerage_id(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1529,10 +1559,11 @@ uint8_t* Cancel::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 brokerage_id = 1;
-  if (this->_internal_brokerage_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_brokerage_id(), target);
+  // .BrokerageId brokerage_id = 1;
+  if (this->_internal_has_brokerage_id()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::brokerage_id(this),
+        _Internal::brokerage_id(this).GetCachedSize(), target, stream);
   }
 
   // uint32 transaction_id = 2;
@@ -1557,9 +1588,11 @@ size_t Cancel::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 brokerage_id = 1;
-  if (this->_internal_brokerage_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_brokerage_id());
+  // .BrokerageId brokerage_id = 1;
+  if (this->_internal_has_brokerage_id()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.brokerage_id_);
   }
 
   // uint32 transaction_id = 2;
@@ -1585,8 +1618,9 @@ void Cancel::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_brokerage_id() != 0) {
-    _this->_internal_set_brokerage_id(from._internal_brokerage_id());
+  if (from._internal_has_brokerage_id()) {
+    _this->_internal_mutable_brokerage_id()->::BrokerageId::MergeFrom(
+        from._internal_brokerage_id());
   }
   if (from._internal_transaction_id() != 0) {
     _this->_internal_set_transaction_id(from._internal_transaction_id());
@@ -1779,12 +1813,12 @@ const char* Query::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
         } else
           goto handle_unusual;
         continue;
-      // .stock_exchange.Query.BuyOrSell buy_or_sell = 4;
+      // .stock_exchange.BuyOrSell buy_or_sell = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_buy_or_sell(static_cast<::stock_exchange::Query_BuyOrSell>(val));
+          _internal_set_buy_or_sell(static_cast<::stock_exchange::BuyOrSell>(val));
         } else
           goto handle_unusual;
         continue;
@@ -1849,7 +1883,7 @@ uint8_t* Query::_InternalSerialize(
         3, this->_internal_stock_ticker(), target);
   }
 
-  // .stock_exchange.Query.BuyOrSell buy_or_sell = 4;
+  // .stock_exchange.BuyOrSell buy_or_sell = 4;
   if (this->_internal_buy_or_sell() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -1899,7 +1933,7 @@ size_t Query::ByteSizeLong() const {
         *_impl_.brokerage_id_look_);
   }
 
-  // .stock_exchange.Query.BuyOrSell buy_or_sell = 4;
+  // .stock_exchange.BuyOrSell buy_or_sell = 4;
   if (this->_internal_buy_or_sell() != 0) {
     total_size += 1 +
       ::_pbi::WireFormatLite::EnumSize(this->_internal_buy_or_sell());
