@@ -2,8 +2,8 @@
 
 # constant start time (30 seconds from now)
 START_TIME=$(( $(date +%s) + 30 ))
-CONTAINERS=("trader1" "trader2") # containers
-EXECUTABLE_PATHS=("/home/ubuntu/component1" "home/ubuntu/component2") # executables
+CONTAINERS=("bank" "brokerage" "regulatory" "stockexchange") # containers
+EXECUTABLE_PATHS=("/home/ubuntu/project" "home/ubuntu/main" "home/ubuntu/main" "home/ubuntu/stockexchange_server") # executables
 
 # Ensure the arrays have the same length
 if [[ ${#CONTAINERS[@]} -ne ${#EXECUTABLE_PATHS[@]} ]]; then

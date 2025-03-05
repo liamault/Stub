@@ -78,7 +78,7 @@ void startBankServer() {
         }
         
         cout << "request received from bank: " << n << "\n";
-        bank_to_brokerage::EndOfDaySummaryRequest request;
+        brokerage::EndOfDaySummaryRequest request;
         if (!request.ParseFromArray(udpMessage, n)) {
             cerr << "Failed to parse request.\n";
             continue;
@@ -89,12 +89,12 @@ void startBankServer() {
         cout << "Request details: " << request.DebugString() << "\n";
 
         // Prepare a response
-        bank_to_brokerage::EndOfDayResponse response;
+        brokerage::EndOfDayResponse response;
         response.mutable_header()->set_version(1);
         response.mutable_header()->set_magic(BROKERAGE);
         response.mutable_header()->set_serial(1);
         
-        response.set_status(bank_to_brokerage::EndOfDayResponse::SUCCESS);
+        response.set_status(brokerage::EndOfDayResponse::SUCCESS);
 
         //does not list success as it is default enum value
         cout << "Sending response: " << response.DebugString() << endl;

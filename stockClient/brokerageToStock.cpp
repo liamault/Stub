@@ -10,7 +10,7 @@
 
 
 using namespace std;
-static string serverName = "stockexchange";
+static string serverName = "localhost";
 static unsigned short stockClientPort = 1337;
 static uint32_t stockClientMaxMesg = 2048;
 

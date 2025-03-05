@@ -20,7 +20,7 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
-namespace bank_to_brokerage {
+namespace brokerage {
 PROTOBUF_CONSTEXPR EndOfDaySummaryRequest_Transaction::EndOfDaySummaryRequest_Transaction(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.amount_)*/nullptr
@@ -64,34 +64,6 @@ struct EndOfDayResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 EndOfDayResponseDefaultTypeInternal _EndOfDayResponse_default_instance_;
-PROTOBUF_CONSTEXPR Deposit::Deposit(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.price_)*/nullptr
-  , /*decltype(_impl_.brokerage_id_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct DepositDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR DepositDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~DepositDefaultTypeInternal() {}
-  union {
-    Deposit _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DepositDefaultTypeInternal _Deposit_default_instance_;
-PROTOBUF_CONSTEXPR Withdraw::Withdraw(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.price_)*/nullptr
-  , /*decltype(_impl_.brokerage_id_)*/0u
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct WithdrawDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR WithdrawDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~WithdrawDefaultTypeInternal() {}
-  union {
-    Withdraw _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WithdrawDefaultTypeInternal _Withdraw_default_instance_;
 PROTOBUF_CONSTEXPR Update_BrokerageAccount_Req::Update_BrokerageAccount_Req(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
@@ -110,7 +82,6 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR Update_BrokerageAccount_Rep::Update_BrokerageAccount_Rep(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.brokerage_id_)*/nullptr
   , /*decltype(_impl_.response_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Update_BrokerageAccount_RepDefaultTypeInternal {
@@ -122,128 +93,154 @@ struct Update_BrokerageAccount_RepDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Update_BrokerageAccount_RepDefaultTypeInternal _Update_BrokerageAccount_Rep_default_instance_;
-}  // namespace bank_to_brokerage
+PROTOBUF_CONSTEXPR Deposit::Deposit(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.brokerage_id_)*/nullptr
+  , /*decltype(_impl_.price_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct DepositDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR DepositDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~DepositDefaultTypeInternal() {}
+  union {
+    Deposit _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DepositDefaultTypeInternal _Deposit_default_instance_;
+PROTOBUF_CONSTEXPR Withdraw::Withdraw(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.brokerage_id_)*/nullptr
+  , /*decltype(_impl_.price_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct WithdrawDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR WithdrawDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~WithdrawDefaultTypeInternal() {}
+  union {
+    Withdraw _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WithdrawDefaultTypeInternal _Withdraw_default_instance_;
+}  // namespace brokerage
 static ::_pb::Metadata file_level_metadata_bank_5fto_5fbrokerage_2eproto[7];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_bank_5fto_5fbrokerage_2eproto[3];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_bank_5fto_5fbrokerage_2eproto = nullptr;
 
 const uint32_t TableStruct_bank_5fto_5fbrokerage_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDaySummaryRequest_Transaction, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDaySummaryRequest_Transaction, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDaySummaryRequest_Transaction, _impl_.operation_),
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDaySummaryRequest_Transaction, _impl_.amount_),
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDaySummaryRequest_Transaction, _impl_.component_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDaySummaryRequest_Transaction, _impl_.operation_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDaySummaryRequest_Transaction, _impl_.amount_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDaySummaryRequest_Transaction, _impl_.component_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDaySummaryRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDaySummaryRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDaySummaryRequest, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDaySummaryRequest, _impl_.transactions_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDaySummaryRequest, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDaySummaryRequest, _impl_.transactions_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDayResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDayResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDayResponse, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::EndOfDayResponse, _impl_.status_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDayResponse, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::EndOfDayResponse, _impl_.status_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Deposit, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::Update_BrokerageAccount_Req, _internal_metadata_),
   ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
+  PROTOBUF_FIELD_OFFSET(::brokerage::Update_BrokerageAccount_Req, _impl_._oneof_case_[0]),
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Deposit, _impl_.price_),
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Deposit, _impl_.brokerage_id_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Withdraw, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Withdraw, _impl_.price_),
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Withdraw, _impl_.brokerage_id_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Update_BrokerageAccount_Req, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Update_BrokerageAccount_Req, _impl_._oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Update_BrokerageAccount_Req, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::Update_BrokerageAccount_Req, _impl_.header_),
   ::_pbi::kInvalidFieldOffsetTag,
   ::_pbi::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Update_BrokerageAccount_Req, _impl_.payload_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::Update_BrokerageAccount_Req, _impl_.payload_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Update_BrokerageAccount_Rep, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::Update_BrokerageAccount_Rep, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Update_BrokerageAccount_Rep, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Update_BrokerageAccount_Rep, _impl_.brokerage_id_),
-  PROTOBUF_FIELD_OFFSET(::bank_to_brokerage::Update_BrokerageAccount_Rep, _impl_.response_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::Update_BrokerageAccount_Rep, _impl_.header_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::Update_BrokerageAccount_Rep, _impl_.response_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::brokerage::Deposit, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::brokerage::Deposit, _impl_.brokerage_id_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::Deposit, _impl_.price_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::brokerage::Withdraw, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::brokerage::Withdraw, _impl_.brokerage_id_),
+  PROTOBUF_FIELD_OFFSET(::brokerage::Withdraw, _impl_.price_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::bank_to_brokerage::EndOfDaySummaryRequest_Transaction)},
-  { 9, -1, -1, sizeof(::bank_to_brokerage::EndOfDaySummaryRequest)},
-  { 17, -1, -1, sizeof(::bank_to_brokerage::EndOfDayResponse)},
-  { 25, -1, -1, sizeof(::bank_to_brokerage::Deposit)},
-  { 33, -1, -1, sizeof(::bank_to_brokerage::Withdraw)},
-  { 41, -1, -1, sizeof(::bank_to_brokerage::Update_BrokerageAccount_Req)},
-  { 51, -1, -1, sizeof(::bank_to_brokerage::Update_BrokerageAccount_Rep)},
+  { 0, -1, -1, sizeof(::brokerage::EndOfDaySummaryRequest_Transaction)},
+  { 9, -1, -1, sizeof(::brokerage::EndOfDaySummaryRequest)},
+  { 17, -1, -1, sizeof(::brokerage::EndOfDayResponse)},
+  { 25, -1, -1, sizeof(::brokerage::Update_BrokerageAccount_Req)},
+  { 35, -1, -1, sizeof(::brokerage::Update_BrokerageAccount_Rep)},
+  { 43, -1, -1, sizeof(::brokerage::Deposit)},
+  { 51, -1, -1, sizeof(::brokerage::Withdraw)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
-  &::bank_to_brokerage::_EndOfDaySummaryRequest_Transaction_default_instance_._instance,
-  &::bank_to_brokerage::_EndOfDaySummaryRequest_default_instance_._instance,
-  &::bank_to_brokerage::_EndOfDayResponse_default_instance_._instance,
-  &::bank_to_brokerage::_Deposit_default_instance_._instance,
-  &::bank_to_brokerage::_Withdraw_default_instance_._instance,
-  &::bank_to_brokerage::_Update_BrokerageAccount_Req_default_instance_._instance,
-  &::bank_to_brokerage::_Update_BrokerageAccount_Rep_default_instance_._instance,
+  &::brokerage::_EndOfDaySummaryRequest_Transaction_default_instance_._instance,
+  &::brokerage::_EndOfDaySummaryRequest_default_instance_._instance,
+  &::brokerage::_EndOfDayResponse_default_instance_._instance,
+  &::brokerage::_Update_BrokerageAccount_Req_default_instance_._instance,
+  &::brokerage::_Update_BrokerageAccount_Rep_default_instance_._instance,
+  &::brokerage::_Deposit_default_instance_._instance,
+  &::brokerage::_Withdraw_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_bank_5fto_5fbrokerage_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\027bank_to_brokerage.proto\022\021bank_to_broke"
-  "rage\032\014common.proto\"\261\002\n\026EndOfDaySummaryRe"
-  "quest\022\027\n\006header\030\001 \001(\0132\007.Header\022K\n\014transa"
-  "ctions\030\002 \003(\01325.bank_to_brokerage.EndOfDa"
-  "ySummaryRequest.Transaction\032\210\001\n\013Transact"
-  "ion\022F\n\toperation\030\001 \001(\01623.bank_to_brokera"
-  "ge.EndOfDaySummaryRequest.Operation\022\026\n\006a"
-  "mount\030\002 \001(\0132\006.Price\022\031\n\tcomponent\030\003 \001(\0162\006"
-  ".Magic\"&\n\tOperation\022\013\n\007DEPOSIT\020\000\022\014\n\010WITH"
-  "DRAW\020\001\"\216\001\n\020EndOfDayResponse\022\027\n\006header\030\001 "
-  "\001(\0132\007.Header\022:\n\006status\030\002 \001(\0162*.bank_to_b"
-  "rokerage.EndOfDayResponse.Status\"%\n\006Stat"
-  "us\022\013\n\007SUCCESS\020\000\022\016\n\nRETRANSMIT\020\001\"D\n\007Depos"
-  "it\022\025\n\005price\030\001 \001(\0132\006.Price\022\"\n\014brokerage_i"
-  "d\030\002 \001(\0132\014.BrokerageId\"7\n\010Withdraw\022\025\n\005pri"
-  "ce\030\001 \001(\0132\006.Price\022\024\n\014brokerage_id\030\002 \001(\r\"\241"
-  "\001\n\033Update_BrokerageAccount_Req\022\027\n\006header"
-  "\030\001 \001(\0132\007.Header\022-\n\007deposit\030\002 \001(\0132\032.bank_"
-  "to_brokerage.DepositH\000\022/\n\010withdraw\030\003 \001(\013"
-  "2\033.bank_to_brokerage.WithdrawH\000B\t\n\007paylo"
-  "ad\"\352\001\n\033Update_BrokerageAccount_Rep\022\027\n\006he"
-  "ader\030\001 \001(\0132\007.Header\022\"\n\014brokerage_id\030\003 \001("
-  "\0132\014.BrokerageId\022M\n\010response\030\004 \001(\0162;.bank"
-  "_to_brokerage.Update_BrokerageAccount_Re"
-  "p.ResponseType\"\?\n\014ResponseType\022\013\n\007INVALI"
-  "D\020\000\022\025\n\021MALFORMED_MESSAGE\020\001\022\013\n\007SUCCESS\020\004b"
-  "\006proto3"
+  "\n\027bank_to_brokerage.proto\022\tbrokerage\032\014co"
+  "mmon.proto\"\241\002\n\026EndOfDaySummaryRequest\022\027\n"
+  "\006header\030\001 \001(\0132\007.Header\022C\n\014transactions\030\002"
+  " \003(\0132-.brokerage.EndOfDaySummaryRequest."
+  "Transaction\032\200\001\n\013Transaction\022>\n\toperation"
+  "\030\001 \001(\0162+.brokerage.EndOfDaySummaryReques"
+  "t.Operation\022\026\n\006amount\030\002 \001(\0132\006.Price\022\031\n\tc"
+  "omponent\030\003 \001(\0162\006.Magic\"&\n\tOperation\022\013\n\007D"
+  "EPOSIT\020\000\022\014\n\010WITHDRAW\020\001\"\206\001\n\020EndOfDayRespo"
+  "nse\022\027\n\006header\030\001 \001(\0132\007.Header\0222\n\006status\030\002"
+  " \001(\0162\".brokerage.EndOfDayResponse.Status"
+  "\"%\n\006Status\022\013\n\007SUCCESS\020\000\022\016\n\nRETRANSMIT\020\001\""
+  "\221\001\n\033Update_BrokerageAccount_Req\022\027\n\006heade"
+  "r\030\001 \001(\0132\007.Header\022\'\n\010withdraw\030\002 \001(\0132\023.bro"
+  "kerage.WithdrawH\000\022%\n\007deposit\030\003 \001(\0132\022.bro"
+  "kerage.DepositH\000B\t\n\007payload\"\364\001\n\033Update_B"
+  "rokerageAccount_Rep\022\027\n\006header\030\001 \001(\0132\007.He"
+  "ader\022E\n\010response\030\002 \001(\01623.brokerage.Updat"
+  "e_BrokerageAccount_Rep.ResponseType\"u\n\014R"
+  "esponseType\022\013\n\007INVALID\020\000\022\025\n\021MALFORMED_ME"
+  "SSAGE\020\001\022\032\n\026INVALID_TRANSACTION_ID\020\002\022\030\n\024I"
+  "NVALID_BROKERAGE_ID\020\003\022\013\n\007SUCCESS\020\004\"D\n\007De"
+  "posit\022\"\n\014brokerage_id\030\001 \001(\0132\014.BrokerageI"
+  "d\022\025\n\005price\030\002 \001(\0132\006.Price\"E\n\010Withdraw\022\"\n\014"
+  "brokerage_id\030\001 \001(\0132\014.BrokerageId\022\025\n\005pric"
+  "e\030\002 \001(\0132\006.Priceb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_bank_5fto_5fbrokerage_2eproto_deps[1] = {
   &::descriptor_table_common_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_bank_5fto_5fbrokerage_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_bank_5fto_5fbrokerage_2eproto = {
-    false, false, 1047, descriptor_table_protodef_bank_5fto_5fbrokerage_2eproto,
+    false, false, 1023, descriptor_table_protodef_bank_5fto_5fbrokerage_2eproto,
     "bank_to_brokerage.proto",
     &descriptor_table_bank_5fto_5fbrokerage_2eproto_once, descriptor_table_bank_5fto_5fbrokerage_2eproto_deps, 1, 7,
     schemas, file_default_instances, TableStruct_bank_5fto_5fbrokerage_2eproto::offsets,
@@ -256,7 +253,7 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_bank_5ft
 
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_bank_5fto_5fbrokerage_2eproto(&descriptor_table_bank_5fto_5fbrokerage_2eproto);
-namespace bank_to_brokerage {
+namespace brokerage {
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EndOfDaySummaryRequest_Operation_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_bank_5fto_5fbrokerage_2eproto);
   return file_level_enum_descriptors_bank_5fto_5fbrokerage_2eproto[0];
@@ -307,6 +304,8 @@ bool Update_BrokerageAccount_Rep_ResponseType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 2:
+    case 3:
     case 4:
       return true;
     default:
@@ -317,6 +316,8 @@ bool Update_BrokerageAccount_Rep_ResponseType_IsValid(int value) {
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 constexpr Update_BrokerageAccount_Rep_ResponseType Update_BrokerageAccount_Rep::INVALID;
 constexpr Update_BrokerageAccount_Rep_ResponseType Update_BrokerageAccount_Rep::MALFORMED_MESSAGE;
+constexpr Update_BrokerageAccount_Rep_ResponseType Update_BrokerageAccount_Rep::INVALID_TRANSACTION_ID;
+constexpr Update_BrokerageAccount_Rep_ResponseType Update_BrokerageAccount_Rep::INVALID_BROKERAGE_ID;
 constexpr Update_BrokerageAccount_Rep_ResponseType Update_BrokerageAccount_Rep::SUCCESS;
 constexpr Update_BrokerageAccount_Rep_ResponseType Update_BrokerageAccount_Rep::ResponseType_MIN;
 constexpr Update_BrokerageAccount_Rep_ResponseType Update_BrokerageAccount_Rep::ResponseType_MAX;
@@ -344,7 +345,7 @@ EndOfDaySummaryRequest_Transaction::EndOfDaySummaryRequest_Transaction(::PROTOBU
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:bank_to_brokerage.EndOfDaySummaryRequest.Transaction)
+  // @@protoc_insertion_point(arena_constructor:brokerage.EndOfDaySummaryRequest.Transaction)
 }
 EndOfDaySummaryRequest_Transaction::EndOfDaySummaryRequest_Transaction(const EndOfDaySummaryRequest_Transaction& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -362,7 +363,7 @@ EndOfDaySummaryRequest_Transaction::EndOfDaySummaryRequest_Transaction(const End
   ::memcpy(&_impl_.operation_, &from._impl_.operation_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.component_) -
     reinterpret_cast<char*>(&_impl_.operation_)) + sizeof(_impl_.component_));
-  // @@protoc_insertion_point(copy_constructor:bank_to_brokerage.EndOfDaySummaryRequest.Transaction)
+  // @@protoc_insertion_point(copy_constructor:brokerage.EndOfDaySummaryRequest.Transaction)
 }
 
 inline void EndOfDaySummaryRequest_Transaction::SharedCtor(
@@ -378,7 +379,7 @@ inline void EndOfDaySummaryRequest_Transaction::SharedCtor(
 }
 
 EndOfDaySummaryRequest_Transaction::~EndOfDaySummaryRequest_Transaction() {
-  // @@protoc_insertion_point(destructor:bank_to_brokerage.EndOfDaySummaryRequest.Transaction)
+  // @@protoc_insertion_point(destructor:brokerage.EndOfDaySummaryRequest.Transaction)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -396,7 +397,7 @@ void EndOfDaySummaryRequest_Transaction::SetCachedSize(int size) const {
 }
 
 void EndOfDaySummaryRequest_Transaction::Clear() {
-// @@protoc_insertion_point(message_clear_start:bank_to_brokerage.EndOfDaySummaryRequest.Transaction)
+// @@protoc_insertion_point(message_clear_start:brokerage.EndOfDaySummaryRequest.Transaction)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -417,12 +418,12 @@ const char* EndOfDaySummaryRequest_Transaction::_InternalParse(const char* ptr, 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .bank_to_brokerage.EndOfDaySummaryRequest.Operation operation = 1;
+      // .brokerage.EndOfDaySummaryRequest.Operation operation = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_operation(static_cast<::bank_to_brokerage::EndOfDaySummaryRequest_Operation>(val));
+          _internal_set_operation(static_cast<::brokerage::EndOfDaySummaryRequest_Operation>(val));
         } else
           goto handle_unusual;
         continue;
@@ -468,11 +469,11 @@ failure:
 
 uint8_t* EndOfDaySummaryRequest_Transaction::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bank_to_brokerage.EndOfDaySummaryRequest.Transaction)
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage.EndOfDaySummaryRequest.Transaction)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .bank_to_brokerage.EndOfDaySummaryRequest.Operation operation = 1;
+  // .brokerage.EndOfDaySummaryRequest.Operation operation = 1;
   if (this->_internal_operation() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -497,12 +498,12 @@ uint8_t* EndOfDaySummaryRequest_Transaction::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:bank_to_brokerage.EndOfDaySummaryRequest.Transaction)
+  // @@protoc_insertion_point(serialize_to_array_end:brokerage.EndOfDaySummaryRequest.Transaction)
   return target;
 }
 
 size_t EndOfDaySummaryRequest_Transaction::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bank_to_brokerage.EndOfDaySummaryRequest.Transaction)
+// @@protoc_insertion_point(message_byte_size_start:brokerage.EndOfDaySummaryRequest.Transaction)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -516,7 +517,7 @@ size_t EndOfDaySummaryRequest_Transaction::ByteSizeLong() const {
         *_impl_.amount_);
   }
 
-  // .bank_to_brokerage.EndOfDaySummaryRequest.Operation operation = 1;
+  // .brokerage.EndOfDaySummaryRequest.Operation operation = 1;
   if (this->_internal_operation() != 0) {
     total_size += 1 +
       ::_pbi::WireFormatLite::EnumSize(this->_internal_operation());
@@ -541,7 +542,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*EndOfDaySummaryRequest_Transac
 void EndOfDaySummaryRequest_Transaction::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<EndOfDaySummaryRequest_Transaction*>(&to_msg);
   auto& from = static_cast<const EndOfDaySummaryRequest_Transaction&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:bank_to_brokerage.EndOfDaySummaryRequest.Transaction)
+  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage.EndOfDaySummaryRequest.Transaction)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -560,7 +561,7 @@ void EndOfDaySummaryRequest_Transaction::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mess
 }
 
 void EndOfDaySummaryRequest_Transaction::CopyFrom(const EndOfDaySummaryRequest_Transaction& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bank_to_brokerage.EndOfDaySummaryRequest.Transaction)
+// @@protoc_insertion_point(class_specific_copy_from_start:brokerage.EndOfDaySummaryRequest.Transaction)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -608,7 +609,7 @@ EndOfDaySummaryRequest::EndOfDaySummaryRequest(::PROTOBUF_NAMESPACE_ID::Arena* a
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:bank_to_brokerage.EndOfDaySummaryRequest)
+  // @@protoc_insertion_point(arena_constructor:brokerage.EndOfDaySummaryRequest)
 }
 EndOfDaySummaryRequest::EndOfDaySummaryRequest(const EndOfDaySummaryRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -622,7 +623,7 @@ EndOfDaySummaryRequest::EndOfDaySummaryRequest(const EndOfDaySummaryRequest& fro
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::Header(*from._impl_.header_);
   }
-  // @@protoc_insertion_point(copy_constructor:bank_to_brokerage.EndOfDaySummaryRequest)
+  // @@protoc_insertion_point(copy_constructor:brokerage.EndOfDaySummaryRequest)
 }
 
 inline void EndOfDaySummaryRequest::SharedCtor(
@@ -637,7 +638,7 @@ inline void EndOfDaySummaryRequest::SharedCtor(
 }
 
 EndOfDaySummaryRequest::~EndOfDaySummaryRequest() {
-  // @@protoc_insertion_point(destructor:bank_to_brokerage.EndOfDaySummaryRequest)
+  // @@protoc_insertion_point(destructor:brokerage.EndOfDaySummaryRequest)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -656,7 +657,7 @@ void EndOfDaySummaryRequest::SetCachedSize(int size) const {
 }
 
 void EndOfDaySummaryRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:bank_to_brokerage.EndOfDaySummaryRequest)
+// @@protoc_insertion_point(message_clear_start:brokerage.EndOfDaySummaryRequest)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -683,7 +684,7 @@ const char* EndOfDaySummaryRequest::_InternalParse(const char* ptr, ::_pbi::Pars
         } else
           goto handle_unusual;
         continue;
-      // repeated .bank_to_brokerage.EndOfDaySummaryRequest.Transaction transactions = 2;
+      // repeated .brokerage.EndOfDaySummaryRequest.Transaction transactions = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr -= 1;
@@ -721,7 +722,7 @@ failure:
 
 uint8_t* EndOfDaySummaryRequest::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bank_to_brokerage.EndOfDaySummaryRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage.EndOfDaySummaryRequest)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -732,7 +733,7 @@ uint8_t* EndOfDaySummaryRequest::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // repeated .bank_to_brokerage.EndOfDaySummaryRequest.Transaction transactions = 2;
+  // repeated .brokerage.EndOfDaySummaryRequest.Transaction transactions = 2;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_transactions_size()); i < n; i++) {
     const auto& repfield = this->_internal_transactions(i);
@@ -744,19 +745,19 @@ uint8_t* EndOfDaySummaryRequest::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:bank_to_brokerage.EndOfDaySummaryRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:brokerage.EndOfDaySummaryRequest)
   return target;
 }
 
 size_t EndOfDaySummaryRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bank_to_brokerage.EndOfDaySummaryRequest)
+// @@protoc_insertion_point(message_byte_size_start:brokerage.EndOfDaySummaryRequest)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .bank_to_brokerage.EndOfDaySummaryRequest.Transaction transactions = 2;
+  // repeated .brokerage.EndOfDaySummaryRequest.Transaction transactions = 2;
   total_size += 1UL * this->_internal_transactions_size();
   for (const auto& msg : this->_impl_.transactions_) {
     total_size +=
@@ -783,7 +784,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*EndOfDaySummaryRequest::GetCla
 void EndOfDaySummaryRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<EndOfDaySummaryRequest*>(&to_msg);
   auto& from = static_cast<const EndOfDaySummaryRequest&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:bank_to_brokerage.EndOfDaySummaryRequest)
+  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage.EndOfDaySummaryRequest)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -797,7 +798,7 @@ void EndOfDaySummaryRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg,
 }
 
 void EndOfDaySummaryRequest::CopyFrom(const EndOfDaySummaryRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bank_to_brokerage.EndOfDaySummaryRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:brokerage.EndOfDaySummaryRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -841,7 +842,7 @@ EndOfDayResponse::EndOfDayResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:bank_to_brokerage.EndOfDayResponse)
+  // @@protoc_insertion_point(arena_constructor:brokerage.EndOfDayResponse)
 }
 EndOfDayResponse::EndOfDayResponse(const EndOfDayResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -856,7 +857,7 @@ EndOfDayResponse::EndOfDayResponse(const EndOfDayResponse& from)
     _this->_impl_.header_ = new ::Header(*from._impl_.header_);
   }
   _this->_impl_.status_ = from._impl_.status_;
-  // @@protoc_insertion_point(copy_constructor:bank_to_brokerage.EndOfDayResponse)
+  // @@protoc_insertion_point(copy_constructor:brokerage.EndOfDayResponse)
 }
 
 inline void EndOfDayResponse::SharedCtor(
@@ -871,7 +872,7 @@ inline void EndOfDayResponse::SharedCtor(
 }
 
 EndOfDayResponse::~EndOfDayResponse() {
-  // @@protoc_insertion_point(destructor:bank_to_brokerage.EndOfDayResponse)
+  // @@protoc_insertion_point(destructor:brokerage.EndOfDayResponse)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -889,7 +890,7 @@ void EndOfDayResponse::SetCachedSize(int size) const {
 }
 
 void EndOfDayResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:bank_to_brokerage.EndOfDayResponse)
+// @@protoc_insertion_point(message_clear_start:brokerage.EndOfDayResponse)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -916,12 +917,12 @@ const char* EndOfDayResponse::_InternalParse(const char* ptr, ::_pbi::ParseConte
         } else
           goto handle_unusual;
         continue;
-      // .bank_to_brokerage.EndOfDayResponse.Status status = 2;
+      // .brokerage.EndOfDayResponse.Status status = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_status(static_cast<::bank_to_brokerage::EndOfDayResponse_Status>(val));
+          _internal_set_status(static_cast<::brokerage::EndOfDayResponse_Status>(val));
         } else
           goto handle_unusual;
         continue;
@@ -950,7 +951,7 @@ failure:
 
 uint8_t* EndOfDayResponse::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bank_to_brokerage.EndOfDayResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage.EndOfDayResponse)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -961,7 +962,7 @@ uint8_t* EndOfDayResponse::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // .bank_to_brokerage.EndOfDayResponse.Status status = 2;
+  // .brokerage.EndOfDayResponse.Status status = 2;
   if (this->_internal_status() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -972,12 +973,12 @@ uint8_t* EndOfDayResponse::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:bank_to_brokerage.EndOfDayResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:brokerage.EndOfDayResponse)
   return target;
 }
 
 size_t EndOfDayResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bank_to_brokerage.EndOfDayResponse)
+// @@protoc_insertion_point(message_byte_size_start:brokerage.EndOfDayResponse)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -991,7 +992,7 @@ size_t EndOfDayResponse::ByteSizeLong() const {
         *_impl_.header_);
   }
 
-  // .bank_to_brokerage.EndOfDayResponse.Status status = 2;
+  // .brokerage.EndOfDayResponse.Status status = 2;
   if (this->_internal_status() != 0) {
     total_size += 1 +
       ::_pbi::WireFormatLite::EnumSize(this->_internal_status());
@@ -1010,7 +1011,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*EndOfDayResponse::GetClassData
 void EndOfDayResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<EndOfDayResponse*>(&to_msg);
   auto& from = static_cast<const EndOfDayResponse&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:bank_to_brokerage.EndOfDayResponse)
+  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage.EndOfDayResponse)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1026,7 +1027,7 @@ void EndOfDayResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
 }
 
 void EndOfDayResponse::CopyFrom(const EndOfDayResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bank_to_brokerage.EndOfDayResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:brokerage.EndOfDayResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1055,505 +1056,24 @@ void EndOfDayResponse::InternalSwap(EndOfDayResponse* other) {
 
 // ===================================================================
 
-class Deposit::_Internal {
- public:
-  static const ::Price& price(const Deposit* msg);
-  static const ::BrokerageId& brokerage_id(const Deposit* msg);
-};
-
-const ::Price&
-Deposit::_Internal::price(const Deposit* msg) {
-  return *msg->_impl_.price_;
-}
-const ::BrokerageId&
-Deposit::_Internal::brokerage_id(const Deposit* msg) {
-  return *msg->_impl_.brokerage_id_;
-}
-void Deposit::clear_price() {
-  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
-    delete _impl_.price_;
-  }
-  _impl_.price_ = nullptr;
-}
-void Deposit::clear_brokerage_id() {
-  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
-    delete _impl_.brokerage_id_;
-  }
-  _impl_.brokerage_id_ = nullptr;
-}
-Deposit::Deposit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:bank_to_brokerage.Deposit)
-}
-Deposit::Deposit(const Deposit& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Deposit* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.price_){nullptr}
-    , decltype(_impl_.brokerage_id_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_price()) {
-    _this->_impl_.price_ = new ::Price(*from._impl_.price_);
-  }
-  if (from._internal_has_brokerage_id()) {
-    _this->_impl_.brokerage_id_ = new ::BrokerageId(*from._impl_.brokerage_id_);
-  }
-  // @@protoc_insertion_point(copy_constructor:bank_to_brokerage.Deposit)
-}
-
-inline void Deposit::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.price_){nullptr}
-    , decltype(_impl_.brokerage_id_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-}
-
-Deposit::~Deposit() {
-  // @@protoc_insertion_point(destructor:bank_to_brokerage.Deposit)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void Deposit::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete _impl_.price_;
-  if (this != internal_default_instance()) delete _impl_.brokerage_id_;
-}
-
-void Deposit::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void Deposit::Clear() {
-// @@protoc_insertion_point(message_clear_start:bank_to_brokerage.Deposit)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
-    delete _impl_.price_;
-  }
-  _impl_.price_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
-    delete _impl_.brokerage_id_;
-  }
-  _impl_.brokerage_id_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Deposit::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // .Price price = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_price(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .BrokerageId brokerage_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_brokerage_id(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* Deposit::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bank_to_brokerage.Deposit)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .Price price = 1;
-  if (this->_internal_has_price()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::price(this),
-        _Internal::price(this).GetCachedSize(), target, stream);
-  }
-
-  // .BrokerageId brokerage_id = 2;
-  if (this->_internal_has_brokerage_id()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::brokerage_id(this),
-        _Internal::brokerage_id(this).GetCachedSize(), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:bank_to_brokerage.Deposit)
-  return target;
-}
-
-size_t Deposit::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bank_to_brokerage.Deposit)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .Price price = 1;
-  if (this->_internal_has_price()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.price_);
-  }
-
-  // .BrokerageId brokerage_id = 2;
-  if (this->_internal_has_brokerage_id()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.brokerage_id_);
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Deposit::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Deposit::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Deposit::GetClassData() const { return &_class_data_; }
-
-
-void Deposit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Deposit*>(&to_msg);
-  auto& from = static_cast<const Deposit&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:bank_to_brokerage.Deposit)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_price()) {
-    _this->_internal_mutable_price()->::Price::MergeFrom(
-        from._internal_price());
-  }
-  if (from._internal_has_brokerage_id()) {
-    _this->_internal_mutable_brokerage_id()->::BrokerageId::MergeFrom(
-        from._internal_brokerage_id());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Deposit::CopyFrom(const Deposit& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bank_to_brokerage.Deposit)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Deposit::IsInitialized() const {
-  return true;
-}
-
-void Deposit::InternalSwap(Deposit* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Deposit, _impl_.brokerage_id_)
-      + sizeof(Deposit::_impl_.brokerage_id_)
-      - PROTOBUF_FIELD_OFFSET(Deposit, _impl_.price_)>(
-          reinterpret_cast<char*>(&_impl_.price_),
-          reinterpret_cast<char*>(&other->_impl_.price_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Deposit::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_bank_5fto_5fbrokerage_2eproto_getter, &descriptor_table_bank_5fto_5fbrokerage_2eproto_once,
-      file_level_metadata_bank_5fto_5fbrokerage_2eproto[3]);
-}
-
-// ===================================================================
-
-class Withdraw::_Internal {
- public:
-  static const ::Price& price(const Withdraw* msg);
-};
-
-const ::Price&
-Withdraw::_Internal::price(const Withdraw* msg) {
-  return *msg->_impl_.price_;
-}
-void Withdraw::clear_price() {
-  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
-    delete _impl_.price_;
-  }
-  _impl_.price_ = nullptr;
-}
-Withdraw::Withdraw(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:bank_to_brokerage.Withdraw)
-}
-Withdraw::Withdraw(const Withdraw& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Withdraw* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.price_){nullptr}
-    , decltype(_impl_.brokerage_id_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_price()) {
-    _this->_impl_.price_ = new ::Price(*from._impl_.price_);
-  }
-  _this->_impl_.brokerage_id_ = from._impl_.brokerage_id_;
-  // @@protoc_insertion_point(copy_constructor:bank_to_brokerage.Withdraw)
-}
-
-inline void Withdraw::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.price_){nullptr}
-    , decltype(_impl_.brokerage_id_){0u}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-}
-
-Withdraw::~Withdraw() {
-  // @@protoc_insertion_point(destructor:bank_to_brokerage.Withdraw)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void Withdraw::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete _impl_.price_;
-}
-
-void Withdraw::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void Withdraw::Clear() {
-// @@protoc_insertion_point(message_clear_start:bank_to_brokerage.Withdraw)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
-    delete _impl_.price_;
-  }
-  _impl_.price_ = nullptr;
-  _impl_.brokerage_id_ = 0u;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* Withdraw::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // .Price price = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_price(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 brokerage_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.brokerage_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* Withdraw::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bank_to_brokerage.Withdraw)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // .Price price = 1;
-  if (this->_internal_has_price()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::price(this),
-        _Internal::price(this).GetCachedSize(), target, stream);
-  }
-
-  // uint32 brokerage_id = 2;
-  if (this->_internal_brokerage_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_brokerage_id(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:bank_to_brokerage.Withdraw)
-  return target;
-}
-
-size_t Withdraw::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bank_to_brokerage.Withdraw)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .Price price = 1;
-  if (this->_internal_has_price()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.price_);
-  }
-
-  // uint32 brokerage_id = 2;
-  if (this->_internal_brokerage_id() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_brokerage_id());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Withdraw::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Withdraw::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Withdraw::GetClassData() const { return &_class_data_; }
-
-
-void Withdraw::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Withdraw*>(&to_msg);
-  auto& from = static_cast<const Withdraw&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:bank_to_brokerage.Withdraw)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_has_price()) {
-    _this->_internal_mutable_price()->::Price::MergeFrom(
-        from._internal_price());
-  }
-  if (from._internal_brokerage_id() != 0) {
-    _this->_internal_set_brokerage_id(from._internal_brokerage_id());
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void Withdraw::CopyFrom(const Withdraw& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bank_to_brokerage.Withdraw)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Withdraw::IsInitialized() const {
-  return true;
-}
-
-void Withdraw::InternalSwap(Withdraw* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Withdraw, _impl_.brokerage_id_)
-      + sizeof(Withdraw::_impl_.brokerage_id_)
-      - PROTOBUF_FIELD_OFFSET(Withdraw, _impl_.price_)>(
-          reinterpret_cast<char*>(&_impl_.price_),
-          reinterpret_cast<char*>(&other->_impl_.price_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata Withdraw::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_bank_5fto_5fbrokerage_2eproto_getter, &descriptor_table_bank_5fto_5fbrokerage_2eproto_once,
-      file_level_metadata_bank_5fto_5fbrokerage_2eproto[4]);
-}
-
-// ===================================================================
-
 class Update_BrokerageAccount_Req::_Internal {
  public:
   static const ::Header& header(const Update_BrokerageAccount_Req* msg);
-  static const ::bank_to_brokerage::Deposit& deposit(const Update_BrokerageAccount_Req* msg);
-  static const ::bank_to_brokerage::Withdraw& withdraw(const Update_BrokerageAccount_Req* msg);
+  static const ::brokerage::Withdraw& withdraw(const Update_BrokerageAccount_Req* msg);
+  static const ::brokerage::Deposit& deposit(const Update_BrokerageAccount_Req* msg);
 };
 
 const ::Header&
 Update_BrokerageAccount_Req::_Internal::header(const Update_BrokerageAccount_Req* msg) {
   return *msg->_impl_.header_;
 }
-const ::bank_to_brokerage::Deposit&
-Update_BrokerageAccount_Req::_Internal::deposit(const Update_BrokerageAccount_Req* msg) {
-  return *msg->_impl_.payload_.deposit_;
-}
-const ::bank_to_brokerage::Withdraw&
+const ::brokerage::Withdraw&
 Update_BrokerageAccount_Req::_Internal::withdraw(const Update_BrokerageAccount_Req* msg) {
   return *msg->_impl_.payload_.withdraw_;
+}
+const ::brokerage::Deposit&
+Update_BrokerageAccount_Req::_Internal::deposit(const Update_BrokerageAccount_Req* msg) {
+  return *msg->_impl_.payload_.deposit_;
 }
 void Update_BrokerageAccount_Req::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
@@ -1561,22 +1081,7 @@ void Update_BrokerageAccount_Req::clear_header() {
   }
   _impl_.header_ = nullptr;
 }
-void Update_BrokerageAccount_Req::set_allocated_deposit(::bank_to_brokerage::Deposit* deposit) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
-  clear_payload();
-  if (deposit) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(deposit);
-    if (message_arena != submessage_arena) {
-      deposit = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, deposit, submessage_arena);
-    }
-    set_has_deposit();
-    _impl_.payload_.deposit_ = deposit;
-  }
-  // @@protoc_insertion_point(field_set_allocated:bank_to_brokerage.Update_BrokerageAccount_Req.deposit)
-}
-void Update_BrokerageAccount_Req::set_allocated_withdraw(::bank_to_brokerage::Withdraw* withdraw) {
+void Update_BrokerageAccount_Req::set_allocated_withdraw(::brokerage::Withdraw* withdraw) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
   clear_payload();
   if (withdraw) {
@@ -1589,13 +1094,28 @@ void Update_BrokerageAccount_Req::set_allocated_withdraw(::bank_to_brokerage::Wi
     set_has_withdraw();
     _impl_.payload_.withdraw_ = withdraw;
   }
-  // @@protoc_insertion_point(field_set_allocated:bank_to_brokerage.Update_BrokerageAccount_Req.withdraw)
+  // @@protoc_insertion_point(field_set_allocated:brokerage.Update_BrokerageAccount_Req.withdraw)
+}
+void Update_BrokerageAccount_Req::set_allocated_deposit(::brokerage::Deposit* deposit) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_payload();
+  if (deposit) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(deposit);
+    if (message_arena != submessage_arena) {
+      deposit = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, deposit, submessage_arena);
+    }
+    set_has_deposit();
+    _impl_.payload_.deposit_ = deposit;
+  }
+  // @@protoc_insertion_point(field_set_allocated:brokerage.Update_BrokerageAccount_Req.deposit)
 }
 Update_BrokerageAccount_Req::Update_BrokerageAccount_Req(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:bank_to_brokerage.Update_BrokerageAccount_Req)
+  // @@protoc_insertion_point(arena_constructor:brokerage.Update_BrokerageAccount_Req)
 }
 Update_BrokerageAccount_Req::Update_BrokerageAccount_Req(const Update_BrokerageAccount_Req& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -1612,21 +1132,21 @@ Update_BrokerageAccount_Req::Update_BrokerageAccount_Req(const Update_BrokerageA
   }
   clear_has_payload();
   switch (from.payload_case()) {
-    case kDeposit: {
-      _this->_internal_mutable_deposit()->::bank_to_brokerage::Deposit::MergeFrom(
-          from._internal_deposit());
+    case kWithdraw: {
+      _this->_internal_mutable_withdraw()->::brokerage::Withdraw::MergeFrom(
+          from._internal_withdraw());
       break;
     }
-    case kWithdraw: {
-      _this->_internal_mutable_withdraw()->::bank_to_brokerage::Withdraw::MergeFrom(
-          from._internal_withdraw());
+    case kDeposit: {
+      _this->_internal_mutable_deposit()->::brokerage::Deposit::MergeFrom(
+          from._internal_deposit());
       break;
     }
     case PAYLOAD_NOT_SET: {
       break;
     }
   }
-  // @@protoc_insertion_point(copy_constructor:bank_to_brokerage.Update_BrokerageAccount_Req)
+  // @@protoc_insertion_point(copy_constructor:brokerage.Update_BrokerageAccount_Req)
 }
 
 inline void Update_BrokerageAccount_Req::SharedCtor(
@@ -1643,7 +1163,7 @@ inline void Update_BrokerageAccount_Req::SharedCtor(
 }
 
 Update_BrokerageAccount_Req::~Update_BrokerageAccount_Req() {
-  // @@protoc_insertion_point(destructor:bank_to_brokerage.Update_BrokerageAccount_Req)
+  // @@protoc_insertion_point(destructor:brokerage.Update_BrokerageAccount_Req)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -1664,17 +1184,17 @@ void Update_BrokerageAccount_Req::SetCachedSize(int size) const {
 }
 
 void Update_BrokerageAccount_Req::clear_payload() {
-// @@protoc_insertion_point(one_of_clear_start:bank_to_brokerage.Update_BrokerageAccount_Req)
+// @@protoc_insertion_point(one_of_clear_start:brokerage.Update_BrokerageAccount_Req)
   switch (payload_case()) {
-    case kDeposit: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.payload_.deposit_;
-      }
-      break;
-    }
     case kWithdraw: {
       if (GetArenaForAllocation() == nullptr) {
         delete _impl_.payload_.withdraw_;
+      }
+      break;
+    }
+    case kDeposit: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete _impl_.payload_.deposit_;
       }
       break;
     }
@@ -1687,7 +1207,7 @@ void Update_BrokerageAccount_Req::clear_payload() {
 
 
 void Update_BrokerageAccount_Req::Clear() {
-// @@protoc_insertion_point(message_clear_start:bank_to_brokerage.Update_BrokerageAccount_Req)
+// @@protoc_insertion_point(message_clear_start:brokerage.Update_BrokerageAccount_Req)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1714,18 +1234,18 @@ const char* Update_BrokerageAccount_Req::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // .bank_to_brokerage.Deposit deposit = 2;
+      // .brokerage.Withdraw withdraw = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_deposit(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_withdraw(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // .bank_to_brokerage.Withdraw withdraw = 3;
+      // .brokerage.Deposit deposit = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_withdraw(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_deposit(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1755,7 +1275,7 @@ failure:
 
 uint8_t* Update_BrokerageAccount_Req::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bank_to_brokerage.Update_BrokerageAccount_Req)
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage.Update_BrokerageAccount_Req)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1766,30 +1286,30 @@ uint8_t* Update_BrokerageAccount_Req::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // .bank_to_brokerage.Deposit deposit = 2;
-  if (_internal_has_deposit()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::deposit(this),
-        _Internal::deposit(this).GetCachedSize(), target, stream);
-  }
-
-  // .bank_to_brokerage.Withdraw withdraw = 3;
+  // .brokerage.Withdraw withdraw = 2;
   if (_internal_has_withdraw()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, _Internal::withdraw(this),
+      InternalWriteMessage(2, _Internal::withdraw(this),
         _Internal::withdraw(this).GetCachedSize(), target, stream);
+  }
+
+  // .brokerage.Deposit deposit = 3;
+  if (_internal_has_deposit()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, _Internal::deposit(this),
+        _Internal::deposit(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:bank_to_brokerage.Update_BrokerageAccount_Req)
+  // @@protoc_insertion_point(serialize_to_array_end:brokerage.Update_BrokerageAccount_Req)
   return target;
 }
 
 size_t Update_BrokerageAccount_Req::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bank_to_brokerage.Update_BrokerageAccount_Req)
+// @@protoc_insertion_point(message_byte_size_start:brokerage.Update_BrokerageAccount_Req)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -1804,18 +1324,18 @@ size_t Update_BrokerageAccount_Req::ByteSizeLong() const {
   }
 
   switch (payload_case()) {
-    // .bank_to_brokerage.Deposit deposit = 2;
-    case kDeposit: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.payload_.deposit_);
-      break;
-    }
-    // .bank_to_brokerage.Withdraw withdraw = 3;
+    // .brokerage.Withdraw withdraw = 2;
     case kWithdraw: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *_impl_.payload_.withdraw_);
+      break;
+    }
+    // .brokerage.Deposit deposit = 3;
+    case kDeposit: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.payload_.deposit_);
       break;
     }
     case PAYLOAD_NOT_SET: {
@@ -1835,7 +1355,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Update_BrokerageAccount_Req::G
 void Update_BrokerageAccount_Req::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<Update_BrokerageAccount_Req*>(&to_msg);
   auto& from = static_cast<const Update_BrokerageAccount_Req&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:bank_to_brokerage.Update_BrokerageAccount_Req)
+  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage.Update_BrokerageAccount_Req)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -1845,14 +1365,14 @@ void Update_BrokerageAccount_Req::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
         from._internal_header());
   }
   switch (from.payload_case()) {
-    case kDeposit: {
-      _this->_internal_mutable_deposit()->::bank_to_brokerage::Deposit::MergeFrom(
-          from._internal_deposit());
+    case kWithdraw: {
+      _this->_internal_mutable_withdraw()->::brokerage::Withdraw::MergeFrom(
+          from._internal_withdraw());
       break;
     }
-    case kWithdraw: {
-      _this->_internal_mutable_withdraw()->::bank_to_brokerage::Withdraw::MergeFrom(
-          from._internal_withdraw());
+    case kDeposit: {
+      _this->_internal_mutable_deposit()->::brokerage::Deposit::MergeFrom(
+          from._internal_deposit());
       break;
     }
     case PAYLOAD_NOT_SET: {
@@ -1863,7 +1383,7 @@ void Update_BrokerageAccount_Req::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
 }
 
 void Update_BrokerageAccount_Req::CopyFrom(const Update_BrokerageAccount_Req& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bank_to_brokerage.Update_BrokerageAccount_Req)
+// @@protoc_insertion_point(class_specific_copy_from_start:brokerage.Update_BrokerageAccount_Req)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1884,7 +1404,7 @@ void Update_BrokerageAccount_Req::InternalSwap(Update_BrokerageAccount_Req* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata Update_BrokerageAccount_Req::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_bank_5fto_5fbrokerage_2eproto_getter, &descriptor_table_bank_5fto_5fbrokerage_2eproto_once,
-      file_level_metadata_bank_5fto_5fbrokerage_2eproto[5]);
+      file_level_metadata_bank_5fto_5fbrokerage_2eproto[3]);
 }
 
 // ===================================================================
@@ -1892,16 +1412,11 @@ void Update_BrokerageAccount_Req::InternalSwap(Update_BrokerageAccount_Req* othe
 class Update_BrokerageAccount_Rep::_Internal {
  public:
   static const ::Header& header(const Update_BrokerageAccount_Rep* msg);
-  static const ::BrokerageId& brokerage_id(const Update_BrokerageAccount_Rep* msg);
 };
 
 const ::Header&
 Update_BrokerageAccount_Rep::_Internal::header(const Update_BrokerageAccount_Rep* msg) {
   return *msg->_impl_.header_;
-}
-const ::BrokerageId&
-Update_BrokerageAccount_Rep::_Internal::brokerage_id(const Update_BrokerageAccount_Rep* msg) {
-  return *msg->_impl_.brokerage_id_;
 }
 void Update_BrokerageAccount_Rep::clear_header() {
   if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
@@ -1909,24 +1424,17 @@ void Update_BrokerageAccount_Rep::clear_header() {
   }
   _impl_.header_ = nullptr;
 }
-void Update_BrokerageAccount_Rep::clear_brokerage_id() {
-  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
-    delete _impl_.brokerage_id_;
-  }
-  _impl_.brokerage_id_ = nullptr;
-}
 Update_BrokerageAccount_Rep::Update_BrokerageAccount_Rep(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:bank_to_brokerage.Update_BrokerageAccount_Rep)
+  // @@protoc_insertion_point(arena_constructor:brokerage.Update_BrokerageAccount_Rep)
 }
 Update_BrokerageAccount_Rep::Update_BrokerageAccount_Rep(const Update_BrokerageAccount_Rep& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   Update_BrokerageAccount_Rep* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.brokerage_id_){nullptr}
     , decltype(_impl_.response_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -1934,11 +1442,8 @@ Update_BrokerageAccount_Rep::Update_BrokerageAccount_Rep(const Update_BrokerageA
   if (from._internal_has_header()) {
     _this->_impl_.header_ = new ::Header(*from._impl_.header_);
   }
-  if (from._internal_has_brokerage_id()) {
-    _this->_impl_.brokerage_id_ = new ::BrokerageId(*from._impl_.brokerage_id_);
-  }
   _this->_impl_.response_ = from._impl_.response_;
-  // @@protoc_insertion_point(copy_constructor:bank_to_brokerage.Update_BrokerageAccount_Rep)
+  // @@protoc_insertion_point(copy_constructor:brokerage.Update_BrokerageAccount_Rep)
 }
 
 inline void Update_BrokerageAccount_Rep::SharedCtor(
@@ -1947,14 +1452,13 @@ inline void Update_BrokerageAccount_Rep::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.brokerage_id_){nullptr}
     , decltype(_impl_.response_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
 
 Update_BrokerageAccount_Rep::~Update_BrokerageAccount_Rep() {
-  // @@protoc_insertion_point(destructor:bank_to_brokerage.Update_BrokerageAccount_Rep)
+  // @@protoc_insertion_point(destructor:brokerage.Update_BrokerageAccount_Rep)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -1965,7 +1469,6 @@ Update_BrokerageAccount_Rep::~Update_BrokerageAccount_Rep() {
 inline void Update_BrokerageAccount_Rep::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete _impl_.header_;
-  if (this != internal_default_instance()) delete _impl_.brokerage_id_;
 }
 
 void Update_BrokerageAccount_Rep::SetCachedSize(int size) const {
@@ -1973,7 +1476,7 @@ void Update_BrokerageAccount_Rep::SetCachedSize(int size) const {
 }
 
 void Update_BrokerageAccount_Rep::Clear() {
-// @@protoc_insertion_point(message_clear_start:bank_to_brokerage.Update_BrokerageAccount_Rep)
+// @@protoc_insertion_point(message_clear_start:brokerage.Update_BrokerageAccount_Rep)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1982,10 +1485,6 @@ void Update_BrokerageAccount_Rep::Clear() {
     delete _impl_.header_;
   }
   _impl_.header_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
-    delete _impl_.brokerage_id_;
-  }
-  _impl_.brokerage_id_ = nullptr;
   _impl_.response_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2004,20 +1503,12 @@ const char* Update_BrokerageAccount_Rep::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // .BrokerageId brokerage_id = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_brokerage_id(), ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // .bank_to_brokerage.Update_BrokerageAccount_Rep.ResponseType response = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+      // .brokerage.Update_BrokerageAccount_Rep.ResponseType response = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          _internal_set_response(static_cast<::bank_to_brokerage::Update_BrokerageAccount_Rep_ResponseType>(val));
+          _internal_set_response(static_cast<::brokerage::Update_BrokerageAccount_Rep_ResponseType>(val));
         } else
           goto handle_unusual;
         continue;
@@ -2046,7 +1537,7 @@ failure:
 
 uint8_t* Update_BrokerageAccount_Rep::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bank_to_brokerage.Update_BrokerageAccount_Rep)
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage.Update_BrokerageAccount_Rep)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2057,30 +1548,23 @@ uint8_t* Update_BrokerageAccount_Rep::_InternalSerialize(
         _Internal::header(this).GetCachedSize(), target, stream);
   }
 
-  // .BrokerageId brokerage_id = 3;
-  if (this->_internal_has_brokerage_id()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, _Internal::brokerage_id(this),
-        _Internal::brokerage_id(this).GetCachedSize(), target, stream);
-  }
-
-  // .bank_to_brokerage.Update_BrokerageAccount_Rep.ResponseType response = 4;
+  // .brokerage.Update_BrokerageAccount_Rep.ResponseType response = 2;
   if (this->_internal_response() != 0) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
-      4, this->_internal_response(), target);
+      2, this->_internal_response(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:bank_to_brokerage.Update_BrokerageAccount_Rep)
+  // @@protoc_insertion_point(serialize_to_array_end:brokerage.Update_BrokerageAccount_Rep)
   return target;
 }
 
 size_t Update_BrokerageAccount_Rep::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bank_to_brokerage.Update_BrokerageAccount_Rep)
+// @@protoc_insertion_point(message_byte_size_start:brokerage.Update_BrokerageAccount_Rep)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -2094,14 +1578,7 @@ size_t Update_BrokerageAccount_Rep::ByteSizeLong() const {
         *_impl_.header_);
   }
 
-  // .BrokerageId brokerage_id = 3;
-  if (this->_internal_has_brokerage_id()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.brokerage_id_);
-  }
-
-  // .bank_to_brokerage.Update_BrokerageAccount_Rep.ResponseType response = 4;
+  // .brokerage.Update_BrokerageAccount_Rep.ResponseType response = 2;
   if (this->_internal_response() != 0) {
     total_size += 1 +
       ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
@@ -2120,7 +1597,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Update_BrokerageAccount_Rep::G
 void Update_BrokerageAccount_Rep::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
   auto* const _this = static_cast<Update_BrokerageAccount_Rep*>(&to_msg);
   auto& from = static_cast<const Update_BrokerageAccount_Rep&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:bank_to_brokerage.Update_BrokerageAccount_Rep)
+  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage.Update_BrokerageAccount_Rep)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2129,10 +1606,6 @@ void Update_BrokerageAccount_Rep::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
     _this->_internal_mutable_header()->::Header::MergeFrom(
         from._internal_header());
   }
-  if (from._internal_has_brokerage_id()) {
-    _this->_internal_mutable_brokerage_id()->::BrokerageId::MergeFrom(
-        from._internal_brokerage_id());
-  }
   if (from._internal_response() != 0) {
     _this->_internal_set_response(from._internal_response());
   }
@@ -2140,7 +1613,7 @@ void Update_BrokerageAccount_Rep::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
 }
 
 void Update_BrokerageAccount_Rep::CopyFrom(const Update_BrokerageAccount_Rep& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bank_to_brokerage.Update_BrokerageAccount_Rep)
+// @@protoc_insertion_point(class_specific_copy_from_start:brokerage.Update_BrokerageAccount_Rep)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2164,39 +1637,541 @@ void Update_BrokerageAccount_Rep::InternalSwap(Update_BrokerageAccount_Rep* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata Update_BrokerageAccount_Rep::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_bank_5fto_5fbrokerage_2eproto_getter, &descriptor_table_bank_5fto_5fbrokerage_2eproto_once,
+      file_level_metadata_bank_5fto_5fbrokerage_2eproto[4]);
+}
+
+// ===================================================================
+
+class Deposit::_Internal {
+ public:
+  static const ::BrokerageId& brokerage_id(const Deposit* msg);
+  static const ::Price& price(const Deposit* msg);
+};
+
+const ::BrokerageId&
+Deposit::_Internal::brokerage_id(const Deposit* msg) {
+  return *msg->_impl_.brokerage_id_;
+}
+const ::Price&
+Deposit::_Internal::price(const Deposit* msg) {
+  return *msg->_impl_.price_;
+}
+void Deposit::clear_brokerage_id() {
+  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
+    delete _impl_.brokerage_id_;
+  }
+  _impl_.brokerage_id_ = nullptr;
+}
+void Deposit::clear_price() {
+  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
+    delete _impl_.price_;
+  }
+  _impl_.price_ = nullptr;
+}
+Deposit::Deposit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:brokerage.Deposit)
+}
+Deposit::Deposit(const Deposit& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Deposit* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.brokerage_id_){nullptr}
+    , decltype(_impl_.price_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_brokerage_id()) {
+    _this->_impl_.brokerage_id_ = new ::BrokerageId(*from._impl_.brokerage_id_);
+  }
+  if (from._internal_has_price()) {
+    _this->_impl_.price_ = new ::Price(*from._impl_.price_);
+  }
+  // @@protoc_insertion_point(copy_constructor:brokerage.Deposit)
+}
+
+inline void Deposit::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.brokerage_id_){nullptr}
+    , decltype(_impl_.price_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+Deposit::~Deposit() {
+  // @@protoc_insertion_point(destructor:brokerage.Deposit)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void Deposit::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.brokerage_id_;
+  if (this != internal_default_instance()) delete _impl_.price_;
+}
+
+void Deposit::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void Deposit::Clear() {
+// @@protoc_insertion_point(message_clear_start:brokerage.Deposit)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
+    delete _impl_.brokerage_id_;
+  }
+  _impl_.brokerage_id_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
+    delete _impl_.price_;
+  }
+  _impl_.price_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Deposit::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .BrokerageId brokerage_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_brokerage_id(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .Price price = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_price(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Deposit::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage.Deposit)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .BrokerageId brokerage_id = 1;
+  if (this->_internal_has_brokerage_id()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::brokerage_id(this),
+        _Internal::brokerage_id(this).GetCachedSize(), target, stream);
+  }
+
+  // .Price price = 2;
+  if (this->_internal_has_price()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::price(this),
+        _Internal::price(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:brokerage.Deposit)
+  return target;
+}
+
+size_t Deposit::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:brokerage.Deposit)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .BrokerageId brokerage_id = 1;
+  if (this->_internal_has_brokerage_id()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.brokerage_id_);
+  }
+
+  // .Price price = 2;
+  if (this->_internal_has_price()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.price_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Deposit::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Deposit::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Deposit::GetClassData() const { return &_class_data_; }
+
+
+void Deposit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Deposit*>(&to_msg);
+  auto& from = static_cast<const Deposit&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage.Deposit)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_brokerage_id()) {
+    _this->_internal_mutable_brokerage_id()->::BrokerageId::MergeFrom(
+        from._internal_brokerage_id());
+  }
+  if (from._internal_has_price()) {
+    _this->_internal_mutable_price()->::Price::MergeFrom(
+        from._internal_price());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Deposit::CopyFrom(const Deposit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:brokerage.Deposit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Deposit::IsInitialized() const {
+  return true;
+}
+
+void Deposit::InternalSwap(Deposit* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Deposit, _impl_.price_)
+      + sizeof(Deposit::_impl_.price_)
+      - PROTOBUF_FIELD_OFFSET(Deposit, _impl_.brokerage_id_)>(
+          reinterpret_cast<char*>(&_impl_.brokerage_id_),
+          reinterpret_cast<char*>(&other->_impl_.brokerage_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Deposit::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_bank_5fto_5fbrokerage_2eproto_getter, &descriptor_table_bank_5fto_5fbrokerage_2eproto_once,
+      file_level_metadata_bank_5fto_5fbrokerage_2eproto[5]);
+}
+
+// ===================================================================
+
+class Withdraw::_Internal {
+ public:
+  static const ::BrokerageId& brokerage_id(const Withdraw* msg);
+  static const ::Price& price(const Withdraw* msg);
+};
+
+const ::BrokerageId&
+Withdraw::_Internal::brokerage_id(const Withdraw* msg) {
+  return *msg->_impl_.brokerage_id_;
+}
+const ::Price&
+Withdraw::_Internal::price(const Withdraw* msg) {
+  return *msg->_impl_.price_;
+}
+void Withdraw::clear_brokerage_id() {
+  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
+    delete _impl_.brokerage_id_;
+  }
+  _impl_.brokerage_id_ = nullptr;
+}
+void Withdraw::clear_price() {
+  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
+    delete _impl_.price_;
+  }
+  _impl_.price_ = nullptr;
+}
+Withdraw::Withdraw(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:brokerage.Withdraw)
+}
+Withdraw::Withdraw(const Withdraw& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Withdraw* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.brokerage_id_){nullptr}
+    , decltype(_impl_.price_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_brokerage_id()) {
+    _this->_impl_.brokerage_id_ = new ::BrokerageId(*from._impl_.brokerage_id_);
+  }
+  if (from._internal_has_price()) {
+    _this->_impl_.price_ = new ::Price(*from._impl_.price_);
+  }
+  // @@protoc_insertion_point(copy_constructor:brokerage.Withdraw)
+}
+
+inline void Withdraw::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.brokerage_id_){nullptr}
+    , decltype(_impl_.price_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+Withdraw::~Withdraw() {
+  // @@protoc_insertion_point(destructor:brokerage.Withdraw)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void Withdraw::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.brokerage_id_;
+  if (this != internal_default_instance()) delete _impl_.price_;
+}
+
+void Withdraw::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void Withdraw::Clear() {
+// @@protoc_insertion_point(message_clear_start:brokerage.Withdraw)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
+    delete _impl_.brokerage_id_;
+  }
+  _impl_.brokerage_id_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
+    delete _impl_.price_;
+  }
+  _impl_.price_ = nullptr;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Withdraw::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .BrokerageId brokerage_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_brokerage_id(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .Price price = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_price(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Withdraw::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage.Withdraw)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .BrokerageId brokerage_id = 1;
+  if (this->_internal_has_brokerage_id()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::brokerage_id(this),
+        _Internal::brokerage_id(this).GetCachedSize(), target, stream);
+  }
+
+  // .Price price = 2;
+  if (this->_internal_has_price()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, _Internal::price(this),
+        _Internal::price(this).GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:brokerage.Withdraw)
+  return target;
+}
+
+size_t Withdraw::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:brokerage.Withdraw)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .BrokerageId brokerage_id = 1;
+  if (this->_internal_has_brokerage_id()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.brokerage_id_);
+  }
+
+  // .Price price = 2;
+  if (this->_internal_has_price()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.price_);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Withdraw::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    Withdraw::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Withdraw::GetClassData() const { return &_class_data_; }
+
+
+void Withdraw::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Withdraw*>(&to_msg);
+  auto& from = static_cast<const Withdraw&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage.Withdraw)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_brokerage_id()) {
+    _this->_internal_mutable_brokerage_id()->::BrokerageId::MergeFrom(
+        from._internal_brokerage_id());
+  }
+  if (from._internal_has_price()) {
+    _this->_internal_mutable_price()->::Price::MergeFrom(
+        from._internal_price());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Withdraw::CopyFrom(const Withdraw& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:brokerage.Withdraw)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Withdraw::IsInitialized() const {
+  return true;
+}
+
+void Withdraw::InternalSwap(Withdraw* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Withdraw, _impl_.price_)
+      + sizeof(Withdraw::_impl_.price_)
+      - PROTOBUF_FIELD_OFFSET(Withdraw, _impl_.brokerage_id_)>(
+          reinterpret_cast<char*>(&_impl_.brokerage_id_),
+          reinterpret_cast<char*>(&other->_impl_.brokerage_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Withdraw::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_bank_5fto_5fbrokerage_2eproto_getter, &descriptor_table_bank_5fto_5fbrokerage_2eproto_once,
       file_level_metadata_bank_5fto_5fbrokerage_2eproto[6]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace bank_to_brokerage
+}  // namespace brokerage
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::bank_to_brokerage::EndOfDaySummaryRequest_Transaction*
-Arena::CreateMaybeMessage< ::bank_to_brokerage::EndOfDaySummaryRequest_Transaction >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::bank_to_brokerage::EndOfDaySummaryRequest_Transaction >(arena);
+template<> PROTOBUF_NOINLINE ::brokerage::EndOfDaySummaryRequest_Transaction*
+Arena::CreateMaybeMessage< ::brokerage::EndOfDaySummaryRequest_Transaction >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::brokerage::EndOfDaySummaryRequest_Transaction >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bank_to_brokerage::EndOfDaySummaryRequest*
-Arena::CreateMaybeMessage< ::bank_to_brokerage::EndOfDaySummaryRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::bank_to_brokerage::EndOfDaySummaryRequest >(arena);
+template<> PROTOBUF_NOINLINE ::brokerage::EndOfDaySummaryRequest*
+Arena::CreateMaybeMessage< ::brokerage::EndOfDaySummaryRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::brokerage::EndOfDaySummaryRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bank_to_brokerage::EndOfDayResponse*
-Arena::CreateMaybeMessage< ::bank_to_brokerage::EndOfDayResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::bank_to_brokerage::EndOfDayResponse >(arena);
+template<> PROTOBUF_NOINLINE ::brokerage::EndOfDayResponse*
+Arena::CreateMaybeMessage< ::brokerage::EndOfDayResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::brokerage::EndOfDayResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bank_to_brokerage::Deposit*
-Arena::CreateMaybeMessage< ::bank_to_brokerage::Deposit >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::bank_to_brokerage::Deposit >(arena);
+template<> PROTOBUF_NOINLINE ::brokerage::Update_BrokerageAccount_Req*
+Arena::CreateMaybeMessage< ::brokerage::Update_BrokerageAccount_Req >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::brokerage::Update_BrokerageAccount_Req >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bank_to_brokerage::Withdraw*
-Arena::CreateMaybeMessage< ::bank_to_brokerage::Withdraw >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::bank_to_brokerage::Withdraw >(arena);
+template<> PROTOBUF_NOINLINE ::brokerage::Update_BrokerageAccount_Rep*
+Arena::CreateMaybeMessage< ::brokerage::Update_BrokerageAccount_Rep >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::brokerage::Update_BrokerageAccount_Rep >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bank_to_brokerage::Update_BrokerageAccount_Req*
-Arena::CreateMaybeMessage< ::bank_to_brokerage::Update_BrokerageAccount_Req >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::bank_to_brokerage::Update_BrokerageAccount_Req >(arena);
+template<> PROTOBUF_NOINLINE ::brokerage::Deposit*
+Arena::CreateMaybeMessage< ::brokerage::Deposit >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::brokerage::Deposit >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bank_to_brokerage::Update_BrokerageAccount_Rep*
-Arena::CreateMaybeMessage< ::bank_to_brokerage::Update_BrokerageAccount_Rep >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::bank_to_brokerage::Update_BrokerageAccount_Rep >(arena);
+template<> PROTOBUF_NOINLINE ::brokerage::Withdraw*
+Arena::CreateMaybeMessage< ::brokerage::Withdraw >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::brokerage::Withdraw >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
