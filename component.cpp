@@ -234,7 +234,7 @@ int main(int argc, char* argv[]){
         return 1;
     }
     time_t eventStartTime = static_cast<time_t>(std::stol(argv[1]));
-    initComponent("elec477grp2-main/input_files/broker1_init.csv");
+    initComponent("broker1_init.csv");
 
     regServer regulatoryServer;
     std::thread regServerThread(&regServer::startServer, &regulatoryServer);
