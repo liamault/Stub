@@ -72,7 +72,7 @@ svcDir::serverEntity getEntity(){
 
 
 bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTicker, int quantity, int dollars, int cents, int transactionId, bool tipFlag, int hour, int day){
-    svcDir::serverEntity entity = getEntity()
+    svcDir::serverEntity entity = getEntity();
     std::string serverName = entity.name;
     unsigned short stockClientPort = entity.port;
     
@@ -194,7 +194,7 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
 }
 
 bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
-    svcDir::serverEntity entity = getEntity()
+    svcDir::serverEntity entity = getEntity();
     std::string serverName = entity.name;
     unsigned short stockClientPort = entity.port;
 
@@ -277,7 +277,7 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
 }
 
 bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
-    svcDir::serverEntity entity = getEntity()
+    svcDir::serverEntity entity = getEntity();
     std::string serverName = entity.name;
     unsigned short stockClientPort = entity.port;
     
@@ -361,7 +361,7 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
 }
 
 bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
-    svcDir::serverEntity entity = getEntity()
+    svcDir::serverEntity entity = getEntity();
     std::string serverName = entity.name;
     unsigned short stockClientPort = entity.port;
     
