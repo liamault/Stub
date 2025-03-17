@@ -52,13 +52,13 @@ bool getBankAddress(const char* name, in_addr& addr) {
 
 void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposit) {
 
-    if (!setSeverAddress(serverAddress)) {
+    if (!svcDir::setSeverAddress(serverAddress)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);
     }
     else { cout << "Server Address set." << endl; }
 
-    serverEntity entity = searchService(serviceName);
+    svcDir::serverEntity entity = svcDir::searchService(serviceName);
     if (entity.getName() == "init" || entity.getPort() == 0) {
         std::cerr << "Error: No entity found for service " << serviceName << std::endl;
         exit(1); // Exit program if service was not found

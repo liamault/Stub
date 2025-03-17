@@ -21,7 +21,7 @@
 using namespace std;
 using namespace string_literals;
 
-static unsigned short bankServerPort = 1866;
+static uint16_t bankServerPort = 1866;
 static uint32_t bankServerMaxMesg = 2048;
 
 // inet glal variables
@@ -30,12 +30,13 @@ static struct sockaddr_in servaddr;
 //static atomic<uint32_t> serial = 0;
 
 string serverAddress = "ServiceServer.elec477grp2";//
-static serverEntity entity("brokerage", bankServerPort);
+static svcDir::serverEntity entity{"brokerage", uint16_t(1866)};
+//std::atomic<bool> shutdownFlag(false);
 
 
 void startBankServer() {
     //set server address
-    if (!setSeverAddress(serverAddress)) {
+    if (!svcDir::setSeverAddress(serverAddress)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);
     }
@@ -43,7 +44,7 @@ void startBankServer() {
 
 
     //register service: BankLedger 
-    if (!registerService("BankLedger", entity)) {
+    if (!svcDir::registerService("BankLedger", entity)) {
         cerr << "Failed to register service!" << endl;
         exit(1);
     }
@@ -145,3 +146,8 @@ void startBankServer() {
 
     close(sockfd);
 }
+
+
+//int main(){
+//    startBankServer();
+//}

@@ -55,7 +55,7 @@ bool getStockAddress(const char* name, in_addr& addr) {
 
 
 bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTicker, int quantity, int dollars, int cents, int transactionId, bool tipFlag, int hour, int day){
-    serverEntity entity = getEntity()
+    svcDir::serverEntity entity = getEntity()
     std::string serverName = entity.getName();
     unsigned short stockClientPort = entity.getPort();
     
@@ -176,7 +176,7 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
 }
 
 bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
-    serverEntity entity = getEntity()
+    svcDir::serverEntity entity = getEntity()
     std::string serverName = entity.getName();
     unsigned short stockClientPort = entity.getPort();
 
@@ -258,7 +258,7 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
 }
 
 bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
-    serverEntity entity = getEntity()
+    svcDir::serverEntity entity = getEntity()
     std::string serverName = entity.getName();
     unsigned short stockClientPort = entity.getPort();
     
@@ -341,7 +341,7 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
 }
 
 bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
-    serverEntity entity = getEntity()
+    svcDir::serverEntity entity = getEntity()
     std::string serverName = entity.getName();
     unsigned short stockClientPort = entity.getPort();
     
@@ -435,14 +435,14 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
     }
 }
 
-serverEntity getEntity(){
-    if (!setSeverAddress(serverAddress)) {
+svcDir::serverEntity getEntity(){
+    if (!svcDir::setSeverAddress(serverAddress)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);
     }
     else { cout << "Server Address set." << endl;}
 
-    serverEntity entity = searchService(serviceName);
+    svcDir::serverEntity entity = svcDir::searchService(serviceName);
     if (entity.getName() == "init" || entity.getPort() == 0) {
         std::cerr << "Error: No entity found for service " << serviceName << std::endl;
         exit(1); // Exit program if service was not found

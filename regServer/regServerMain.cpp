@@ -27,7 +27,7 @@ static unsigned short regServerPort = 1867;
 static uint32_t regServerMaxMesg = 2048;
 string serverAddress = "ServiceServer.elec477grp2";//
 
-static serverEntity entity("brokerage", regServerPort);
+static svcDir::serverEntity entity{"brokerage", uint16_t(1867)};
 
 // inet glal variables
 static int regServerSockfd;
@@ -36,14 +36,14 @@ static atomic<uint32_t> serial = 0;
 void regServer::startServer() {
     //set server address
     
-    if (!setSeverAddress(serverAddress)) {
+    if (!svcDir::setSeverAddress(serverAddress)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);
     }
     else { cout << "Server Address set for brokerageCompliance." << endl; }
 
     //register service: brokerageCompliance 
-    if (!registerService("brokerageCompliance", entity)) {
+    if (!svcDir::registerService("brokerageCompliance", entity)) {
         cerr << "Failed to register service!" << endl;
         exit(1);
     }
