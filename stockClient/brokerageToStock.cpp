@@ -14,7 +14,7 @@ using namespace std;
 // static string serverName = "localhost";
 // static unsigned short stockClientPort = 1337;
 static uint32_t stockClientMaxMesg = 2048;
-string serviceName = "StockExchange";
+string serviceName_stock = "StockExchange";
 string serverAddress_stock = "ServiceServer.elec477grp2";
 static atomic<uint32_t> serialNumber_stock = 1;
 
@@ -61,9 +61,9 @@ svcDir::serverEntity getEntity(){
     }
     else { cout << "Server Address set." << endl;}
 
-    svcDir::serverEntity entity = svcDir::searchService(serviceName);
+    svcDir::serverEntity entity = svcDir::searchService(serviceName_stock);
     if (entity.name == "init" || entity.port == 0) {
-        std::cerr << "Error: No entity found for service " << serviceName << std::endl;
+        std::cerr << "Error: No entity found for service " << serviceName_stock << std::endl;
         exit(1); // Exit program if service was not found
     }
     else{cout << "Service StockExchange found" << endl;}

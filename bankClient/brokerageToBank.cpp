@@ -11,7 +11,7 @@
 
 using namespace std;
 
-string serviceName = "brokerage_server";
+string serviceName_bank = "brokerage_server";
 string serverAddress_bankc = "ServiceServer.elec477grp2";
 static uint32_t bankClientMaxMesg = 2048;
 static atomic<uint32_t> serialNumber_bankc = 1;
@@ -59,9 +59,9 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
     }
     else { cout << "Server Address set." << endl; }
 
-    svcDir::serverEntity entity = svcDir::searchService(serviceName);
+    svcDir::serverEntity entity = svcDir::searchService(serviceName_bank);
     if (entity.name == "init" || entity.port == 0) {
-        std::cerr << "Error: No entity found for service " << serviceName << std::endl;
+        std::cerr << "Error: No entity found for service " << serviceName_bank << std::endl;
         exit(1); // Exit program if service was not found
     }
     std::string serverName = entity.name;
