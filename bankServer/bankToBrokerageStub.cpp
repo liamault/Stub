@@ -30,14 +30,14 @@ static struct sockaddr_in servaddr;
 //static atomic<uint32_t> serial = 0;
 static atomic<uint32_t> serialNumber_bankS = 1;
 
-string serverAddress = "ServiceServer.elec477grp2";//
+string serverAddress_bankS = "ServiceServer.elec477grp2";//
 static svcDir::serverEntity entity{"brokerage", uint16_t(1866)};
 //std::atomic<bool> shutdownFlag(false);
 
 
 void startBankServer() {
     //set server address
-    if (!svcDir::setSeverAddress(serverAddress)) {
+    if (!svcDir::setSeverAddress(serverAddress_bankS)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);
     }

@@ -25,7 +25,7 @@ using namespace std;
 
 static unsigned short regServerPort = 1867;
 static uint32_t regServerMaxMesg = 2048;
-string serverAddress = "ServiceServer.elec477grp2";//
+string serverAddress_reg = "ServiceServer.elec477grp2";//
 
 static svcDir::serverEntity entity{"brokerage", uint16_t(1867)};
 
@@ -35,7 +35,7 @@ static atomic<uint32_t> serialNumber_reg = 1;
 void regServer::startServer() {
     //set server address
     
-    if (!svcDir::setSeverAddress(serverAddress)) {
+    if (!svcDir::setSeverAddress(serverAddress_reg)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);
     }

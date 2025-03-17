@@ -12,7 +12,7 @@
 using namespace std;
 
 string serviceName = "brokerage_server";
-string serverAddress = "ServiceServer.elec477grp2";
+string serverAddress_bankc = "ServiceServer.elec477grp2";
 static uint32_t bankClientMaxMesg = 2048;
 static atomic<uint32_t> serialNumber_bankc = 1;
 
@@ -53,7 +53,7 @@ bool getBankAddress(const char* name, in_addr& addr) {
 
 void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposit) {
 
-    if (!svcDir::setSeverAddress(serverAddress)) {
+    if (!svcDir::setSeverAddress(serverAddress_bankc)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);
     }
@@ -67,7 +67,7 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
     std::string serverName = entity.name;
     unsigned short bankClientPort = entity.port;
     std::cout << "Found service: " << serverName << " on port " << bankClientPort << std::endl;
-    
+
     int sockfd;
     struct sockaddr_in servaddr;
     char buffer[bankClientMaxMesg];

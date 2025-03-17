@@ -15,7 +15,7 @@ using namespace std;
 // static unsigned short stockClientPort = 1337;
 static uint32_t stockClientMaxMesg = 2048;
 string serviceName = "StockExchange";
-string serverAddress = "ServiceServer.elec477grp2";
+string serverAddress_stock = "ServiceServer.elec477grp2";
 static atomic<uint32_t> serialNumber_stock = 1;
 
 
@@ -55,7 +55,7 @@ bool getStockAddress(const char* name, in_addr& addr) {
 }
 
 svcDir::serverEntity getEntity(){
-    if (!svcDir::setSeverAddress(serverAddress)) {
+    if (!svcDir::setSeverAddress(serverAddress_stock)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);
     }
