@@ -14,6 +14,9 @@
 
 #include "../shutdownFlag.hpp"
 #include "bankToBrokerageStub.hpp"
+#include "../naming/svcDirClient.hpp"
+
+
 
 using namespace std;
 using namespace string_literals;
@@ -26,7 +29,27 @@ static int sockfd;
 static struct sockaddr_in servaddr;
 //static atomic<uint32_t> serial = 0;
 
+string serverAddress = "ServiceServer.brokerage"//
+static serverEntity entity("brokerage", bankServerPort);
+
+
 void startBankServer() {
+    //set server address
+    if (!setSeverAddress(serverAddress)) {
+        cerr << "Failed to set server address!" << endl;
+        exit(1);
+    }
+    else { cout << "Server Address set for BankLedger." << endl; }
+
+
+    //register service: BankLedger 
+    if (!registerService("BankLedger", entity)) {
+        cerr << "Failed to register service!" << endl;
+        exit(1);
+    }
+    else { cout << "Service BankLedger registered." << endl; }
+
+
     struct sockaddr_in servaddr, cliaddr;
 
     // get a socket to recieve messges
@@ -52,7 +75,7 @@ void startBankServer() {
         return; // this will exit the service thread and stop the server
     }
 
-    cout << "running Bank server on port..." << bankServerPort << "\n" << endl;
+    cout << "running Bank server" << "\n" << endl;
 
     socklen_t len;
     uint8_t udpMessage[bankServerMaxMesg];
@@ -112,5 +135,13 @@ void startBankServer() {
             perror("sendto failed");
         }
     }
+
+    if (!removeService("BankLedger", entity)) {
+        cerr << "Failed to remove BankLedger service!" << endl;
+        exit(1);
+    }
+    else { cout << "BankLedger service removed." << endl; }
+
+
     close(sockfd);
 }

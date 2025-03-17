@@ -6,11 +6,12 @@
 #include "common.pb.h"
 #include "brokerage_to_bank.pb.h"
 #include "brokerageToBank.hpp"
+#include "../naming/svcDirClient.hpp"
+
 
 using namespace std;
 
-static string serverName = "bank";
-static unsigned short bankClientPort = 1864;
+string serviceName = "brokerage_server"
 static uint32_t bankClientMaxMesg = 2048;
 
 bool getBankAddress(const char* name, in_addr& addr) {
@@ -49,6 +50,17 @@ bool getBankAddress(const char* name, in_addr& addr) {
 }
 
 void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposit) {
+
+    serverEntity entity = searchService(serviceName);
+    if (entity.getName() == "init" || entity.getPort() == 0) {
+        std::cerr << "Error: No entity found for service " << serviceName << std::endl;
+        exit(1); // Exit program if service was not found
+    } else {
+        std::string serverName = entity.getName();
+        unsigned short bankClientPort = entity.getPort();
+        std::cout << "Found service: " << serverName << " on port " << bankClientPort << std::endl;
+    }
+
     int sockfd;
     struct sockaddr_in servaddr;
     char buffer[bankClientMaxMesg];

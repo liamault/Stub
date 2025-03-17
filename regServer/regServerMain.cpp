@@ -16,6 +16,7 @@
 
 #include "regServerMain.h"
 #include "../component.hpp"
+#include "../naming/svcDirClient.hpp"
 
 #include "../shutdownFlag.hpp"
 
@@ -24,13 +25,32 @@ using namespace std;
 
 static unsigned short regServerPort = 1867;
 static uint32_t regServerMaxMesg = 2048;
+string serverAddress = "ServiceServer.brokerage"//
+
+static serverEntity entity("brokerage", regServerPort);
 
 // inet glal variables
 static int regServerSockfd;
 static atomic<uint32_t> serial = 0;
 
 void regServer::startServer() {
-    cout << "Running Regulatory server on port..." << regServerPort << endl;
+    //set server address
+    
+    if (!setSeverAddress(serverAddress)) {
+        cerr << "Failed to set server address!" << endl;
+        exit(1);
+    }
+    else { cout << "Server Address set for brokerageCompliance." << endl; }
+
+    //register service: brokerageCompliance 
+    if (!registerService("brokerageCompliance", entity)) {
+        cerr << "Failed to register service!" << endl;
+        exit(1);
+    }
+    else { cout << "Service brokerageCompliance registered." << endl; }
+
+
+    cout << "Running Regulatory service..." << endl;
 
     struct sockaddr_in servaddr, cliaddr;
 
@@ -134,5 +154,12 @@ void regServer::startServer() {
             perror("sendto failed");
         }
     }
+
+    if (!removeService("brokerageCompliance", entity)) {
+        cerr << "Failed to remove brokerageCompliance service!" << endl;
+        exit(1);
+    }
+    else { cout << "brokerageCompliance service removed." << endl; }
+
     close(regServerSockfd);
 }
