@@ -34,7 +34,7 @@ static int regServerSockfd;
 static atomic<uint32_t> serialNumber_reg = 1;
 void regServer::startServer() {
     //set server address
-    listInterfaces(elec477grp26);
+    
     if (!svcDir::setSeverAddress(serverAddress)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);

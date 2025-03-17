@@ -54,11 +54,27 @@ bool getStockAddress(const char* name, in_addr& addr) {
     return false;
 }
 
+svcDir::serverEntity getEntity(){
+    if (!svcDir::setSeverAddress(serverAddress)) {
+        cerr << "Failed to set server address!" << endl;
+        exit(1);
+    }
+    else { cout << "Server Address set." << endl;}
+
+    svcDir::serverEntity entity = svcDir::searchService(serviceName);
+    if (entity.name == "init" || entity.port == 0) {
+        std::cerr << "Error: No entity found for service " << serviceName << std::endl;
+        exit(1); // Exit program if service was not found
+    }
+    else{cout << "Service StockExchange found" << endl;}
+    return entity;
+}
+
 
 bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTicker, int quantity, int dollars, int cents, int transactionId, bool tipFlag, int hour, int day){
     svcDir::serverEntity entity = getEntity()
-    std::string serverName = entity.getName();
-    unsigned short stockClientPort = entity.getPort();
+    std::string serverName = entity.name;
+    unsigned short stockClientPort = entity.port;
     
     
     int sockfd;
@@ -179,8 +195,8 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
 
 bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
     svcDir::serverEntity entity = getEntity()
-    std::string serverName = entity.getName();
-    unsigned short stockClientPort = entity.getPort();
+    std::string serverName = entity.name;
+    unsigned short stockClientPort = entity.port;
 
     int sockfd;
     struct sockaddr_in servaddr;
@@ -262,8 +278,8 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
 
 bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
     svcDir::serverEntity entity = getEntity()
-    std::string serverName = entity.getName();
-    unsigned short stockClientPort = entity.getPort();
+    std::string serverName = entity.name;
+    unsigned short stockClientPort = entity.port;
     
     int sockfd;
     struct sockaddr_in servaddr;
@@ -346,8 +362,8 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
 
 bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
     svcDir::serverEntity entity = getEntity()
-    std::string serverName = entity.getName();
-    unsigned short stockClientPort = entity.getPort();
+    std::string serverName = entity.name;
+    unsigned short stockClientPort = entity.port;
     
     int sockfd;
     struct sockaddr_in servaddr;
@@ -438,22 +454,6 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
         close(sockfd);
         return false;
     }
-}
-
-svcDir::serverEntity getEntity(){
-    if (!svcDir::setSeverAddress(serverAddress)) {
-        cerr << "Failed to set server address!" << endl;
-        exit(1);
-    }
-    else { cout << "Server Address set." << endl;}
-
-    svcDir::serverEntity entity = svcDir::searchService(serviceName);
-    if (entity.getName() == "init" || entity.getPort() == 0) {
-        std::cerr << "Error: No entity found for service " << serviceName << std::endl;
-        exit(1); // Exit program if service was not found
-    }
-    else{cout << "Service StockExchange found" << endl;}
-    return entity;
 }
 
 // int main() {
