@@ -14,6 +14,7 @@ using namespace std;
 string serviceName = "brokerage_server";
 string serverAddress = "ServiceServer.elec477grp2";
 static uint32_t bankClientMaxMesg = 2048;
+static atomic<uint32_t> serialNumber_bankc = 1;
 
 bool getBankAddress(const char* name, in_addr& addr) {
     struct addrinfo *addr_result;
@@ -97,7 +98,8 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
     brokerage_to_bank::UpdateAccount request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(1);
+    request.mutable_header()->set_serial(serialNumber_bankc);
+    serialNumber_bankc += 1;
 
     // Set the payload as a deposit
     if (deposit) {

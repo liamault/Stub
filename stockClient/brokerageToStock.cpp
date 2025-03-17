@@ -16,6 +16,7 @@ using namespace std;
 static uint32_t stockClientMaxMesg = 2048;
 string serviceName = "StockExchange";
 string serverAddress = "ServiceServer.elec477grp2";
+static atomic<uint32_t> serialNumber_stock = 1;
 
 
 bool getStockAddress(const char* name, in_addr& addr) {
@@ -87,7 +88,8 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
     stock_exchange::Packet request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(1);
+    request.mutable_header()->set_serial(serialNumber_stock);
+    serialNumber_stock += 1;
 
 
     if (buy){
@@ -208,7 +210,8 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
     stock_exchange::Packet request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(1);    
+    request.mutable_header()->set_serial(serialNumber_stock);
+    serialNumber_stock += 1;    
 
     // Set BUYSPEC payload (Only brokerageId & transactionId)
     auto* buyspec = request.mutable_buy_spec();
@@ -290,7 +293,8 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
     stock_exchange::Packet request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(1);    
+    request.mutable_header()->set_serial(serialNumber_stock);    
+    serialNumber_stock += 1;
 
     // Set cancel payload (Only brokerageId & transactionId)
     auto* cancel = request.mutable_cancel();
@@ -370,7 +374,8 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
     stock_exchange::Packet request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(1);
+    request.mutable_header()->set_serial(serialNumber_stock);
+    serialNumber_stock += 1;
 
     auto* query = request.mutable_query();
     query->mutable_brokerage_id()->set_brokerage(brokerageId);

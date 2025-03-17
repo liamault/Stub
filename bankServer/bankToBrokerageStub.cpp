@@ -28,6 +28,7 @@ static uint32_t bankServerMaxMesg = 2048;
 static int sockfd;
 static struct sockaddr_in servaddr;
 //static atomic<uint32_t> serial = 0;
+static atomic<uint32_t> serialNumber_bankS = 1;
 
 string serverAddress = "ServiceServer.elec477grp2";//
 static svcDir::serverEntity entity{"brokerage", uint16_t(1866)};
@@ -86,7 +87,7 @@ void startBankServer() {
     timeout.tv_sec = 1;  // 1 second timeout
     timeout.tv_usec = 0;
     setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
-
+    
     while(!shutdownFlag.load()){
         // wait for a mesage from a client
         len = sizeof(cliaddr);  //len is value/result
@@ -116,7 +117,8 @@ void startBankServer() {
         brokerage::EndOfDayResponse response;
         response.mutable_header()->set_version(1);
         response.mutable_header()->set_magic(BROKERAGE);
-        response.mutable_header()->set_serial(1);
+        response.mutable_header()->set_serial(serialNumber_bankS);
+        serialNumber_bankS += 1;
         
         response.set_status(brokerage::EndOfDayResponse::SUCCESS);
 

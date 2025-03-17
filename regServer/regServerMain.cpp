@@ -31,11 +31,10 @@ static svcDir::serverEntity entity{"brokerage", uint16_t(1867)};
 
 // inet glal variables
 static int regServerSockfd;
-static atomic<uint32_t> serial = 0;
-
+static atomic<uint32_t> serialNumber_reg = 1;
 void regServer::startServer() {
     //set server address
-    
+    listInterfaces(elec477grp26);
     if (!svcDir::setSeverAddress(serverAddress)) {
         cerr << "Failed to set server address!" << endl;
         exit(1);
@@ -123,7 +122,7 @@ void regServer::startServer() {
             trader->updateBlockFlag(blockDuration);
             updateTrader(traderID, *trader);
 
-            reply.mutable_header()->set_serial(request.header().serial());
+            reply.mutable_header()->set_serial(serialNumber_reg);
             reply.mutable_header()->set_version(request.header().version());
             reply.mutable_header()->set_magic(BROKERAGE);
 
@@ -132,7 +131,7 @@ void regServer::startServer() {
         } else {
             std::cerr << "Trader " << traderID << " not found!" << std::endl;
 
-            reply.mutable_header()->set_serial(request.header().serial());
+            reply.mutable_header()->set_serial(serialNumber_reg);
             reply.mutable_header()->set_version(request.header().version());
             reply.mutable_header()->set_magic(BROKERAGE);
     
@@ -140,6 +139,7 @@ void regServer::startServer() {
             reply.set_response(regulatory_to_broker::ResponseType::INVALID);
 
         }
+        serialNumber_reg += 1;
         
         cout << "Sending response: " << reply.DebugString() << endl;
 
