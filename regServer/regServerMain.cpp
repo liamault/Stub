@@ -25,7 +25,7 @@ using namespace std;
 
 static unsigned short regServerPort = 1867;
 static uint32_t regServerMaxMesg = 2048;
-string serverAddress = "ServiceServer.brokerage"//
+string serverAddress = "ServiceServer.elec477grp2";//
 
 static serverEntity entity("brokerage", regServerPort);
 

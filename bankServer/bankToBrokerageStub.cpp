@@ -29,7 +29,7 @@ static int sockfd;
 static struct sockaddr_in servaddr;
 //static atomic<uint32_t> serial = 0;
 
-string serverAddress = "ServiceServer.brokerage"//
+string serverAddress = "ServiceServer.elec477grp2";//
 static serverEntity entity("brokerage", bankServerPort);
 
 

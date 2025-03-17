@@ -14,7 +14,8 @@ using namespace std;
 // static string serverName = "localhost";
 // static unsigned short stockClientPort = 1337;
 static uint32_t stockClientMaxMesg = 2048;
-string serviceName = "StockExchange"
+string serviceName = "StockExchange";
+string serverAddress = "ServiceServer.elec477grp2";
 
 
 bool getStockAddress(const char* name, in_addr& addr) {
@@ -435,6 +436,12 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
 }
 
 serverEntity getEntity(){
+    if (!setSeverAddress(serverAddress)) {
+        cerr << "Failed to set server address!" << endl;
+        exit(1);
+    }
+    else { cout << "Server Address set." << endl;}
+
     serverEntity entity = searchService(serviceName);
     if (entity.getName() == "init" || entity.getPort() == 0) {
         std::cerr << "Error: No entity found for service " << serviceName << std::endl;

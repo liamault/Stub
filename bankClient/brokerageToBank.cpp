@@ -11,7 +11,8 @@
 
 using namespace std;
 
-string serviceName = "brokerage_server"
+string serviceName = "brokerage_server";
+string serverAddress = "ServiceServer.elec477grp2";
 static uint32_t bankClientMaxMesg = 2048;
 
 bool getBankAddress(const char* name, in_addr& addr) {
@@ -50,6 +51,12 @@ bool getBankAddress(const char* name, in_addr& addr) {
 }
 
 void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposit) {
+
+    if (!setSeverAddress(serverAddress)) {
+        cerr << "Failed to set server address!" << endl;
+        exit(1);
+    }
+    else { cout << "Server Address set." << endl; }
 
     serverEntity entity = searchService(serviceName);
     if (entity.getName() == "init" || entity.getPort() == 0) {
