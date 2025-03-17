@@ -63,12 +63,11 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
     if (entity.name == "init" || entity.port == 0) {
         std::cerr << "Error: No entity found for service " << serviceName << std::endl;
         exit(1); // Exit program if service was not found
-    } else {
-        std::string serverName = entity.name;
-        unsigned short bankClientPort = entity.port;
-        std::cout << "Found service: " << serverName << " on port " << bankClientPort << std::endl;
     }
-
+    std::string serverName = entity.name;
+    unsigned short bankClientPort = entity.port;
+    std::cout << "Found service: " << serverName << " on port " << bankClientPort << std::endl;
+    
     int sockfd;
     struct sockaddr_in servaddr;
     char buffer[bankClientMaxMesg];
