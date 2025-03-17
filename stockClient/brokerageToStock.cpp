@@ -14,6 +14,7 @@ using namespace std;
 // static string serverName = "localhost";
 // static unsigned short stockClientPort = 1337;
 static uint32_t stockClientMaxMesg = 2048;
+int stock_serial = 1;
 string serviceName = "StockExchange";
 string serverAddress = "ServiceServer.elec477grp2";
 
@@ -87,7 +88,7 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
     stock_exchange::Packet request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(1);
+    request.mutable_header()->set_serial(serial);
 
 
     if (buy){
@@ -164,9 +165,17 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
 
         std::cout << "Stock Exchange Response: " 
         << (success ? "SUCCESS" : "ERROR") << std::endl;
+
+        if (!success) {
+            close(sockfd);
+            sendBuySellRequest(buy, brokerageId, traderId, stockTicker, quantity, dollars, cents, transactionId, tipFlag, hour, day)
+        }
+        stock_serial = stock_serial + 1;
         return success;
     } else {
         std::cerr << "Failed to receive response" << std::endl;
+        close(sockfd);
+        sendBuySellRequest(buy, brokerageId, traderId, stockTicker, quantity, dollars, cents, transactionId, tipFlag, hour, day)
         return false;
     }
 
