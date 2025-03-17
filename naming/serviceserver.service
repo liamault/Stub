@@ -1,0 +1,12 @@
+[Unit]
+Description=Elec477 Service Server
+After=network.target
+ 
+ 
+[Service]
+ExecStart=/home/ubuntu/svcserver
+User=ubuntu
+Group=ubuntu
+ 
+[Install]
+WantedBy=multi-user.target
