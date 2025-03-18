@@ -84,19 +84,19 @@ int sendDepositRequest(){
 
 
     // Construct EndOfDaySummaryRequest message
-    bank_to_brokerage::EndOfDaySummaryRequest request;
+    brokerage::EndOfDaySummaryRequest request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BANK);
     request.mutable_header()->set_serial(serialNumber_bankC.load());
 
     auto* transaction1 = request.add_transactions();
-    transaction1->set_operation(bank_to_brokerage::EndOfDaySummaryRequest::DEPOSIT);
+    transaction1->set_operation(brokerage::EndOfDaySummaryRequest::DEPOSIT);
     transaction1->mutable_amount()->set_dollars(1);
     transaction1->mutable_amount()->set_cents(2); 
     transaction1->set_component(BROKERAGE);
 
     // auto* transaction2 = request.add_transactions();
-    // transaction2->set_operation(bank_to_brokerage::EndOfDaySummaryRequest::WITHDRAW);
+    // transaction2->set_operation(brokerage::EndOfDaySummaryRequest::WITHDRAW);
     // transaction2->mutable_amount()->set_dollars(3);
     // transaction2->mutable_amount()->set_cents(4); 
     // transaction2->set_component(BROKERAGE);
@@ -126,7 +126,7 @@ int sendDepositRequest(){
     timeout.tv_sec = 2;
     timeout.tv_usec = 0;
 
-    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+    if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
         close(sockfd);
         cerr << "Response timeout failed" << endl;
         return false;
@@ -143,7 +143,7 @@ int sendDepositRequest(){
     }
     else{
         // Deserialize response
-        bank_to_brokerage::EndOfDayResponse response;
+        brokerage::EndOfDayResponse response;
 
         if (!response.ParseFromArray(buffer, n)) {
             cerr << "Failed to parse response.\n";
@@ -151,7 +151,7 @@ int sendDepositRequest(){
             return 1;
         }
 
-        const std::string statusStr = bank_to_brokerage::EndOfDayResponse::Status_Name(response.status());
+        const std::string statusStr = brokerage::EndOfDayResponse::Status_Name(response.status());
         cout << "Server Response: " << statusStr << endl;
         serialNumber_bankC.fetch_add(1);
         // Cleanup
