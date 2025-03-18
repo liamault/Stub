@@ -14,7 +14,7 @@ using namespace std;
 string serviceName_bank = "brokerage_server";
 string serverAddress_bankc = "ServiceServer.elec477grp2";
 static uint32_t bankClientMaxMesg = 2048;
-static atomic<uint32_t> serialNumber_bankc = 1;
+static atomic<uint32_t> serialNumber_bank = 1;
 
 bool getBankAddress(const char* name, in_addr& addr) {
     struct addrinfo *addr_result;
@@ -97,8 +97,7 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
     brokerage_to_bank::UpdateAccount request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(serialNumber_bankc);
-    serialNumber_bankc += 1;
+    request.mutable_header()->set_serial(serialNumber_bank);
 
     // Set the payload as a deposit
     if (deposit) {
@@ -131,6 +130,16 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
     cout << "Sent deposit request to bank\n";    
     
     // Receive response
+    struct timeval timeout;
+    timeout.tv_sec = 2;
+    timeout.tv_usec = 0;
+
+    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+        close(sockfd);
+        cerr << "Response timeout failed" << endl;
+        return false;
+    }
+
     socklen_t len = sizeof(servaddr);
     int n = recvfrom(sockfd, buffer, sizeof(buffer), 0, 
                     (struct sockaddr*)&servaddr, &len);
@@ -142,12 +151,13 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
         cout << "Bank response: "
              << (response.response() == brokerage_to_bank::Ack::SUCCESS ? "SUCCESS" : "INVALID TRANSACTION")
              << endl;
+        serialNumber_bankc += 1;
+        close(sockfd);
     } else {
         cerr << "No response received from bank\n";
+        close(sockfd);
+        sendTransactionRequest(brokerageId, dollars, cents, deposit);
     }
-
-    close(sockfd);
-
 }
 
 // int main() {
