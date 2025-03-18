@@ -105,7 +105,6 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
     request.mutable_header()->set_serial(serialNumber_stock);
-    serialNumber_stock += 1;
 
 
     if (buy){
@@ -167,6 +166,16 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
 
 
     // Receive response
+    struct timeval timeout;
+    timeout.tv_sec = 2;
+    timeout.tv_usec = 0;
+
+    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+        close(sockfd);
+        cerr << "Response timeout failed" << endl;
+        return false;
+    }
+
     socklen_t len = sizeof(servaddr);
     int n = recvfrom(sockfd, buffer, sizeof(buffer), 0, 
                 (struct sockaddr*)&servaddr, &len);
@@ -182,9 +191,12 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
 
         std::cout << "Stock Exchange Response: " 
         << (success ? "SUCCESS" : "ERROR") << std::endl;
+        serialNumber_stock += 1;
         return success;
     } else {
         std::cerr << "Failed to receive response" << std::endl;
+        close(sockfd);
+        sendBuySellRequest(buy, brokerageId, traderId, stockTicker, quantity, dollars, cents, transactionId, tipFlag, hour, day);
         return false;
     }
 
@@ -227,7 +239,6 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
     request.mutable_header()->set_serial(serialNumber_stock);
-    serialNumber_stock += 1;    
 
     // Set BUYSPEC payload (Only brokerageId & transactionId)
     auto* buyspec = request.mutable_buy_spec();
@@ -251,6 +262,16 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
     cout << "Sent buyspec request to stock exchange\n";
 
     // Receive response
+    struct timeval timeout;
+    timeout.tv_sec = 2;
+    timeout.tv_usec = 0;
+
+    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+        close(sockfd);
+        cerr << "Response timeout failed" << endl;
+        return false;
+    }
+
     socklen_t len = sizeof(servaddr);
     int n = recvfrom(sockfd, buffer, sizeof(buffer), 0, 
                 (struct sockaddr*)&servaddr, &len);
@@ -266,9 +287,12 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
 
         std::cout << "Stock Exchange Response: " 
         << (success ? "SUCCESS" : "ERROR") << std::endl;
+        serialNumber_stock += 1;
         return success;
     } else {
         std::cerr << "Failed to receive response" << std::endl;
+        close(sockfd);
+        sendBuySpecRequest(brokerageId, traderId, transactionId);
         return false;
     }
 
@@ -310,7 +334,6 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
     request.mutable_header()->set_serial(serialNumber_stock);    
-    serialNumber_stock += 1;
 
     // Set cancel payload (Only brokerageId & transactionId)
     auto* cancel = request.mutable_cancel();
@@ -334,6 +357,16 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
     cout << "Sent cancel request to stock exchange\n";
 
     // Receive response
+    struct timeval timeout;
+    timeout.tv_sec = 2;
+    timeout.tv_usec = 0;
+
+    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+        close(sockfd);
+        cerr << "Response timeout failed" << endl;
+        return false;
+    }
+
     socklen_t len = sizeof(servaddr);
     int n = recvfrom(sockfd, buffer, sizeof(buffer), 0, 
                 (struct sockaddr*)&servaddr, &len);
@@ -349,9 +382,12 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
 
         std::cout << "Stock Exchange Response: " 
         << (success ? "SUCCESS" : "ERROR") << std::endl;
+        serialNumber_stock += 1;
         return success;
     } else {
         std::cerr << "Failed to receive response" << std::endl;
+        close(sockfd);
+        sendCancelRequest(brokerageId, traderId, transactionId);
         return false;
     }
 
@@ -391,7 +427,6 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
     request.mutable_header()->set_serial(serialNumber_stock);
-    serialNumber_stock += 1;
 
     auto* query = request.mutable_query();
     query->mutable_brokerage_id()->set_brokerage(brokerageId);
@@ -416,6 +451,16 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
     cout << "Sent SOD Query request for stock: " << ticker << " under brokerage " << brokerageId << endl;
 
     // Receive response
+    struct timeval timeout;
+    timeout.tv_sec = 2;
+    timeout.tv_usec = 0;
+
+    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+        close(sockfd);
+        cerr << "Response timeout failed" << endl;
+        return false;
+    }
+
     socklen_t len = sizeof(servaddr);
     int n = recvfrom(sockfd, buffer, sizeof(buffer), 0, (struct sockaddr*)&servaddr, &len);
 
@@ -448,10 +493,12 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
                  << endl;
         }
         close(sockfd);
+        serialNumber_stock += 1;
         return response.response() == stock_exchange::Response::SUCCESS;
     } else {
         cerr << "No response received from stock exchange" << endl;
         close(sockfd);
+        sendSODQueryRequest(brokerageId, traderId, ticker);
         return false;
     }
 }
