@@ -31,7 +31,7 @@ static svcDir::serverEntity entity{"brokerage", uint16_t(1867)};
 
 // inet glal variables
 static int regServerSockfd;
-static atomic<uint32_t> serialNumber_reg = 1;
+static atomic<uint32_t> serialNumber_reg = numeric_limits<uint32_t>::max();// serial number initialized as max, matches client serial number for the first message
 void regServer::startServer() {
     //set server address
     
@@ -114,32 +114,37 @@ void regServer::startServer() {
         cout << "trader " << request.brokerage().trader() << " at brokerage " << request.brokerage().brokerage() << " will be banned for " << request.block_duration() << " days due to reason #" << request.reason() << endl;
 
         // pass request here
+
+        //if request.header().serial() is > serialNumber_reg, then process logic, 
+
+
         uint32_t traderID = request.brokerage().trader();
         uint32_t blockDuration = request.block_duration();
         Trader* trader = getTrader(traderID);
 
+        reply.mutable_header()->set_serial(request.header().serial());
+        reply.mutable_header()->set_version(request.header().version());
+        reply.mutable_header()->set_magic(BROKERAGE);
+
+
+        
+
         if (trader) {
-            trader->updateBlockFlag(blockDuration);
-            updateTrader(traderID, *trader);
-
-            reply.mutable_header()->set_serial(serialNumber_reg);
-            reply.mutable_header()->set_version(request.header().version());
-            reply.mutable_header()->set_magic(BROKERAGE);
-
+            if (serialNumber_reg.load() == numeric_limits<uint32_t>::max() || static_cast<uint32_t>(request.header().serial()) > serialNumber_reg.load()){
+                trader->updateBlockFlag(blockDuration);
+                updateTrader(traderID, *trader);
+                serialNumber_reg.store(static_cast<uint32_t>(request.header().serial()));///Only do this if new request
+            }
             //set valid respinse
             reply.set_response(regulatory_to_broker::ResponseType::OK);
         } else {
             std::cerr << "Trader " << traderID << " not found!" << std::endl;
-
-            reply.mutable_header()->set_serial(serialNumber_reg);
-            reply.mutable_header()->set_version(request.header().version());
-            reply.mutable_header()->set_magic(BROKERAGE);
-    
+            if (serialNumber_reg.load() == numeric_limits<uint32_t>::max() || static_cast<uint32_t>(request.header().serial()) > serialNumber_reg.load()){
+                serialNumber_reg.store(static_cast<uint32_t>(request.header().serial()));///Only do this if new request
+            }
             //set invalid respinse
             reply.set_response(regulatory_to_broker::ResponseType::INVALID);
-
         }
-        serialNumber_reg += 1;
         
         cout << "Sending response: " << reply.DebugString() << endl;
 

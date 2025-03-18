@@ -28,9 +28,9 @@ static uint32_t bankServerMaxMesg = 2048;
 static int sockfd;
 static struct sockaddr_in servaddr;
 //static atomic<uint32_t> serial = 0;
-static atomic<uint32_t> serialNumber_bankS = 1;
+static atomic<uint32_t> serialNumber_bankS = numeric_limits<uint32_t>::max();// serial number initialized as max, matches client serial number for the first message
 
-string serverAddress_bankS = "ServiceServer.elec477grp2";//
+string serverAddress_bankS = "ServiceServer.elec477grp2";
 static svcDir::serverEntity entity{"brokerage", uint16_t(1866)};
 //std::atomic<bool> shutdownFlag(false);
 
@@ -109,16 +109,19 @@ void startBankServer() {
             continue;
         }
 
-        // Process the request here
-        // For example, print the request details
-        cout << "Request details: " << request.DebugString() << "\n";
+        if (serialNumber_bankS.load() == numeric_limits<uint32_t>::max() || static_cast<uint32_t>(request.header().serial()) > serialNumber_bankS.load()){
+            serialNumber_bankS.store(static_cast<uint32_t>(request.header().serial()));///This is better
+
+            // Process the request here
+            // For example, print the request details
+            cout << "Request details: " << request.DebugString() << "\n";
+        }
 
         // Prepare a response
         brokerage::EndOfDayResponse response;
-        response.mutable_header()->set_version(1);
+        response.mutable_header()->set_version(request.header().version());
         response.mutable_header()->set_magic(BROKERAGE);
-        response.mutable_header()->set_serial(serialNumber_bankS);
-        serialNumber_bankS += 1;
+        response.mutable_header()->set_serial(request.header().serial());
         
         response.set_status(brokerage::EndOfDayResponse::SUCCESS);
 
