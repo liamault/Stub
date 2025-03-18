@@ -104,7 +104,7 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
     stock_exchange::Packet request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(serialNumber_stock);
+    request.mutable_header()->set_serial(serialNumber_stock.load());
 
 
     if (buy){
@@ -191,7 +191,7 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
 
         std::cout << "Stock Exchange Response: " 
         << (success ? "SUCCESS" : "ERROR") << std::endl;
-        serialNumber_stock += 1;
+        serialNumber_stock.fetch_add(1);
         return success;
     } else {
         std::cerr << "Failed to receive response" << std::endl;
@@ -238,7 +238,7 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
     stock_exchange::Packet request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(serialNumber_stock);
+    request.mutable_header()->set_serial(serialNumber_stock.load());
 
     // Set BUYSPEC payload (Only brokerageId & transactionId)
     auto* buyspec = request.mutable_buy_spec();
@@ -287,7 +287,7 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
 
         std::cout << "Stock Exchange Response: " 
         << (success ? "SUCCESS" : "ERROR") << std::endl;
-        serialNumber_stock += 1;
+        serialNumber_stock.fetch_add(1);
         return success;
     } else {
         std::cerr << "Failed to receive response" << std::endl;
@@ -333,7 +333,7 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
     stock_exchange::Packet request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(serialNumber_stock);    
+    request.mutable_header()->set_serial(serialNumber_stock.load());
 
     // Set cancel payload (Only brokerageId & transactionId)
     auto* cancel = request.mutable_cancel();
@@ -382,7 +382,7 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
 
         std::cout << "Stock Exchange Response: " 
         << (success ? "SUCCESS" : "ERROR") << std::endl;
-        serialNumber_stock += 1;
+        serialNumber_stock.fetch_add(1);
         return success;
     } else {
         std::cerr << "Failed to receive response" << std::endl;
@@ -426,7 +426,7 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
     stock_exchange::Packet request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
-    request.mutable_header()->set_serial(serialNumber_stock);
+    request.mutable_header()->set_serial(serialNumber_stock.load());
 
     auto* query = request.mutable_query();
     query->mutable_brokerage_id()->set_brokerage(brokerageId);
@@ -493,7 +493,7 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
                  << endl;
         }
         close(sockfd);
-        serialNumber_stock += 1;
+        serialNumber_stock.fetch_add(1);
         return response.response() == stock_exchange::Response::SUCCESS;
     } else {
         cerr << "No response received from stock exchange" << endl;
