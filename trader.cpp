@@ -61,7 +61,7 @@ bool Trader::sellStock(const std::string& ticker, uint32_t quantity, double pric
         bool response = sendBuySellRequest(buy, brokerID, traderID, ticker, quantity, dollars, cents, transactionID, tipFlag, hour, day);
         //check if response is successful
         if (!response) {
-            std::cerr << "Buy request was unsuccessful!" << std::endl;
+            std::cerr << "Sell request was unsuccessful!" << std::endl;
             return false;
         }
         stockHoldings[ticker] -= quantity; // Reduce stock quantity

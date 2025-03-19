@@ -93,8 +93,8 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
         return;
     }
 
-    // Prepare Deposit protobuf request
-    brokerage_to_bank::UpdateAccount request;
+    // Prepare protobuf request
+    brokerage::Update_BrokerageAccount_Req request;
     request.mutable_header()->set_version(1);
     request.mutable_header()->set_magic(BROKERAGE);
     request.mutable_header()->set_serial(serialNumber_bankC.load());
@@ -106,17 +106,20 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
         brokerageIdMessage->set_brokerage(brokerageId);
         transaction->mutable_price()->set_dollars(dollars);
         transaction->mutable_price()->set_cents(cents);
+        cout << "Sent deposit request to bank\n"; 
     } else {
         auto* transaction = request.mutable_withdraw();  // Fix for oneof fields
         auto* brokerageIdMessage = transaction->mutable_brokerage_id();
         brokerageIdMessage->set_brokerage(brokerageId);
         transaction->mutable_price()->set_dollars(dollars);
         transaction->mutable_price()->set_cents(cents);
+        cout << "Sent withdraw request to bank\n"; 
     }
 
     // Serialize request
     char serializedRequest[bankClientMaxMesg];
     size_t requestSize = request.ByteSizeLong();
+
     if (!request.SerializeToArray(serializedRequest, requestSize)) {
         cerr << "Failed to serialize request" << endl;
         return;
@@ -127,7 +130,7 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
     sendto(sockfd, serializedRequest, requestSize, 0,
            (struct sockaddr*)&servaddr, sizeof(servaddr));
 
-    cout << "Sent deposit request to bank\n";    
+       
     
     // Receive response
     struct timeval timeout;
@@ -145,12 +148,30 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
                     (struct sockaddr*)&servaddr, &len);
 
     if (n > 0) {
-        brokerage_to_bank::Ack response;
+        brokerage::Update_BrokerageAccount_Rep response;
         response.ParseFromArray(buffer, n);
 
-        cout << "Bank response: "
-             << (response.response() == brokerage_to_bank::Ack::SUCCESS ? "SUCCESS" : "INVALID TRANSACTION")
-             << endl;
+        cout << "Bank response: ";
+        switch (response.response()) {
+            case brokerage::Update_BrokerageAccount_Rep::SUCCESS:
+                cout << "SUCCESS" << endl;
+                break;
+            case brokerage::Update_BrokerageAccount_Rep::INVALID:
+                cout << "INVALID TRANSACTION" << endl;
+                break;
+            case brokerage::Update_BrokerageAccount_Rep::MALFORMED_MESSAGE:
+                cout << "MALFORMED MESSAGE" << endl;
+                break;
+            case brokerage::Update_BrokerageAccount_Rep::INVALID_TRANSACTION_ID:
+                cout << "INVALID TRANSACTION ID" << endl;
+                break;
+            case brokerage::Update_BrokerageAccount_Rep::INVALID_BROKERAGE_ID:
+                cout << "INVALID BROKERAGE ID" << endl;
+                break;
+            default:
+                cout << "UNKNOWN RESPONSE" << endl;
+                break;
+
         serialNumber_bankC.fetch_add(1);
         close(sockfd);
     } else {
