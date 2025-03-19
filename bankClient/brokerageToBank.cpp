@@ -12,7 +12,7 @@
 using namespace std;
 
 string serviceName_bank = "brokerage_server";
-string serverAddress_bankc = "ServiceServer.elec477grp2";
+string serverAddress_bankc = "ServiceServer.final-integration4";
 static uint32_t bankClientMaxMesg = 2048;
 static atomic<uint32_t> serialNumber_bankC = 1;
 
@@ -134,10 +134,10 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
     timeout.tv_sec = 2;
     timeout.tv_usec = 0;
 
-    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+    if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
         close(sockfd);
         cerr << "Response timeout failed" << endl;
-        return false;
+        return;
     }
 
     socklen_t len = sizeof(servaddr);

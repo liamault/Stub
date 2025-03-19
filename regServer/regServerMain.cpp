@@ -25,13 +25,16 @@ using namespace std;
 
 static unsigned short regServerPort = 1867;
 static uint32_t regServerMaxMesg = 2048;
-string serverAddress_reg = "ServiceServer.elec477grp2";//
+string serverAddress_reg = "ServiceServer.final-integration4";
 
 static svcDir::serverEntity entity{"brokerage", uint16_t(1867)};
 
 // inet glal variables
 static int regServerSockfd;
 static atomic<uint32_t> serialNumber_reg = numeric_limits<uint32_t>::max();// serial number initialized as max, matches client serial number for the first message
+//std::atomic<bool> shutdownFlag(false);
+
+
 void regServer::startServer() {
     //set server address
     
@@ -168,3 +171,11 @@ void regServer::startServer() {
 
     close(regServerSockfd);
 }
+
+
+//int main(){
+    //regServer regulatoryServer;
+    //regulatoryServer.startServer();
+  //  return 0;
+ //}
+ 

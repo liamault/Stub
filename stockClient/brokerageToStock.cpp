@@ -15,7 +15,7 @@ using namespace std;
 // static unsigned short stockClientPort = 1337;
 static uint32_t stockClientMaxMesg = 2048;
 string serviceName_stock = "StockExchange";
-string serverAddress_stock = "ServiceServer.elec477grp2";
+string serverAddress_stock = "ServiceServer.final-integration4";
 static atomic<uint32_t> serialNumber_stock = 1;
 
 
@@ -170,7 +170,7 @@ bool sendBuySellRequest(bool buy, int brokerageId, int traderId, string stockTic
     timeout.tv_sec = 2;
     timeout.tv_usec = 0;
 
-    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+    if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
         close(sockfd);
         cerr << "Response timeout failed" << endl;
         return false;
@@ -266,7 +266,7 @@ bool sendBuySpecRequest(int brokerageId, int traderId, int transactionId){
     timeout.tv_sec = 2;
     timeout.tv_usec = 0;
 
-    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+    if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
         close(sockfd);
         cerr << "Response timeout failed" << endl;
         return false;
@@ -361,7 +361,7 @@ bool sendCancelRequest(int brokerageId, int traderId, int transactionId){
     timeout.tv_sec = 2;
     timeout.tv_usec = 0;
 
-    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+    if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
         close(sockfd);
         cerr << "Response timeout failed" << endl;
         return false;
@@ -455,7 +455,7 @@ bool sendSODQueryRequest(int brokerageId, int traderId, string ticker){
     timeout.tv_sec = 2;
     timeout.tv_usec = 0;
 
-    if (setsockopt(sockfd, SOL_SOCKED, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+    if (setsockopt(sockfd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
         close(sockfd);
         cerr << "Response timeout failed" << endl;
         return false;

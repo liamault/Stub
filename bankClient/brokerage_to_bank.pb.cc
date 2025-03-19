@@ -5,170 +5,230 @@
 
 #include <algorithm>
 
+#include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/io/coded_stream.h>
-#include <google/protobuf/extension_set.h>
-#include <google/protobuf/wire_format_lite.h>
+#include <google/protobuf/wire_format_lite_inl.h>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
 #include <google/protobuf/wire_format.h>
+// This is a temporary google only hack
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+#include "third_party/protobuf/version.h"
+#endif
 // @@protoc_insertion_point(includes)
-#include <google/protobuf/port_def.inc>
 
-PROTOBUF_PRAGMA_INIT_SEG
-
-namespace _pb = ::PROTOBUF_NAMESPACE_ID;
-namespace _pbi = _pb::internal;
-
+namespace protobuf_brokerage_5fto_5fbank_2eproto {
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_brokerage_5fto_5fbank_2eproto ::google::protobuf::internal::SCCInfo<2> scc_info_Deposit;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_brokerage_5fto_5fbank_2eproto ::google::protobuf::internal::SCCInfo<2> scc_info_Withdraw;
+}  // namespace protobuf_brokerage_5fto_5fbank_2eproto
+namespace protobuf_common_2eproto {
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_common_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_BrokerageId;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_common_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Header;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_common_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Price;
+}  // namespace protobuf_common_2eproto
 namespace brokerage_to_bank {
-PROTOBUF_CONSTEXPR Withdraw::Withdraw(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.brokerage_id_)*/nullptr
-  , /*decltype(_impl_.price_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct WithdrawDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR WithdrawDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~WithdrawDefaultTypeInternal() {}
-  union {
-    Withdraw _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 WithdrawDefaultTypeInternal _Withdraw_default_instance_;
-PROTOBUF_CONSTEXPR Deposit::Deposit(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.brokerage_id_)*/nullptr
-  , /*decltype(_impl_.price_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct DepositDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR DepositDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~DepositDefaultTypeInternal() {}
-  union {
-    Deposit _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 DepositDefaultTypeInternal _Deposit_default_instance_;
-PROTOBUF_CONSTEXPR UpdateAccount::UpdateAccount(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.payload_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_._oneof_case_)*/{}} {}
-struct UpdateAccountDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR UpdateAccountDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~UpdateAccountDefaultTypeInternal() {}
-  union {
-    UpdateAccount _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UpdateAccountDefaultTypeInternal _UpdateAccount_default_instance_;
-PROTOBUF_CONSTEXPR Ack::Ack(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.response_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct AckDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR AckDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~AckDefaultTypeInternal() {}
-  union {
-    Ack _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 AckDefaultTypeInternal _Ack_default_instance_;
+class WithdrawDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<Withdraw>
+      _instance;
+} _Withdraw_default_instance_;
+class DepositDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<Deposit>
+      _instance;
+} _Deposit_default_instance_;
+class UpdateAccountDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<UpdateAccount>
+      _instance;
+  const ::brokerage_to_bank::Withdraw* withdraw_;
+  const ::brokerage_to_bank::Deposit* deposit_;
+} _UpdateAccount_default_instance_;
+class AckDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<Ack>
+      _instance;
+} _Ack_default_instance_;
 }  // namespace brokerage_to_bank
-static ::_pb::Metadata file_level_metadata_brokerage_5fto_5fbank_2eproto[4];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_brokerage_5fto_5fbank_2eproto[1];
-static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_brokerage_5fto_5fbank_2eproto = nullptr;
+namespace protobuf_brokerage_5fto_5fbank_2eproto {
+static void InitDefaultsWithdraw() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-const uint32_t TableStruct_brokerage_5fto_5fbank_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::Withdraw, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::Withdraw, _impl_.brokerage_id_),
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::Withdraw, _impl_.price_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::Deposit, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::Deposit, _impl_.brokerage_id_),
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::Deposit, _impl_.price_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::UpdateAccount, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::UpdateAccount, _impl_._oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::UpdateAccount, _impl_.header_),
-  ::_pbi::kInvalidFieldOffsetTag,
-  ::_pbi::kInvalidFieldOffsetTag,
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::UpdateAccount, _impl_.payload_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::Ack, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::brokerage_to_bank::Ack, _impl_.response_),
-};
-static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::brokerage_to_bank::Withdraw)},
-  { 8, -1, -1, sizeof(::brokerage_to_bank::Deposit)},
-  { 16, -1, -1, sizeof(::brokerage_to_bank::UpdateAccount)},
-  { 26, -1, -1, sizeof(::brokerage_to_bank::Ack)},
-};
-
-static const ::_pb::Message* const file_default_instances[] = {
-  &::brokerage_to_bank::_Withdraw_default_instance_._instance,
-  &::brokerage_to_bank::_Deposit_default_instance_._instance,
-  &::brokerage_to_bank::_UpdateAccount_default_instance_._instance,
-  &::brokerage_to_bank::_Ack_default_instance_._instance,
-};
-
-const char descriptor_table_protodef_brokerage_5fto_5fbank_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\027brokerage_to_bank.proto\022\021brokerage_to_"
-  "bank\032\014common.proto\"E\n\010Withdraw\022\"\n\014broker"
-  "age_id\030\001 \001(\0132\014.BrokerageId\022\025\n\005price\030\002 \001("
-  "\0132\006.Price\"D\n\007Deposit\022\"\n\014brokerage_id\030\001 \001"
-  "(\0132\014.BrokerageId\022\025\n\005price\030\002 \001(\0132\006.Price\""
-  "\223\001\n\rUpdateAccount\022\027\n\006header\030\001 \001(\0132\007.Head"
-  "er\022/\n\010withdraw\030\002 \001(\0132\033.brokerage_to_bank"
-  ".WithdrawH\000\022-\n\007deposit\030\003 \001(\0132\032.brokerage"
-  "_to_bank.DepositH\000B\t\n\007payload\"\263\001\n\003Ack\0225\n"
-  "\010response\030\001 \001(\0162#.brokerage_to_bank.Ack."
-  "ResponseType\"u\n\014ResponseType\022\013\n\007INVALID\020"
-  "\000\022\025\n\021MALFORMED_MESSAGE\020\001\022\032\n\026INVALID_TRAN"
-  "SACTION_ID\020\002\022\030\n\024INVALID_BROKERAGE_ID\020\003\022\013"
-  "\n\007SUCCESS\020\004b\006proto3"
-  ;
-static const ::_pbi::DescriptorTable* const descriptor_table_brokerage_5fto_5fbank_2eproto_deps[1] = {
-  &::descriptor_table_common_2eproto,
-};
-static ::_pbi::once_flag descriptor_table_brokerage_5fto_5fbank_2eproto_once;
-const ::_pbi::DescriptorTable descriptor_table_brokerage_5fto_5fbank_2eproto = {
-    false, false, 539, descriptor_table_protodef_brokerage_5fto_5fbank_2eproto,
-    "brokerage_to_bank.proto",
-    &descriptor_table_brokerage_5fto_5fbank_2eproto_once, descriptor_table_brokerage_5fto_5fbank_2eproto_deps, 1, 4,
-    schemas, file_default_instances, TableStruct_brokerage_5fto_5fbank_2eproto::offsets,
-    file_level_metadata_brokerage_5fto_5fbank_2eproto, file_level_enum_descriptors_brokerage_5fto_5fbank_2eproto,
-    file_level_service_descriptors_brokerage_5fto_5fbank_2eproto,
-};
-PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_brokerage_5fto_5fbank_2eproto_getter() {
-  return &descriptor_table_brokerage_5fto_5fbank_2eproto;
+  {
+    void* ptr = &::brokerage_to_bank::_Withdraw_default_instance_;
+    new (ptr) ::brokerage_to_bank::Withdraw();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::brokerage_to_bank::Withdraw::InitAsDefaultInstance();
 }
 
-// Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_brokerage_5fto_5fbank_2eproto(&descriptor_table_brokerage_5fto_5fbank_2eproto);
+::google::protobuf::internal::SCCInfo<2> scc_info_Withdraw =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsWithdraw}, {
+      &protobuf_common_2eproto::scc_info_BrokerageId.base,
+      &protobuf_common_2eproto::scc_info_Price.base,}};
+
+static void InitDefaultsDeposit() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::brokerage_to_bank::_Deposit_default_instance_;
+    new (ptr) ::brokerage_to_bank::Deposit();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::brokerage_to_bank::Deposit::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<2> scc_info_Deposit =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsDeposit}, {
+      &protobuf_common_2eproto::scc_info_BrokerageId.base,
+      &protobuf_common_2eproto::scc_info_Price.base,}};
+
+static void InitDefaultsUpdateAccount() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::brokerage_to_bank::_UpdateAccount_default_instance_;
+    new (ptr) ::brokerage_to_bank::UpdateAccount();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::brokerage_to_bank::UpdateAccount::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<3> scc_info_UpdateAccount =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 3, InitDefaultsUpdateAccount}, {
+      &protobuf_common_2eproto::scc_info_Header.base,
+      &protobuf_brokerage_5fto_5fbank_2eproto::scc_info_Withdraw.base,
+      &protobuf_brokerage_5fto_5fbank_2eproto::scc_info_Deposit.base,}};
+
+static void InitDefaultsAck() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::brokerage_to_bank::_Ack_default_instance_;
+    new (ptr) ::brokerage_to_bank::Ack();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::brokerage_to_bank::Ack::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_Ack =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsAck}, {}};
+
+void InitDefaults() {
+  ::google::protobuf::internal::InitSCC(&scc_info_Withdraw.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_Deposit.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_UpdateAccount.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_Ack.base);
+}
+
+::google::protobuf::Metadata file_level_metadata[4];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
+
+const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::Withdraw, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::Withdraw, brokerage_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::Withdraw, price_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::Deposit, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::Deposit, brokerage_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::Deposit, price_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::UpdateAccount, _internal_metadata_),
+  ~0u,  // no _extensions_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::UpdateAccount, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::UpdateAccount, header_),
+  offsetof(::brokerage_to_bank::UpdateAccountDefaultTypeInternal, withdraw_),
+  offsetof(::brokerage_to_bank::UpdateAccountDefaultTypeInternal, deposit_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::UpdateAccount, payload_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::Ack, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::brokerage_to_bank::Ack, response_),
+};
+static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  { 0, -1, sizeof(::brokerage_to_bank::Withdraw)},
+  { 7, -1, sizeof(::brokerage_to_bank::Deposit)},
+  { 14, -1, sizeof(::brokerage_to_bank::UpdateAccount)},
+  { 23, -1, sizeof(::brokerage_to_bank::Ack)},
+};
+
+static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&::brokerage_to_bank::_Withdraw_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::brokerage_to_bank::_Deposit_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::brokerage_to_bank::_UpdateAccount_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::brokerage_to_bank::_Ack_default_instance_),
+};
+
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  AssignDescriptors(
+      "brokerage_to_bank.proto", schemas, file_default_instances, TableStruct::offsets,
+      file_level_metadata, file_level_enum_descriptors, NULL);
+}
+
+void protobuf_AssignDescriptorsOnce() {
+  static ::google::protobuf::internal::once_flag once;
+  ::google::protobuf::internal::call_once(once, protobuf_AssignDescriptors);
+}
+
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
+void protobuf_RegisterTypes(const ::std::string&) {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 4);
+}
+
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+      "\n\027brokerage_to_bank.proto\022\021brokerage_to_"
+      "bank\032\014common.proto\"E\n\010Withdraw\022\"\n\014broker"
+      "age_id\030\001 \001(\0132\014.BrokerageId\022\025\n\005price\030\002 \001("
+      "\0132\006.Price\"D\n\007Deposit\022\"\n\014brokerage_id\030\001 \001"
+      "(\0132\014.BrokerageId\022\025\n\005price\030\002 \001(\0132\006.Price\""
+      "\223\001\n\rUpdateAccount\022\027\n\006header\030\001 \001(\0132\007.Head"
+      "er\022/\n\010withdraw\030\002 \001(\0132\033.brokerage_to_bank"
+      ".WithdrawH\000\022-\n\007deposit\030\003 \001(\0132\032.brokerage"
+      "_to_bank.DepositH\000B\t\n\007payload\"\263\001\n\003Ack\0225\n"
+      "\010response\030\001 \001(\0162#.brokerage_to_bank.Ack."
+      "ResponseType\"u\n\014ResponseType\022\013\n\007INVALID\020"
+      "\000\022\025\n\021MALFORMED_MESSAGE\020\001\022\032\n\026INVALID_TRAN"
+      "SACTION_ID\020\002\022\030\n\024INVALID_BROKERAGE_ID\020\003\022\013"
+      "\n\007SUCCESS\020\004b\006proto3"
+  };
+  ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
+      descriptor, 539);
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
+    "brokerage_to_bank.proto", &protobuf_RegisterTypes);
+  ::protobuf_common_2eproto::AddDescriptors();
+}
+
+void AddDescriptors() {
+  static ::google::protobuf::internal::once_flag once;
+  ::google::protobuf::internal::call_once(once, AddDescriptorsImpl);
+}
+// Force AddDescriptors() to be called at dynamic initialization time.
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
+  }
+} static_descriptor_initializer;
+}  // namespace protobuf_brokerage_5fto_5fbank_2eproto
 namespace brokerage_to_bank {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Ack_ResponseType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_brokerage_5fto_5fbank_2eproto);
-  return file_level_enum_descriptors_brokerage_5fto_5fbank_2eproto[0];
+const ::google::protobuf::EnumDescriptor* Ack_ResponseType_descriptor() {
+  protobuf_brokerage_5fto_5fbank_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_brokerage_5fto_5fbank_2eproto::file_level_enum_descriptors[0];
 }
 bool Ack_ResponseType_IsValid(int value) {
   switch (value) {
@@ -183,184 +243,216 @@ bool Ack_ResponseType_IsValid(int value) {
   }
 }
 
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr Ack_ResponseType Ack::INVALID;
-constexpr Ack_ResponseType Ack::MALFORMED_MESSAGE;
-constexpr Ack_ResponseType Ack::INVALID_TRANSACTION_ID;
-constexpr Ack_ResponseType Ack::INVALID_BROKERAGE_ID;
-constexpr Ack_ResponseType Ack::SUCCESS;
-constexpr Ack_ResponseType Ack::ResponseType_MIN;
-constexpr Ack_ResponseType Ack::ResponseType_MAX;
-constexpr int Ack::ResponseType_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const Ack_ResponseType Ack::INVALID;
+const Ack_ResponseType Ack::MALFORMED_MESSAGE;
+const Ack_ResponseType Ack::INVALID_TRANSACTION_ID;
+const Ack_ResponseType Ack::INVALID_BROKERAGE_ID;
+const Ack_ResponseType Ack::SUCCESS;
+const Ack_ResponseType Ack::ResponseType_MIN;
+const Ack_ResponseType Ack::ResponseType_MAX;
+const int Ack::ResponseType_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
 
-class Withdraw::_Internal {
- public:
-  static const ::BrokerageId& brokerage_id(const Withdraw* msg);
-  static const ::Price& price(const Withdraw* msg);
-};
-
-const ::BrokerageId&
-Withdraw::_Internal::brokerage_id(const Withdraw* msg) {
-  return *msg->_impl_.brokerage_id_;
-}
-const ::Price&
-Withdraw::_Internal::price(const Withdraw* msg) {
-  return *msg->_impl_.price_;
+void Withdraw::InitAsDefaultInstance() {
+  ::brokerage_to_bank::_Withdraw_default_instance_._instance.get_mutable()->brokerage_id_ = const_cast< ::BrokerageId*>(
+      ::BrokerageId::internal_default_instance());
+  ::brokerage_to_bank::_Withdraw_default_instance_._instance.get_mutable()->price_ = const_cast< ::Price*>(
+      ::Price::internal_default_instance());
 }
 void Withdraw::clear_brokerage_id() {
-  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
-    delete _impl_.brokerage_id_;
+  if (GetArenaNoVirtual() == NULL && brokerage_id_ != NULL) {
+    delete brokerage_id_;
   }
-  _impl_.brokerage_id_ = nullptr;
+  brokerage_id_ = NULL;
 }
 void Withdraw::clear_price() {
-  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
-    delete _impl_.price_;
+  if (GetArenaNoVirtual() == NULL && price_ != NULL) {
+    delete price_;
   }
-  _impl_.price_ = nullptr;
+  price_ = NULL;
 }
-Withdraw::Withdraw(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:brokerage_to_bank.Withdraw)
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Withdraw::kBrokerageIdFieldNumber;
+const int Withdraw::kPriceFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Withdraw::Withdraw()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_brokerage_5fto_5fbank_2eproto::scc_info_Withdraw.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:brokerage_to_bank.Withdraw)
 }
 Withdraw::Withdraw(const Withdraw& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Withdraw* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.brokerage_id_){nullptr}
-    , decltype(_impl_.price_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_brokerage_id()) {
-    _this->_impl_.brokerage_id_ = new ::BrokerageId(*from._impl_.brokerage_id_);
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_brokerage_id()) {
+    brokerage_id_ = new ::BrokerageId(*from.brokerage_id_);
+  } else {
+    brokerage_id_ = NULL;
   }
-  if (from._internal_has_price()) {
-    _this->_impl_.price_ = new ::Price(*from._impl_.price_);
+  if (from.has_price()) {
+    price_ = new ::Price(*from.price_);
+  } else {
+    price_ = NULL;
   }
   // @@protoc_insertion_point(copy_constructor:brokerage_to_bank.Withdraw)
 }
 
-inline void Withdraw::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.brokerage_id_){nullptr}
-    , decltype(_impl_.price_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+void Withdraw::SharedCtor() {
+  ::memset(&brokerage_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&price_) -
+      reinterpret_cast<char*>(&brokerage_id_)) + sizeof(price_));
 }
 
 Withdraw::~Withdraw() {
   // @@protoc_insertion_point(destructor:brokerage_to_bank.Withdraw)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
   SharedDtor();
 }
 
-inline void Withdraw::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete _impl_.brokerage_id_;
-  if (this != internal_default_instance()) delete _impl_.price_;
+void Withdraw::SharedDtor() {
+  if (this != internal_default_instance()) delete brokerage_id_;
+  if (this != internal_default_instance()) delete price_;
 }
 
 void Withdraw::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
+const ::google::protobuf::Descriptor* Withdraw::descriptor() {
+  ::protobuf_brokerage_5fto_5fbank_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_brokerage_5fto_5fbank_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Withdraw& Withdraw::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_brokerage_5fto_5fbank_2eproto::scc_info_Withdraw.base);
+  return *internal_default_instance();
+}
+
 
 void Withdraw::Clear() {
 // @@protoc_insertion_point(message_clear_start:brokerage_to_bank.Withdraw)
-  uint32_t cached_has_bits = 0;
+  ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
-    delete _impl_.brokerage_id_;
+  if (GetArenaNoVirtual() == NULL && brokerage_id_ != NULL) {
+    delete brokerage_id_;
   }
-  _impl_.brokerage_id_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
-    delete _impl_.price_;
+  brokerage_id_ = NULL;
+  if (GetArenaNoVirtual() == NULL && price_ != NULL) {
+    delete price_;
   }
-  _impl_.price_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  price_ = NULL;
+  _internal_metadata_.Clear();
 }
 
-const char* Withdraw::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
+bool Withdraw::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:brokerage_to_bank.Withdraw)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // .BrokerageId brokerage_id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_brokerage_id(), ptr);
-          CHK_(ptr);
-        } else
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_brokerage_id()));
+        } else {
           goto handle_unusual;
-        continue;
+        }
+        break;
+      }
+
       // .Price price = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_price(), ptr);
-          CHK_(ptr);
-        } else
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_price()));
+        } else {
           goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
     }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
+  }
+success:
+  // @@protoc_insertion_point(parse_success:brokerage_to_bank.Withdraw)
+  return true;
 failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
+  // @@protoc_insertion_point(parse_failure:brokerage_to_bank.Withdraw)
+  return false;
+#undef DO_
 }
 
-uint8_t* Withdraw::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:brokerage_to_bank.Withdraw)
-  uint32_t cached_has_bits = 0;
+void Withdraw::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:brokerage_to_bank.Withdraw)
+  ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .BrokerageId brokerage_id = 1;
-  if (this->_internal_has_brokerage_id()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::brokerage_id(this),
-        _Internal::brokerage_id(this).GetCachedSize(), target, stream);
+  if (this->has_brokerage_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->_internal_brokerage_id(), output);
   }
 
   // .Price price = 2;
-  if (this->_internal_has_price()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::price(this),
-        _Internal::price(this).GetCachedSize(), target, stream);
+  if (this->has_price()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->_internal_price(), output);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:brokerage_to_bank.Withdraw)
+}
+
+::google::protobuf::uint8* Withdraw::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage_to_bank.Withdraw)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .BrokerageId brokerage_id = 1;
+  if (this->has_brokerage_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->_internal_brokerage_id(), deterministic, target);
+  }
+
+  // .Price price = 2;
+  if (this->has_price()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, this->_internal_price(), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:brokerage_to_bank.Withdraw)
   return target;
@@ -370,51 +462,65 @@ size_t Withdraw::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:brokerage_to_bank.Withdraw)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // .BrokerageId brokerage_id = 1;
-  if (this->_internal_has_brokerage_id()) {
+  if (this->has_brokerage_id()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.brokerage_id_);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *brokerage_id_);
   }
 
   // .Price price = 2;
-  if (this->_internal_has_price()) {
+  if (this->has_price()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.price_);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *price_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Withdraw::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Withdraw::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Withdraw::GetClassData() const { return &_class_data_; }
+void Withdraw::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:brokerage_to_bank.Withdraw)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Withdraw* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Withdraw>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:brokerage_to_bank.Withdraw)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:brokerage_to_bank.Withdraw)
+    MergeFrom(*source);
+  }
+}
 
-
-void Withdraw::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Withdraw*>(&to_msg);
-  auto& from = static_cast<const Withdraw&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage_to_bank.Withdraw)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
+void Withdraw::MergeFrom(const Withdraw& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:brokerage_to_bank.Withdraw)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_brokerage_id()) {
-    _this->_internal_mutable_brokerage_id()->::BrokerageId::MergeFrom(
-        from._internal_brokerage_id());
+  if (from.has_brokerage_id()) {
+    mutable_brokerage_id()->::BrokerageId::MergeFrom(from.brokerage_id());
   }
-  if (from._internal_has_price()) {
-    _this->_internal_mutable_price()->::Price::MergeFrom(
-        from._internal_price());
+  if (from.has_price()) {
+    mutable_price()->::Price::MergeFrom(from.price());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Withdraw::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:brokerage_to_bank.Withdraw)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Withdraw::CopyFrom(const Withdraw& from) {
@@ -428,190 +534,222 @@ bool Withdraw::IsInitialized() const {
   return true;
 }
 
+void Withdraw::Swap(Withdraw* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
 void Withdraw::InternalSwap(Withdraw* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Withdraw, _impl_.price_)
-      + sizeof(Withdraw::_impl_.price_)
-      - PROTOBUF_FIELD_OFFSET(Withdraw, _impl_.brokerage_id_)>(
-          reinterpret_cast<char*>(&_impl_.brokerage_id_),
-          reinterpret_cast<char*>(&other->_impl_.brokerage_id_));
+  swap(brokerage_id_, other->brokerage_id_);
+  swap(price_, other->price_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Withdraw::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_brokerage_5fto_5fbank_2eproto_getter, &descriptor_table_brokerage_5fto_5fbank_2eproto_once,
-      file_level_metadata_brokerage_5fto_5fbank_2eproto[0]);
+::google::protobuf::Metadata Withdraw::GetMetadata() const {
+  protobuf_brokerage_5fto_5fbank_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_brokerage_5fto_5fbank_2eproto::file_level_metadata[kIndexInFileMessages];
 }
+
 
 // ===================================================================
 
-class Deposit::_Internal {
- public:
-  static const ::BrokerageId& brokerage_id(const Deposit* msg);
-  static const ::Price& price(const Deposit* msg);
-};
-
-const ::BrokerageId&
-Deposit::_Internal::brokerage_id(const Deposit* msg) {
-  return *msg->_impl_.brokerage_id_;
-}
-const ::Price&
-Deposit::_Internal::price(const Deposit* msg) {
-  return *msg->_impl_.price_;
+void Deposit::InitAsDefaultInstance() {
+  ::brokerage_to_bank::_Deposit_default_instance_._instance.get_mutable()->brokerage_id_ = const_cast< ::BrokerageId*>(
+      ::BrokerageId::internal_default_instance());
+  ::brokerage_to_bank::_Deposit_default_instance_._instance.get_mutable()->price_ = const_cast< ::Price*>(
+      ::Price::internal_default_instance());
 }
 void Deposit::clear_brokerage_id() {
-  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
-    delete _impl_.brokerage_id_;
+  if (GetArenaNoVirtual() == NULL && brokerage_id_ != NULL) {
+    delete brokerage_id_;
   }
-  _impl_.brokerage_id_ = nullptr;
+  brokerage_id_ = NULL;
 }
 void Deposit::clear_price() {
-  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
-    delete _impl_.price_;
+  if (GetArenaNoVirtual() == NULL && price_ != NULL) {
+    delete price_;
   }
-  _impl_.price_ = nullptr;
+  price_ = NULL;
 }
-Deposit::Deposit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:brokerage_to_bank.Deposit)
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Deposit::kBrokerageIdFieldNumber;
+const int Deposit::kPriceFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Deposit::Deposit()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_brokerage_5fto_5fbank_2eproto::scc_info_Deposit.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:brokerage_to_bank.Deposit)
 }
 Deposit::Deposit(const Deposit& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Deposit* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.brokerage_id_){nullptr}
-    , decltype(_impl_.price_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_brokerage_id()) {
-    _this->_impl_.brokerage_id_ = new ::BrokerageId(*from._impl_.brokerage_id_);
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_brokerage_id()) {
+    brokerage_id_ = new ::BrokerageId(*from.brokerage_id_);
+  } else {
+    brokerage_id_ = NULL;
   }
-  if (from._internal_has_price()) {
-    _this->_impl_.price_ = new ::Price(*from._impl_.price_);
+  if (from.has_price()) {
+    price_ = new ::Price(*from.price_);
+  } else {
+    price_ = NULL;
   }
   // @@protoc_insertion_point(copy_constructor:brokerage_to_bank.Deposit)
 }
 
-inline void Deposit::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.brokerage_id_){nullptr}
-    , decltype(_impl_.price_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+void Deposit::SharedCtor() {
+  ::memset(&brokerage_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&price_) -
+      reinterpret_cast<char*>(&brokerage_id_)) + sizeof(price_));
 }
 
 Deposit::~Deposit() {
   // @@protoc_insertion_point(destructor:brokerage_to_bank.Deposit)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
   SharedDtor();
 }
 
-inline void Deposit::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete _impl_.brokerage_id_;
-  if (this != internal_default_instance()) delete _impl_.price_;
+void Deposit::SharedDtor() {
+  if (this != internal_default_instance()) delete brokerage_id_;
+  if (this != internal_default_instance()) delete price_;
 }
 
 void Deposit::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
+const ::google::protobuf::Descriptor* Deposit::descriptor() {
+  ::protobuf_brokerage_5fto_5fbank_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_brokerage_5fto_5fbank_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Deposit& Deposit::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_brokerage_5fto_5fbank_2eproto::scc_info_Deposit.base);
+  return *internal_default_instance();
+}
+
 
 void Deposit::Clear() {
 // @@protoc_insertion_point(message_clear_start:brokerage_to_bank.Deposit)
-  uint32_t cached_has_bits = 0;
+  ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && _impl_.brokerage_id_ != nullptr) {
-    delete _impl_.brokerage_id_;
+  if (GetArenaNoVirtual() == NULL && brokerage_id_ != NULL) {
+    delete brokerage_id_;
   }
-  _impl_.brokerage_id_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.price_ != nullptr) {
-    delete _impl_.price_;
+  brokerage_id_ = NULL;
+  if (GetArenaNoVirtual() == NULL && price_ != NULL) {
+    delete price_;
   }
-  _impl_.price_ = nullptr;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  price_ = NULL;
+  _internal_metadata_.Clear();
 }
 
-const char* Deposit::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
+bool Deposit::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:brokerage_to_bank.Deposit)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // .BrokerageId brokerage_id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_brokerage_id(), ptr);
-          CHK_(ptr);
-        } else
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_brokerage_id()));
+        } else {
           goto handle_unusual;
-        continue;
+        }
+        break;
+      }
+
       // .Price price = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_price(), ptr);
-          CHK_(ptr);
-        } else
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_price()));
+        } else {
           goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
     }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
+  }
+success:
+  // @@protoc_insertion_point(parse_success:brokerage_to_bank.Deposit)
+  return true;
 failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
+  // @@protoc_insertion_point(parse_failure:brokerage_to_bank.Deposit)
+  return false;
+#undef DO_
 }
 
-uint8_t* Deposit::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:brokerage_to_bank.Deposit)
-  uint32_t cached_has_bits = 0;
+void Deposit::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:brokerage_to_bank.Deposit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .BrokerageId brokerage_id = 1;
-  if (this->_internal_has_brokerage_id()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::brokerage_id(this),
-        _Internal::brokerage_id(this).GetCachedSize(), target, stream);
+  if (this->has_brokerage_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->_internal_brokerage_id(), output);
   }
 
   // .Price price = 2;
-  if (this->_internal_has_price()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::price(this),
-        _Internal::price(this).GetCachedSize(), target, stream);
+  if (this->has_price()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->_internal_price(), output);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:brokerage_to_bank.Deposit)
+}
+
+::google::protobuf::uint8* Deposit::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage_to_bank.Deposit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .BrokerageId brokerage_id = 1;
+  if (this->has_brokerage_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->_internal_brokerage_id(), deterministic, target);
+  }
+
+  // .Price price = 2;
+  if (this->has_price()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, this->_internal_price(), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:brokerage_to_bank.Deposit)
   return target;
@@ -621,51 +759,65 @@ size_t Deposit::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:brokerage_to_bank.Deposit)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // .BrokerageId brokerage_id = 1;
-  if (this->_internal_has_brokerage_id()) {
+  if (this->has_brokerage_id()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.brokerage_id_);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *brokerage_id_);
   }
 
   // .Price price = 2;
-  if (this->_internal_has_price()) {
+  if (this->has_price()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.price_);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *price_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Deposit::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Deposit::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Deposit::GetClassData() const { return &_class_data_; }
+void Deposit::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:brokerage_to_bank.Deposit)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Deposit* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Deposit>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:brokerage_to_bank.Deposit)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:brokerage_to_bank.Deposit)
+    MergeFrom(*source);
+  }
+}
 
-
-void Deposit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Deposit*>(&to_msg);
-  auto& from = static_cast<const Deposit&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage_to_bank.Deposit)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
+void Deposit::MergeFrom(const Deposit& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:brokerage_to_bank.Deposit)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_brokerage_id()) {
-    _this->_internal_mutable_brokerage_id()->::BrokerageId::MergeFrom(
-        from._internal_brokerage_id());
+  if (from.has_brokerage_id()) {
+    mutable_brokerage_id()->::BrokerageId::MergeFrom(from.brokerage_id());
   }
-  if (from._internal_has_price()) {
-    _this->_internal_mutable_price()->::Price::MergeFrom(
-        from._internal_price());
+  if (from.has_price()) {
+    mutable_price()->::Price::MergeFrom(from.price());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Deposit::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:brokerage_to_bank.Deposit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Deposit::CopyFrom(const Deposit& from) {
@@ -679,109 +831,97 @@ bool Deposit::IsInitialized() const {
   return true;
 }
 
+void Deposit::Swap(Deposit* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
 void Deposit::InternalSwap(Deposit* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Deposit, _impl_.price_)
-      + sizeof(Deposit::_impl_.price_)
-      - PROTOBUF_FIELD_OFFSET(Deposit, _impl_.brokerage_id_)>(
-          reinterpret_cast<char*>(&_impl_.brokerage_id_),
-          reinterpret_cast<char*>(&other->_impl_.brokerage_id_));
+  swap(brokerage_id_, other->brokerage_id_);
+  swap(price_, other->price_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Deposit::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_brokerage_5fto_5fbank_2eproto_getter, &descriptor_table_brokerage_5fto_5fbank_2eproto_once,
-      file_level_metadata_brokerage_5fto_5fbank_2eproto[1]);
+::google::protobuf::Metadata Deposit::GetMetadata() const {
+  protobuf_brokerage_5fto_5fbank_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_brokerage_5fto_5fbank_2eproto::file_level_metadata[kIndexInFileMessages];
 }
+
 
 // ===================================================================
 
-class UpdateAccount::_Internal {
- public:
-  static const ::Header& header(const UpdateAccount* msg);
-  static const ::brokerage_to_bank::Withdraw& withdraw(const UpdateAccount* msg);
-  static const ::brokerage_to_bank::Deposit& deposit(const UpdateAccount* msg);
-};
-
-const ::Header&
-UpdateAccount::_Internal::header(const UpdateAccount* msg) {
-  return *msg->_impl_.header_;
-}
-const ::brokerage_to_bank::Withdraw&
-UpdateAccount::_Internal::withdraw(const UpdateAccount* msg) {
-  return *msg->_impl_.payload_.withdraw_;
-}
-const ::brokerage_to_bank::Deposit&
-UpdateAccount::_Internal::deposit(const UpdateAccount* msg) {
-  return *msg->_impl_.payload_.deposit_;
+void UpdateAccount::InitAsDefaultInstance() {
+  ::brokerage_to_bank::_UpdateAccount_default_instance_._instance.get_mutable()->header_ = const_cast< ::Header*>(
+      ::Header::internal_default_instance());
+  ::brokerage_to_bank::_UpdateAccount_default_instance_.withdraw_ = const_cast< ::brokerage_to_bank::Withdraw*>(
+      ::brokerage_to_bank::Withdraw::internal_default_instance());
+  ::brokerage_to_bank::_UpdateAccount_default_instance_.deposit_ = const_cast< ::brokerage_to_bank::Deposit*>(
+      ::brokerage_to_bank::Deposit::internal_default_instance());
 }
 void UpdateAccount::clear_header() {
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  if (GetArenaNoVirtual() == NULL && header_ != NULL) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
+  header_ = NULL;
 }
 void UpdateAccount::set_allocated_withdraw(::brokerage_to_bank::Withdraw* withdraw) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_payload();
   if (withdraw) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(withdraw);
+    ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      withdraw = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+      withdraw = ::google::protobuf::internal::GetOwnedMessage(
           message_arena, withdraw, submessage_arena);
     }
     set_has_withdraw();
-    _impl_.payload_.withdraw_ = withdraw;
+    payload_.withdraw_ = withdraw;
   }
   // @@protoc_insertion_point(field_set_allocated:brokerage_to_bank.UpdateAccount.withdraw)
 }
 void UpdateAccount::set_allocated_deposit(::brokerage_to_bank::Deposit* deposit) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_payload();
   if (deposit) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
-      ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(deposit);
+    ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      deposit = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+      deposit = ::google::protobuf::internal::GetOwnedMessage(
           message_arena, deposit, submessage_arena);
     }
     set_has_deposit();
-    _impl_.payload_.deposit_ = deposit;
+    payload_.deposit_ = deposit;
   }
   // @@protoc_insertion_point(field_set_allocated:brokerage_to_bank.UpdateAccount.deposit)
 }
-UpdateAccount::UpdateAccount(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:brokerage_to_bank.UpdateAccount)
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UpdateAccount::kHeaderFieldNumber;
+const int UpdateAccount::kWithdrawFieldNumber;
+const int UpdateAccount::kDepositFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UpdateAccount::UpdateAccount()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_brokerage_5fto_5fbank_2eproto::scc_info_UpdateAccount.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:brokerage_to_bank.UpdateAccount)
 }
 UpdateAccount::UpdateAccount(const UpdateAccount& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  UpdateAccount* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.payload_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::Header(*from._impl_.header_);
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_header()) {
+    header_ = new ::Header(*from.header_);
+  } else {
+    header_ = NULL;
   }
   clear_has_payload();
   switch (from.payload_case()) {
     case kWithdraw: {
-      _this->_internal_mutable_withdraw()->::brokerage_to_bank::Withdraw::MergeFrom(
-          from._internal_withdraw());
+      mutable_withdraw()->::brokerage_to_bank::Withdraw::MergeFrom(from.withdraw());
       break;
     }
     case kDeposit: {
-      _this->_internal_mutable_deposit()->::brokerage_to_bank::Deposit::MergeFrom(
-          from._internal_deposit());
+      mutable_deposit()->::brokerage_to_bank::Deposit::MergeFrom(from.deposit());
       break;
     }
     case PAYLOAD_NOT_SET: {
@@ -791,160 +931,198 @@ UpdateAccount::UpdateAccount(const UpdateAccount& from)
   // @@protoc_insertion_point(copy_constructor:brokerage_to_bank.UpdateAccount)
 }
 
-inline void UpdateAccount::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.payload_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , /*decltype(_impl_._oneof_case_)*/{}
-  };
+void UpdateAccount::SharedCtor() {
+  header_ = NULL;
   clear_has_payload();
 }
 
 UpdateAccount::~UpdateAccount() {
   // @@protoc_insertion_point(destructor:brokerage_to_bank.UpdateAccount)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
   SharedDtor();
 }
 
-inline void UpdateAccount::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete _impl_.header_;
+void UpdateAccount::SharedDtor() {
+  if (this != internal_default_instance()) delete header_;
   if (has_payload()) {
     clear_payload();
   }
 }
 
 void UpdateAccount::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
+const ::google::protobuf::Descriptor* UpdateAccount::descriptor() {
+  ::protobuf_brokerage_5fto_5fbank_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_brokerage_5fto_5fbank_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const UpdateAccount& UpdateAccount::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_brokerage_5fto_5fbank_2eproto::scc_info_UpdateAccount.base);
+  return *internal_default_instance();
+}
+
 
 void UpdateAccount::clear_payload() {
 // @@protoc_insertion_point(one_of_clear_start:brokerage_to_bank.UpdateAccount)
   switch (payload_case()) {
     case kWithdraw: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.payload_.withdraw_;
-      }
+      delete payload_.withdraw_;
       break;
     }
     case kDeposit: {
-      if (GetArenaForAllocation() == nullptr) {
-        delete _impl_.payload_.deposit_;
-      }
+      delete payload_.deposit_;
       break;
     }
     case PAYLOAD_NOT_SET: {
       break;
     }
   }
-  _impl_._oneof_case_[0] = PAYLOAD_NOT_SET;
+  _oneof_case_[0] = PAYLOAD_NOT_SET;
 }
 
 
 void UpdateAccount::Clear() {
 // @@protoc_insertion_point(message_clear_start:brokerage_to_bank.UpdateAccount)
-  uint32_t cached_has_bits = 0;
+  ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  if (GetArenaNoVirtual() == NULL && header_ != NULL) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
+  header_ = NULL;
   clear_payload();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  _internal_metadata_.Clear();
 }
 
-const char* UpdateAccount::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
+bool UpdateAccount::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:brokerage_to_bank.UpdateAccount)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // .Header header = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
-          CHK_(ptr);
-        } else
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_header()));
+        } else {
           goto handle_unusual;
-        continue;
+        }
+        break;
+      }
+
       // .brokerage_to_bank.Withdraw withdraw = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_withdraw(), ptr);
-          CHK_(ptr);
-        } else
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_withdraw()));
+        } else {
           goto handle_unusual;
-        continue;
+        }
+        break;
+      }
+
       // .brokerage_to_bank.Deposit deposit = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_deposit(), ptr);
-          CHK_(ptr);
-        } else
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_deposit()));
+        } else {
           goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
     }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
+  }
+success:
+  // @@protoc_insertion_point(parse_success:brokerage_to_bank.UpdateAccount)
+  return true;
 failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
+  // @@protoc_insertion_point(parse_failure:brokerage_to_bank.UpdateAccount)
+  return false;
+#undef DO_
 }
 
-uint8_t* UpdateAccount::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:brokerage_to_bank.UpdateAccount)
-  uint32_t cached_has_bits = 0;
+void UpdateAccount::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:brokerage_to_bank.UpdateAccount)
+  ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .Header header = 1;
-  if (this->_internal_has_header()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+  if (this->has_header()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->_internal_header(), output);
   }
 
   // .brokerage_to_bank.Withdraw withdraw = 2;
-  if (_internal_has_withdraw()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::withdraw(this),
-        _Internal::withdraw(this).GetCachedSize(), target, stream);
+  if (has_withdraw()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->_internal_withdraw(), output);
   }
 
   // .brokerage_to_bank.Deposit deposit = 3;
-  if (_internal_has_deposit()) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, _Internal::deposit(this),
-        _Internal::deposit(this).GetCachedSize(), target, stream);
+  if (has_deposit()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->_internal_deposit(), output);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:brokerage_to_bank.UpdateAccount)
+}
+
+::google::protobuf::uint8* UpdateAccount::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage_to_bank.UpdateAccount)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .Header header = 1;
+  if (this->has_header()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->_internal_header(), deterministic, target);
+  }
+
+  // .brokerage_to_bank.Withdraw withdraw = 2;
+  if (has_withdraw()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, this->_internal_withdraw(), deterministic, target);
+  }
+
+  // .brokerage_to_bank.Deposit deposit = 3;
+  if (has_deposit()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        3, this->_internal_deposit(), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:brokerage_to_bank.UpdateAccount)
   return target;
@@ -954,74 +1132,87 @@ size_t UpdateAccount::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:brokerage_to_bank.UpdateAccount)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // .Header header = 1;
-  if (this->_internal_has_header()) {
+  if (this->has_header()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *header_);
   }
 
   switch (payload_case()) {
     // .brokerage_to_bank.Withdraw withdraw = 2;
     case kWithdraw: {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.payload_.withdraw_);
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *payload_.withdraw_);
       break;
     }
     // .brokerage_to_bank.Deposit deposit = 3;
     case kDeposit: {
       total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *_impl_.payload_.deposit_);
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *payload_.deposit_);
       break;
     }
     case PAYLOAD_NOT_SET: {
       break;
     }
   }
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData UpdateAccount::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    UpdateAccount::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*UpdateAccount::GetClassData() const { return &_class_data_; }
+void UpdateAccount::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:brokerage_to_bank.UpdateAccount)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UpdateAccount* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const UpdateAccount>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:brokerage_to_bank.UpdateAccount)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:brokerage_to_bank.UpdateAccount)
+    MergeFrom(*source);
+  }
+}
 
-
-void UpdateAccount::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<UpdateAccount*>(&to_msg);
-  auto& from = static_cast<const UpdateAccount&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage_to_bank.UpdateAccount)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
+void UpdateAccount::MergeFrom(const UpdateAccount& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:brokerage_to_bank.UpdateAccount)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::Header::MergeFrom(
-        from._internal_header());
+  if (from.has_header()) {
+    mutable_header()->::Header::MergeFrom(from.header());
   }
   switch (from.payload_case()) {
     case kWithdraw: {
-      _this->_internal_mutable_withdraw()->::brokerage_to_bank::Withdraw::MergeFrom(
-          from._internal_withdraw());
+      mutable_withdraw()->::brokerage_to_bank::Withdraw::MergeFrom(from.withdraw());
       break;
     }
     case kDeposit: {
-      _this->_internal_mutable_deposit()->::brokerage_to_bank::Deposit::MergeFrom(
-          from._internal_deposit());
+      mutable_deposit()->::brokerage_to_bank::Deposit::MergeFrom(from.deposit());
       break;
     }
     case PAYLOAD_NOT_SET: {
       break;
     }
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void UpdateAccount::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:brokerage_to_bank.UpdateAccount)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void UpdateAccount::CopyFrom(const UpdateAccount& from) {
@@ -1035,135 +1226,163 @@ bool UpdateAccount::IsInitialized() const {
   return true;
 }
 
+void UpdateAccount::Swap(UpdateAccount* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
 void UpdateAccount::InternalSwap(UpdateAccount* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.header_, other->_impl_.header_);
-  swap(_impl_.payload_, other->_impl_.payload_);
-  swap(_impl_._oneof_case_[0], other->_impl_._oneof_case_[0]);
+  swap(header_, other->header_);
+  swap(payload_, other->payload_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata UpdateAccount::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_brokerage_5fto_5fbank_2eproto_getter, &descriptor_table_brokerage_5fto_5fbank_2eproto_once,
-      file_level_metadata_brokerage_5fto_5fbank_2eproto[2]);
+::google::protobuf::Metadata UpdateAccount::GetMetadata() const {
+  protobuf_brokerage_5fto_5fbank_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_brokerage_5fto_5fbank_2eproto::file_level_metadata[kIndexInFileMessages];
 }
+
 
 // ===================================================================
 
-class Ack::_Internal {
- public:
-};
+void Ack::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Ack::kResponseFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Ack::Ack(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:brokerage_to_bank.Ack)
+Ack::Ack()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_brokerage_5fto_5fbank_2eproto::scc_info_Ack.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:brokerage_to_bank.Ack)
 }
 Ack::Ack(const Ack& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Ack* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.response_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.response_ = from._impl_.response_;
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  response_ = from.response_;
   // @@protoc_insertion_point(copy_constructor:brokerage_to_bank.Ack)
 }
 
-inline void Ack::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.response_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+void Ack::SharedCtor() {
+  response_ = 0;
 }
 
 Ack::~Ack() {
   // @@protoc_insertion_point(destructor:brokerage_to_bank.Ack)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
   SharedDtor();
 }
 
-inline void Ack::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+void Ack::SharedDtor() {
 }
 
 void Ack::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
+const ::google::protobuf::Descriptor* Ack::descriptor() {
+  ::protobuf_brokerage_5fto_5fbank_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_brokerage_5fto_5fbank_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Ack& Ack::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_brokerage_5fto_5fbank_2eproto::scc_info_Ack.base);
+  return *internal_default_instance();
+}
+
 
 void Ack::Clear() {
 // @@protoc_insertion_point(message_clear_start:brokerage_to_bank.Ack)
-  uint32_t cached_has_bits = 0;
+  ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.response_ = 0;
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  response_ = 0;
+  _internal_metadata_.Clear();
 }
 
-const char* Ack::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
+bool Ack::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:brokerage_to_bank.Ack)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // .brokerage_to_bank.Ack.ResponseType response = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-          _internal_set_response(static_cast<::brokerage_to_bank::Ack_ResponseType>(val));
-        } else
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_response(static_cast< ::brokerage_to_bank::Ack_ResponseType >(value));
+        } else {
           goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
     }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
+  }
+success:
+  // @@protoc_insertion_point(parse_success:brokerage_to_bank.Ack)
+  return true;
 failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
+  // @@protoc_insertion_point(parse_failure:brokerage_to_bank.Ack)
+  return false;
+#undef DO_
 }
 
-uint8_t* Ack::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:brokerage_to_bank.Ack)
-  uint32_t cached_has_bits = 0;
+void Ack::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:brokerage_to_bank.Ack)
+  ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   // .brokerage_to_bank.Ack.ResponseType response = 1;
-  if (this->_internal_response() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteEnumToArray(
-      1, this->_internal_response(), target);
+  if (this->response() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->response(), output);
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:brokerage_to_bank.Ack)
+}
+
+::google::protobuf::uint8* Ack::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:brokerage_to_bank.Ack)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .brokerage_to_bank.Ack.ResponseType response = 1;
+  if (this->response() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->response(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
   // @@protoc_insertion_point(serialize_to_array_end:brokerage_to_bank.Ack)
   return target;
@@ -1173,38 +1392,54 @@ size_t Ack::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:brokerage_to_bank.Ack)
   size_t total_size = 0;
 
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
   // .brokerage_to_bank.Ack.ResponseType response = 1;
-  if (this->_internal_response() != 0) {
+  if (this->response() != 0) {
     total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_response());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->response());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Ack::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    Ack::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Ack::GetClassData() const { return &_class_data_; }
+void Ack::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:brokerage_to_bank.Ack)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Ack* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Ack>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:brokerage_to_bank.Ack)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:brokerage_to_bank.Ack)
+    MergeFrom(*source);
+  }
+}
 
-
-void Ack::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Ack*>(&to_msg);
-  auto& from = static_cast<const Ack&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:brokerage_to_bank.Ack)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
+void Ack::MergeFrom(const Ack& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:brokerage_to_bank.Ack)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_response() != 0) {
-    _this->_internal_set_response(from._internal_response());
+  if (from.response() != 0) {
+    set_response(from.response());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Ack::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:brokerage_to_bank.Ack)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
 }
 
 void Ack::CopyFrom(const Ack& from) {
@@ -1218,38 +1453,39 @@ bool Ack::IsInitialized() const {
   return true;
 }
 
+void Ack::Swap(Ack* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
 void Ack::InternalSwap(Ack* other) {
   using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_.response_, other->_impl_.response_);
+  swap(response_, other->response_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Ack::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_brokerage_5fto_5fbank_2eproto_getter, &descriptor_table_brokerage_5fto_5fbank_2eproto_once,
-      file_level_metadata_brokerage_5fto_5fbank_2eproto[3]);
+::google::protobuf::Metadata Ack::GetMetadata() const {
+  protobuf_brokerage_5fto_5fbank_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_brokerage_5fto_5fbank_2eproto::file_level_metadata[kIndexInFileMessages];
 }
+
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace brokerage_to_bank
-PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::brokerage_to_bank::Withdraw*
-Arena::CreateMaybeMessage< ::brokerage_to_bank::Withdraw >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::brokerage_to_bank::Withdraw >(arena);
+namespace google {
+namespace protobuf {
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::brokerage_to_bank::Withdraw* Arena::CreateMaybeMessage< ::brokerage_to_bank::Withdraw >(Arena* arena) {
+  return Arena::CreateInternal< ::brokerage_to_bank::Withdraw >(arena);
 }
-template<> PROTOBUF_NOINLINE ::brokerage_to_bank::Deposit*
-Arena::CreateMaybeMessage< ::brokerage_to_bank::Deposit >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::brokerage_to_bank::Deposit >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::brokerage_to_bank::Deposit* Arena::CreateMaybeMessage< ::brokerage_to_bank::Deposit >(Arena* arena) {
+  return Arena::CreateInternal< ::brokerage_to_bank::Deposit >(arena);
 }
-template<> PROTOBUF_NOINLINE ::brokerage_to_bank::UpdateAccount*
-Arena::CreateMaybeMessage< ::brokerage_to_bank::UpdateAccount >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::brokerage_to_bank::UpdateAccount >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::brokerage_to_bank::UpdateAccount* Arena::CreateMaybeMessage< ::brokerage_to_bank::UpdateAccount >(Arena* arena) {
+  return Arena::CreateInternal< ::brokerage_to_bank::UpdateAccount >(arena);
 }
-template<> PROTOBUF_NOINLINE ::brokerage_to_bank::Ack*
-Arena::CreateMaybeMessage< ::brokerage_to_bank::Ack >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::brokerage_to_bank::Ack >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::brokerage_to_bank::Ack* Arena::CreateMaybeMessage< ::brokerage_to_bank::Ack >(Arena* arena) {
+  return Arena::CreateInternal< ::brokerage_to_bank::Ack >(arena);
 }
-PROTOBUF_NAMESPACE_CLOSE
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
-#include <google/protobuf/port_undef.inc>

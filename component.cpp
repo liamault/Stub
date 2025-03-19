@@ -234,13 +234,13 @@ int main(int argc, char* argv[]){
         return 1;
     }
     time_t eventStartTime = static_cast<time_t>(std::stol(argv[1]));
-    initComponent("broker1_init.csv");
+    initComponent("/home/ubuntu/broker1_init.csv");
 
     regServer regulatoryServer;
     std::thread regServerThread(&regServer::startServer, &regulatoryServer);
     std::thread bankServerThread(startBankServer);
 
-    InputFeeder inputFeeder("broker1.csv", eventStartTime, eventHandler);
+    InputFeeder inputFeeder("/home/ubuntu/broker1.csv", eventStartTime, eventHandler);
 
     inputFeeder.waitUntilDone();
 

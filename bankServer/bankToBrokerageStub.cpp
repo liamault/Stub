@@ -30,7 +30,7 @@ static struct sockaddr_in servaddr;
 //static atomic<uint32_t> serial = 0;
 static atomic<uint32_t> serialNumber_bankS = numeric_limits<uint32_t>::max();// serial number initialized as max, matches client serial number for the first message
 
-string serverAddress_bankS = "ServiceServer.elec477grp2";
+string serverAddress_bankS = "ServiceServer.final-integration4";
 static svcDir::serverEntity entity{"brokerage", uint16_t(1866)};
 //std::atomic<bool> shutdownFlag(false);
 
