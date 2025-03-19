@@ -171,7 +171,7 @@ void sendTransactionRequest(int brokerageId, int dollars, int cents, bool deposi
             default:
                 cout << "UNKNOWN RESPONSE" << endl;
                 break;
-
+	}
         serialNumber_bankC.fetch_add(1);
         close(sockfd);
     } else {
