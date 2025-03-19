@@ -12,14 +12,14 @@ message EndOfDaySummaryRequest {
         DEPOSIT = 0;
         WITHDRAW = 1;
     }
-    
+
     message Transaction {
         Operation operation = 1;
         Price amount = 2;
         Magic component = 3;
     }
 
-    Header header = 1;       
+    Header header = 1;
     repeated Transaction transactions = 2;
 }
 
